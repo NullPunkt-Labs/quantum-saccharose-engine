@@ -1,4 +1,5 @@
 ---
+import { Code } from 'astro:components';
 import { translations, type Lang } from '../i18n/translations';
 import potentiatorSource from '../engine/vacuum-potentiator.ts?raw';
 import webcamSource from '../engine/webcam-resonance.ts?raw';
@@ -61,17 +62,35 @@ const files = [
       </div>
       {
         files.map((file, index) => (
-          <pre
-            data-code-panel={file.id}
-            class:list={[
-              'max-h-[32rem] overflow-auto p-5 font-mono text-[12px] leading-relaxed text-muted',
-              index !== 0 && 'hidden',
-            ]}><code>{file.code}</code></pre>
+          <div data-code-panel={file.id} class:list={[index !== 0 && 'hidden']}>
+            <Code
+              code={file.code}
+              lang="ts"
+              themes={{ light: 'catppuccin-latte', dark: 'houston' }}
+            />
+          </div>
         ))
       }
     </div>
   </div>
 </section>
+
+<style is:global>
+  .astro-code {
+    max-height: 32rem;
+    overflow: auto;
+    padding: 1.25rem;
+    font-size: 12px;
+    line-height: 1.7;
+  }
+  html.dark .astro-code,
+  html.dark .astro-code span {
+    color: var(--shiki-dark) !important;
+    background-color: var(--shiki-dark-bg) !important;
+    font-style: var(--shiki-dark-font-style) !important;
+    font-weight: var(--shiki-dark-font-weight) !important;
+  }
+</style>
 
 <script>
   const tabs = document.querySelectorAll('[data-code-tab]');
