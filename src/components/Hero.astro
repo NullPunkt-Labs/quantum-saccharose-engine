@@ -24,19 +24,25 @@ const t = translations[lang];
   </div>
 
   <div class="relative mx-auto max-w-6xl px-6 pb-24 pt-24 md:pt-32">
-    <p class="font-mono text-[11px] tracking-[0.35em] text-flux">{t.hero.eyebrow}</p>
+    <p data-reveal class="font-mono text-[11px] tracking-[0.35em] text-flux">{t.hero.eyebrow}</p>
     <h1
+      data-reveal
+      style="--reveal-delay: 90ms"
       class="mt-6 max-w-3xl text-4xl font-semibold leading-tight tracking-tight text-ink md:text-6xl"
     >
       {t.hero.h1[0]}<br />
       {t.hero.h1[1]}<br />
       <span class="text-flux">{t.hero.h1[2]}</span>
     </h1>
-    <p class="mt-8 max-w-2xl text-base leading-relaxed text-muted md:text-lg">
+    <p
+      data-reveal
+      style="--reveal-delay: 180ms"
+      class="mt-8 max-w-2xl text-base leading-relaxed text-muted md:text-lg"
+    >
       {t.hero.sub}
     </p>
 
-    <div class="mt-10 flex flex-wrap gap-4">
+    <div data-reveal style="--reveal-delay: 270ms" class="mt-10 flex flex-wrap gap-4">
       <a
         href="#bio-sonde"
         class="rounded border border-flux/60 bg-flux/10 px-6 py-3 font-mono text-sm tracking-wider text-flux shadow-flux-glow transition hover:bg-flux/20"
@@ -52,6 +58,8 @@ const t = translations[lang];
     </div>
 
     <dl
+      data-reveal
+      style="--reveal-delay: 360ms"
       class="mt-16 grid max-w-3xl grid-cols-2 gap-px overflow-hidden rounded border border-linec bg-linec font-mono text-xs shadow-card md:grid-cols-4"
     >
       {

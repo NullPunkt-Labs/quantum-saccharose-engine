@@ -49,6 +49,7 @@ const repoUrl = 'https://github.com/NullPunkt-Labs/quantum-saccharose-engine';
     <meta name="generator" content={Astro.generator} />
 
     <script is:inline>
+      document.documentElement.classList.add('js');
       if (localStorage.getItem('qse-theme') === 'dark') {
         document.documentElement.classList.add('dark');
       }
@@ -79,11 +80,40 @@ const repoUrl = 'https://github.com/NullPunkt-Labs/quantum-saccharose-engine';
         --accent-purple: 112 0 255;
         --grid-color: rgba(58, 64, 75, 0.25);
       }
+
+      html {
+        background-color: rgb(var(--bg-primary));
+      }
+
+      /* Scroll reveal — only when JS is available, honors reduced motion. */
+      html.js [data-reveal] {
+        opacity: 0;
+        transform: translateY(28px);
+        transition:
+          opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1) var(--reveal-delay, 0ms),
+          transform 0.8s cubic-bezier(0.16, 1, 0.3, 1) var(--reveal-delay, 0ms);
+        will-change: opacity, transform;
+      }
+      html.js [data-reveal].is-revealed {
+        opacity: 1;
+        transform: none;
+      }
+      @media (prefers-reduced-motion: reduce) {
+        html.js [data-reveal] {
+          opacity: 1;
+          transform: none;
+          transition: none;
+        }
+      }
     </style>
   </head>
   <body
-    class="min-h-screen bg-page font-sans text-ink antialiased selection:bg-flux/20 selection:text-flux"
+    class="min-h-screen font-sans text-ink antialiased selection:bg-flux/20 selection:text-flux"
   >
+    <canvas
+      id="bg-matrix"
+      class="pointer-events-none fixed inset-0 -z-10 h-full w-full"
+      aria-hidden="true"></canvas>
     <div
       class="border-b border-linec bg-surface px-4 py-1.5 text-center font-mono text-[11px] tracking-widest text-muted"
     >
@@ -177,6 +207,103 @@ const repoUrl = 'https://github.com/NullPunkt-Labs/quantum-saccharose-engine';
             : '[QUANTUM-ENGINE] Field polarity restored to clinical standard illumination.'
         );
       });
+    </script>
+
+    <script>
+      // Ambient dot matrix — the site-wide, sedated cousin of the engine field.
+      const bg = document.getElementById('bg-matrix');
+      const bctx = bg.getContext('2d');
+      const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      let cyan = '2 132 199';
+      let purple = '124 58 237';
+      function refreshBgColors() {
+        const cs = getComputedStyle(document.documentElement);
+        cyan = cs.getPropertyValue('--accent-cyan').trim() || cyan;
+        purple = cs.getPropertyValue('--accent-purple').trim() || purple;
+      }
+      refreshBgColors();
+      document.addEventListener('qse:theme', refreshBgColors);
+
+      let dots = [];
+      function resizeBg() {
+        const dpr = Math.min(2, window.devicePixelRatio || 1);
+        bg.width = window.innerWidth * dpr;
+        bg.height = window.innerHeight * dpr;
+        bctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        const count = Math.min(90, Math.round((window.innerWidth * window.innerHeight) / 22000));
+        dots = Array.from({ length: count }, () => ({
+          x: Math.random() * window.innerWidth,
+          y: Math.random() * window.innerHeight,
+          vx: (Math.random() - 0.5) * 0.18,
+          vy: (Math.random() - 0.5) * 0.18,
+          violet: Math.random() < 0.25,
+        }));
+      }
+
+      const BG_LINK = 110;
+      function drawBg() {
+        const w = window.innerWidth;
+        const h = window.innerHeight;
+        bctx.clearRect(0, 0, w, h);
+
+        for (const d of dots) {
+          d.x += d.vx;
+          d.y += d.vy;
+          if (d.x < 0 || d.x > w) d.vx *= -1;
+          if (d.y < 0 || d.y > h) d.vy *= -1;
+        }
+
+        for (let i = 0; i < dots.length; i++) {
+          for (let j = i + 1; j < dots.length; j++) {
+            const a = dots[i];
+            const b = dots[j];
+            const dx = a.x - b.x;
+            const dy = a.y - b.y;
+            const d2 = dx * dx + dy * dy;
+            if (d2 < BG_LINK * BG_LINK) {
+              const alpha = (1 - Math.sqrt(d2) / BG_LINK) * 0.06;
+              bctx.strokeStyle =
+                a.violet || b.violet ? `rgb(${purple} / ${alpha})` : `rgb(${cyan} / ${alpha})`;
+              bctx.lineWidth = 1;
+              bctx.beginPath();
+              bctx.moveTo(a.x, a.y);
+              bctx.lineTo(b.x, b.y);
+              bctx.stroke();
+            }
+          }
+        }
+
+        for (const d of dots) {
+          bctx.fillStyle = d.violet ? `rgb(${purple} / 0.22)` : `rgb(${cyan} / 0.22)`;
+          bctx.beginPath();
+          bctx.arc(d.x, d.y, 1.4, 0, Math.PI * 2);
+          bctx.fill();
+        }
+
+        if (!reducedMotion) requestAnimationFrame(drawBg);
+      }
+
+      window.addEventListener('resize', () => {
+        resizeBg();
+        if (reducedMotion) drawBg();
+      });
+      resizeBg();
+      drawBg();
+
+      // Apple-style staggered section reveal.
+      const io = new IntersectionObserver(
+        (entries) => {
+          for (const entry of entries) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-revealed');
+              io.unobserve(entry.target);
+            }
+          }
+        },
+        { threshold: 0.12, rootMargin: '0px 0px -48px 0px' }
+      );
+      document.querySelectorAll('[data-reveal]').forEach((el) => io.observe(el));
     </script>
   </body>
 </html>
