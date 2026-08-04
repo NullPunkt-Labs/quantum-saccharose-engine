@@ -1,0 +1,122 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/Navbar.astro';
+
+const rawBase = import.meta.env.BASE_URL;
+const base = rawBase.endsWith('/') ? rawBase : `${rawBase}/`;
+---
+
+<Layout
+  lang="en"
+  title="About us — Nullpunkt Labs AG"
+  description="Nullpunkt Labs AG, headquartered in Zug (Switzerland): a leader at the intersection of high-performance digital computing, photonic bio-resonance, and classical saccharose refinement."
+  altDePath="ueber-uns/"
+  altEnPath="en/about/"
+>
+  <Navbar lang="en" deHref={`${base}ueber-uns/`} enHref={`${base}en/about/`} />
+  <main class="mx-auto max-w-4xl px-6 py-20">
+    <p class="font-mono text-[11px] tracking-[0.35em] text-flux">
+      NULLPUNKT LABS AG · ZUG (SWITZERLAND)
+    </p>
+    <h1 class="mt-4 text-4xl font-semibold tracking-tight text-ink md:text-5xl">About us</h1>
+    <blockquote class="mt-6 border-l-2 border-flux/60 pl-4 text-lg italic text-muted">
+      “From the cradle of alpine vacuum quantum mechanics straight into your CPU cache.”
+    </blockquote>
+
+    <section class="mt-14">
+      <h2 class="text-2xl font-semibold tracking-tight text-ink">Who we are</h2>
+      <p class="mt-4 leading-relaxed text-muted">
+        Nullpunkt Labs AG, headquartered in tax-optimized Zug (Switzerland), is a leading
+        technology company at the intersection of high-performance digital computing,
+        photonic bio-resonance, and classical saccharose refinement. Since our spin-off in
+        2024, we have been developing enterprise-grade software architectures that pick up
+        exactly where conventional physics leaves off.
+      </p>
+      <p class="mt-4 leading-relaxed text-muted">
+        In a world where computing power dissipates in purely material fashion, we have made
+        it our mission to transform the unused thermal resources of microprocessors into
+        genuine quantum-homeopathic added value.
+      </p>
+    </section>
+
+    <section class="mt-14">
+      <h2 class="text-2xl font-semibold tracking-tight text-ink">Our core competencies</h2>
+      <div class="mt-6 grid gap-4 md:grid-cols-3">
+        <div class="rounded border border-linec bg-surface p-5 shadow-card">
+          <h3 class="font-mono text-xs tracking-widest text-flux">
+            SUBATOMIC MONTE-CARLO SIMULATIONS
+          </h3>
+          <p class="mt-3 text-sm leading-relaxed text-muted">
+            Our proprietary algorithms compute vacuum fluctuations with a precision that
+            makes even the most demanding Bach flower extract pale with envy.
+          </p>
+        </div>
+        <div class="rounded border border-linec bg-surface p-5 shadow-card">
+          <h3 class="font-mono text-xs tracking-widest text-flux">
+            CLINICAL RIGOR IN THE ENTERPRISE SEGMENT
+          </h3>
+          <p class="mt-3 text-sm leading-relaxed text-muted">
+            Every one of our software modules complies with strict, self-imposed ISO
+            guidelines for contactless placebo transfer.
+          </p>
+        </div>
+        <div class="rounded border border-linec bg-surface p-5 shadow-card">
+          <h3 class="font-mono text-xs tracking-widest text-flux">
+            DECENTRALIZED BIO-FIELD INFRASTRUCTURE
+          </h3>
+          <p class="mt-3 text-sm leading-relaxed text-muted">
+            Through the consistent use of local hardware resources (including deliberate,
+            audible full utilization of your CPU cores), we guarantee absolutely
+            latency-free potentiation.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="mt-14">
+      <h2 class="text-2xl font-semibold tracking-tight text-ink">Mission statement</h2>
+      <blockquote
+        class="mt-6 rounded border border-linec bg-inset/60 p-6 text-center font-mono text-sm tracking-wider text-ink"
+      >
+        “No cloud. No uploads. Just pure silicon and pure sugar.”
+      </blockquote>
+      <p class="mt-4 leading-relaxed text-muted">
+        We believe in the sovereignty of the local data center. While international
+        corporations store your data in opaque clouds, at Nullpunkt Labs your photonic
+        reflections stay exactly where they belong: locally in the cache, until the fan
+        glows.
+      </p>
+    </section>
+
+    <section class="mt-14">
+      <h2 class="text-2xl font-semibold tracking-tight text-ink">
+        Board &amp; Scientific Advisory Board
+      </h2>
+      <div class="mt-6 grid gap-4 md:grid-cols-2">
+        <div class="rounded border border-linec bg-surface p-5 shadow-card">
+          <p class="font-semibold text-ink">Dr. med. h.c. Urs Schwyzer</p>
+          <p class="font-mono text-[11px] tracking-widest text-flux">CHIEF QUANTUM OFFICER</p>
+          <p class="mt-3 text-sm leading-relaxed text-muted">
+            Pioneer in the field of digital globule synthesis and former lead developer of
+            high-end practice transparencies.
+          </p>
+        </div>
+        <div class="rounded border border-linec bg-surface p-5 shadow-card">
+          <p class="font-semibold text-ink">Beatrix Läubli-Matter</p>
+          <p class="font-mono text-[11px] tracking-widest text-flux">
+            HEAD OF COMPLIANCE &amp; BIO-CHECK
+          </p>
+          <p class="mt-3 text-sm leading-relaxed text-muted">
+            Responsible for the seamless verification of all DIN EN ISO 17025-compliant
+            homeopathy half-cycles.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <p class="mt-14 border-t border-linec pt-6 text-center font-mono text-[11px] text-faint">
+      Nullpunkt Labs AG — Zug, Switzerland · All rights reserved. Photon streams never
+      leave the device.
+    </p>
+  </main>
+</Layout>

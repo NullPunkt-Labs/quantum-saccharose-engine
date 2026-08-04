@@ -5,9 +5,11 @@ interface Props {
   lang?: Lang;
   title?: string;
   description?: string;
+  altDePath?: string;
+  altEnPath?: string;
 }
 
-const { lang = 'de' } = Astro.props;
+const { lang = 'de', altDePath = '', altEnPath = 'en/' } = Astro.props;
 const t = translations[lang];
 const title = Astro.props.title ?? t.meta.title;
 const description = Astro.props.description ?? t.meta.description;
@@ -15,8 +17,8 @@ const description = Astro.props.description ?? t.meta.description;
 const rawBase = import.meta.env.BASE_URL;
 const base = rawBase.endsWith('/') ? rawBase : `${rawBase}/`;
 const canonical = Astro.site ? new URL(Astro.url.pathname, Astro.site) : Astro.url;
-const deUrl = Astro.site ? new URL(base, Astro.site) : base;
-const enUrl = Astro.site ? new URL(`${base}en/`, Astro.site) : `${base}en/`;
+const deUrl = Astro.site ? new URL(`${base}${altDePath}`, Astro.site) : `${base}${altDePath}`;
+const enUrl = Astro.site ? new URL(`${base}${altEnPath}`, Astro.site) : `${base}${altEnPath}`;
 const repoUrl = 'https://github.com/NullPunkt-Labs/quantum-saccharose-engine';
 ---
 
@@ -45,12 +47,45 @@ const repoUrl = 'https://github.com/NullPunkt-Labs/quantum-saccharose-engine';
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="generator" content={Astro.generator} />
+
+    <script is:inline>
+      if (localStorage.getItem('qse-theme') === 'dark') {
+        document.documentElement.classList.add('dark');
+      }
+    </script>
+
+    <style is:global>
+      :root {
+        --bg-primary: 248 250 252;
+        --bg-surface: 255 255 255;
+        --bg-border: 203 213 225;
+        --bg-inset: 241 245 249;
+        --text-main: 15 23 42;
+        --text-muted: 71 85 105;
+        --text-faint: 100 116 139;
+        --accent-cyan: 2 132 199;
+        --accent-purple: 124 58 237;
+        --grid-color: rgba(2, 132, 199, 0.08);
+      }
+      html.dark {
+        --bg-primary: 8 9 11;
+        --bg-surface: 13 15 18;
+        --bg-border: 30 34 41;
+        --bg-inset: 21 24 29;
+        --text-main: 230 233 238;
+        --text-muted: 139 147 161;
+        --text-faint: 107 114 128;
+        --accent-cyan: 0 240 255;
+        --accent-purple: 112 0 255;
+        --grid-color: rgba(58, 64, 75, 0.25);
+      }
+    </style>
   </head>
   <body
-    class="min-h-screen bg-void-950 font-sans text-void-100 antialiased selection:bg-flux/20 selection:text-flux"
+    class="min-h-screen bg-page font-sans text-ink antialiased selection:bg-flux/20 selection:text-flux"
   >
     <div
-      class="border-b border-void-700 bg-void-900 px-4 py-1.5 text-center font-mono text-[11px] tracking-widest text-void-300"
+      class="border-b border-linec bg-surface px-4 py-1.5 text-center font-mono text-[11px] tracking-widest text-muted"
     >
       OPEN SOURCE · MIT ·
       <a href={repoUrl} class="text-flux/80 hover:text-flux" rel="noopener">
@@ -60,14 +95,17 @@ const repoUrl = 'https://github.com/NullPunkt-Labs/quantum-saccharose-engine';
 
     <slot />
 
-    <footer class="border-t border-void-700 bg-void-900">
+    <footer class="border-t border-linec bg-surface">
       <div class="mx-auto max-w-6xl px-6 py-10">
         <div class="flex flex-col gap-6 md:flex-row md:items-start md:justify-between">
           <div>
-            <p class="font-semibold tracking-wide text-void-100">NULLPUNKT LABS</p>
-            <p class="mt-1 font-mono text-xs text-void-300">{t.footer.tagline}</p>
+            <p class="font-semibold tracking-wide text-ink">NULLPUNKT LABS</p>
+            <p class="mt-1 font-mono text-xs text-muted">{t.footer.tagline}</p>
           </div>
-          <nav class="flex gap-6 font-mono text-xs text-void-300">
+          <nav class="flex gap-6 font-mono text-xs text-muted">
+            <a href={`${base}${lang === 'en' ? 'en/about/' : 'ueber-uns/'}`} class="hover:text-flux">
+              {t.nav.about}
+            </a>
             <a href={repoUrl} class="hover:text-flux" rel="noopener">GitHub</a>
             <a href={`${repoUrl}/blob/main/LICENSE`} class="hover:text-flux" rel="noopener">
               {t.footer.license}
@@ -81,14 +119,31 @@ const repoUrl = 'https://github.com/NullPunkt-Labs/quantum-saccharose-engine';
             </a>
           </nav>
         </div>
-        <p class="mt-8 text-[11px] leading-relaxed text-void-500">
-          {t.footer.smallprint}
-          <a
-            href={`${repoUrl}/blob/main/DISCLAIMER.md`}
-            class="underline decoration-void-500 underline-offset-2 hover:text-void-300"
-            rel="noopener">{t.footer.smallprintLink}</a
+        <details class="mt-8 rounded border border-linec bg-inset/60">
+          <summary
+            class="cursor-pointer px-4 py-2 font-mono text-[11px] tracking-widest text-faint hover:text-muted"
           >
-          {t.footer.smallprintEnd}
+            {t.footer.changelogLabel}
+          </summary>
+          <ul class="space-y-2 border-t border-linec px-4 py-3 font-mono text-[11px] leading-relaxed text-faint">
+            {t.footer.changelog.map((entry) => <li>{entry}</li>)}
+          </ul>
+        </details>
+        <p class="mt-6 flex items-end justify-between gap-4 text-[11px] leading-relaxed text-faint">
+          <span>
+            {t.footer.smallprint}
+            <a
+              href={`${repoUrl}/blob/main/DISCLAIMER.md`}
+              class="underline decoration-linec underline-offset-2 hover:text-muted"
+              rel="noopener">{t.footer.smallprintLink}</a
+            >
+            {t.footer.smallprintEnd}
+          </span>
+          <button
+            id="polarity-toggle"
+            class="mb-1 h-1.5 w-1.5 shrink-0 rounded-full bg-linec transition hover:bg-flux"
+            aria-label="Feld-Polarität invertieren"
+            title="⏻"></button>
         </p>
       </div>
     </footer>
@@ -97,7 +152,7 @@ const repoUrl = 'https://github.com/NullPunkt-Labs/quantum-saccharose-engine';
       const en = document.documentElement.lang === 'en';
       console.info(
         '%c[NULLPUNKT LABS] quantum-saccharose-engine v0.1.0 — field integrity nominal.',
-        'color:#00F0FF;font-weight:bold'
+        'color:#0284c7;font-weight:bold'
       );
       console.info(
         en
@@ -110,6 +165,18 @@ const repoUrl = 'https://github.com/NullPunkt-Labs/quantum-saccharose-engine';
               'Der Webcam-Stream verlässt niemals Ihr Gerät. Fachinformation: ' +
               'https://github.com/NullPunkt-Labs/quantum-saccharose-engine/blob/main/DISCLAIMER.md'
       );
+
+      // Hidden field polarity inverter. Finding it is part of the therapy.
+      document.getElementById('polarity-toggle')?.addEventListener('click', () => {
+        const dark = document.documentElement.classList.toggle('dark');
+        localStorage.setItem('qse-theme', dark ? 'dark' : 'light');
+        document.dispatchEvent(new CustomEvent('qse:theme'));
+        console.info(
+          dark
+            ? '[QUANTUM-ENGINE] Field polarity inverted. Welcome back, night shift.'
+            : '[QUANTUM-ENGINE] Field polarity restored to clinical standard illumination.'
+        );
+      });
     </script>
   </body>
 </html>

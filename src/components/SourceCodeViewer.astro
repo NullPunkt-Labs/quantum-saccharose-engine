@@ -16,24 +16,24 @@ const files = [
 ];
 ---
 
-<section id="core" class="border-t border-void-700 bg-void-900/40">
+<section id="core" class="border-t border-linec bg-inset/60">
   <div class="mx-auto max-w-6xl px-6 py-20">
-    <p class="font-mono text-[11px] tracking-[0.35em] text-flux/80">{t.viewer.eyebrow}</p>
-    <h2 class="mt-4 text-3xl font-semibold tracking-tight text-void-100 md:text-4xl">
+    <p class="font-mono text-[11px] tracking-[0.35em] text-flux">{t.viewer.eyebrow}</p>
+    <h2 class="mt-4 text-3xl font-semibold tracking-tight text-ink md:text-4xl">
       {t.viewer.h2}
     </h2>
-    <p class="mt-4 max-w-2xl leading-relaxed text-void-300">{t.viewer.body}</p>
+    <p class="mt-4 max-w-2xl leading-relaxed text-muted">{t.viewer.body}</p>
 
-    <div class="mt-10 overflow-hidden rounded border border-void-700 bg-void-950">
-      <div class="flex border-b border-void-700 bg-void-900 font-mono text-xs">
+    <div class="mt-10 overflow-hidden rounded border border-linec bg-surface shadow-card">
+      <div class="flex border-b border-linec bg-inset font-mono text-xs">
         {
           files.map((file, index) => (
             <button
               type="button"
               data-code-tab={file.id}
               class:list={[
-                'border-r border-void-700 px-4 py-2.5 transition hover:text-flux',
-                index === 0 ? 'bg-void-950 text-flux' : 'text-void-300',
+                'border-r border-linec px-4 py-2.5 transition hover:text-flux',
+                index === 0 ? 'bg-surface text-flux' : 'text-muted',
               ]}
             >
               {file.name}
@@ -46,7 +46,7 @@ const files = [
           <pre
             data-code-panel={file.id}
             class:list={[
-              'max-h-[32rem] overflow-auto p-5 font-mono text-[12px] leading-relaxed text-void-300',
+              'max-h-[32rem] overflow-auto p-5 font-mono text-[12px] leading-relaxed text-muted',
               index !== 0 && 'hidden',
             ]}><code>{file.code}</code></pre>
         ))
@@ -63,9 +63,9 @@ const files = [
       const id = tab.getAttribute('data-code-tab');
       tabs.forEach((t) => {
         const isActive = t === tab;
-        t.classList.toggle('bg-void-950', isActive);
+        t.classList.toggle('bg-surface', isActive);
         t.classList.toggle('text-flux', isActive);
-        t.classList.toggle('text-void-300', !isActive);
+        t.classList.toggle('text-muted', !isActive);
       });
       panels.forEach((p) => {
         p.classList.toggle('hidden', p.getAttribute('data-code-panel') !== id);

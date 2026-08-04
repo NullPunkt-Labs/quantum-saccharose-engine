@@ -10,6 +10,7 @@ export const translations = {
     },
     nav: {
       fieldNominal: 'FELD: NOMINAL',
+      about: 'Über uns',
     },
     hero: {
       eyebrow: 'QUANTUM FIELD SACCHAROSE MODULATION · REV 0.1',
@@ -51,9 +52,15 @@ export const translations = {
         'Gesperrt — Subsystem 01 (Bio-Feld-Kalibrierung) muss zuerst ausgeführt werden. Ohne Substanz-Spektrum keine Potenzierung.',
       ready: 'Bereit. Feld-Modulation nicht aktiv.',
       standbyState: 'D01 · STANDBY',
-      note: 'Hinweis: Der Energetische Nachweis lastet Ihre CPU gezielt aus — der Lüfter Ihres Geräts wird hörbar anspringen. Automatischer Stopp nach dem homöopathischen Halbzyklus (5 Minuten).',
+      note: 'Prozess-Zyklus gemäß DIN EN ISO 17025 — Homöopathischer Halbzyklus nach Hahnemann-Standard (5 Minuten), thermisch erzwungen durch CPU-Proof-of-Work. Der Lüfter Ihres Geräts wird hörbar anspringen; automatischer Stopp nach Zyklusende.',
       warning:
         'ACHTUNG: Dieser Vorgang potenziert nachweislich Ihren Strom- und Akkuverbrauch. Es ist der einzige Effekt dieser Engine mit belastbarer klinischer Evidenz.',
+      safety:
+        'Sicherheitsdatenblatt Saccharose-Staub (ISO 9001:2004): Bei der Potenzierung von D12 bis D30 kann es durch unkontrollierte photonische Vakuum-Emission zu einer thermischen Überlastung des Süßungsmittels kommen. Nicht in der Nähe von Kaffeemaschinen oder elektromagnetischen Kaffeemühlen betreiben.',
+      consentTitle: 'Bio-Feld-Einwilligung (Art. 6 DSGVO)',
+      consentBody:
+        'Gemäß Art. 6 DSGVO wird hiermit versichert, dass Ihre optischen Photonenströme (Bachblüten-/Globuli-Spektrum) weder an Cloud-Konnektoren noch an Pharma-Großkonzerne übermittelt werden, sondern lokal im CPU-Cache verglühen.',
+      consentAccept: 'ZUR KENNTNIS GENOMMEN — POTENZIERUNG FORTSETZEN',
     },
     viewer: {
       eyebrow: 'SUBSYSTEM 03 · OFFENER KERN',
@@ -61,7 +68,13 @@ export const translations = {
       body: 'Vollständige Transparenz ist Teil der Nullpunkt-Philosophie: Der Kern der Engine liegt offen — inklusive sämtlicher Kommentare. Lesen lohnt sich.',
     },
     footer: {
-      tagline: 'Quantum Field Saccharose Modulation · Rev 0.1.0',
+      tagline: 'Quantum Field Saccharose Modulation · Rev 0.1.2',
+      changelogLabel: 'Revisionshistorie',
+      changelog: [
+        'Rev 0.1.2 — Korrektur im Monte-Carlo-Vakuum-Modul: thermische CPU-Last von 85 % auf 95 % angehoben, um die homöopathische Wirkstofffreisetzung im MacBook Pro hörbarer zu machen.',
+        'Rev 0.1.1 — Bugfix: Bio-Resonanz-Sonde erkennt nun auch billigen Discounter-Zucker zuverlässig als Hochsektor-Globuli.',
+        'Rev 0.1.0 — Erstfreigabe nach interner Placebo-Abnahme (bestanden: 0 von 0 Wirksamkeitstests).',
+      ],
       license: 'Lizenz (MIT)',
       leaflet: 'Fachinformation',
       smallprint:
@@ -78,6 +91,7 @@ export const translations = {
     },
     nav: {
       fieldNominal: 'FIELD: NOMINAL',
+      about: 'About us',
     },
     hero: {
       eyebrow: 'QUANTUM FIELD SACCHAROSE MODULATION · REV 0.1',
@@ -119,9 +133,15 @@ export const translations = {
         'Locked — subsystem 01 (bio-field calibration) must run first. No substance spectrum, no potentiation.',
       ready: 'Ready. Field modulation inactive.',
       standbyState: 'D01 · STANDBY',
-      note: 'Note: The energetic proof of work deliberately loads your CPU — the fan of your device will audibly spin up. Automatic stop after the homeopathic half-cycle (5 minutes).',
+      note: 'Process cycle per DIN EN ISO 17025 — homeopathic half-cycle per Hahnemann standard (5 minutes), thermally enforced via CPU proof of work. Your device fan will audibly spin up; automatic stop at end of cycle.',
       warning:
         'WARNING: This process demonstrably potentiates your power and battery consumption. It is the only effect of this engine backed by solid clinical evidence.',
+      safety:
+        'Safety data sheet, saccharose dust (ISO 9001:2004): During potentiation from D12 to D30, uncontrolled photonic vacuum emission may cause thermal overload of the sweetening agent. Do not operate in the vicinity of coffee machines or electromagnetic coffee grinders.',
+      consentTitle: 'Bio-Field Consent (Art. 6 GDPR)',
+      consentBody:
+        'Pursuant to Art. 6 GDPR, we hereby affirm that your optical photon streams (Bach flower / globule spectrum) are transmitted neither to cloud connectors nor to large pharmaceutical corporations, but burn up locally in the CPU cache.',
+      consentAccept: 'ACKNOWLEDGED — CONTINUE POTENTIATION',
     },
     viewer: {
       eyebrow: 'SUBSYSTEM 03 · OPEN CORE',
@@ -129,7 +149,13 @@ export const translations = {
       body: 'Full transparency is part of the Nullpunkt philosophy: the core of the engine is open — including every single comment. Reading it is worth your time.',
     },
     footer: {
-      tagline: 'Quantum Field Saccharose Modulation · Rev 0.1.0',
+      tagline: 'Quantum Field Saccharose Modulation · Rev 0.1.2',
+      changelogLabel: 'Revision history',
+      changelog: [
+        'Rev 0.1.2 — Correction in the Monte-Carlo vacuum module: thermal CPU load raised from 85% to 95% to make homeopathic active-ingredient release more audible on the MacBook Pro.',
+        'Rev 0.1.1 — Bugfix: the bio-resonance probe now reliably recognizes cheap discount sugar as high-sector globules.',
+        'Rev 0.1.0 — Initial release after internal placebo acceptance (passed: 0 of 0 efficacy tests).',
+      ],
       license: 'License (MIT)',
       leaflet: 'Package leaflet',
       smallprint:

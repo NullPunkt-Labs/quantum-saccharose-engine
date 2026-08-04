@@ -1,20 +1,19 @@
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ['./src/**/*.{astro,html,js,ts,md}'],
+  darkMode: 'class',
   theme: {
     extend: {
       colors: {
-        void: {
-          950: '#08090b',
-          900: '#0d0f12',
-          800: '#15181d',
-          700: '#1e2229',
-          500: '#3a404b',
-          300: '#8b93a1',
-          100: '#e6e9ee',
-        },
-        flux: '#00F0FF',
-        ultraviolet: '#7000FF',
+        page: 'rgb(var(--bg-primary) / <alpha-value>)',
+        surface: 'rgb(var(--bg-surface) / <alpha-value>)',
+        linec: 'rgb(var(--bg-border) / <alpha-value>)',
+        inset: 'rgb(var(--bg-inset) / <alpha-value>)',
+        ink: 'rgb(var(--text-main) / <alpha-value>)',
+        muted: 'rgb(var(--text-muted) / <alpha-value>)',
+        faint: 'rgb(var(--text-faint) / <alpha-value>)',
+        flux: 'rgb(var(--accent-cyan) / <alpha-value>)',
+        ultraviolet: 'rgb(var(--accent-purple) / <alpha-value>)',
       },
       fontFamily: {
         sans: [
@@ -33,8 +32,9 @@ export default {
         ],
       },
       boxShadow: {
-        'flux-glow': '0 0 24px -6px rgba(0, 240, 255, 0.35)',
-        'uv-glow': '0 0 24px -6px rgba(112, 0, 255, 0.35)',
+        'flux-glow': '0 0 24px -6px rgb(var(--accent-cyan) / 0.30)',
+        'uv-glow': '0 0 24px -6px rgb(var(--accent-purple) / 0.30)',
+        card: '0 4px 6px -1px rgb(15 23 42 / 0.05)',
       },
       animation: {
         scan: 'scan 4s linear infinite',

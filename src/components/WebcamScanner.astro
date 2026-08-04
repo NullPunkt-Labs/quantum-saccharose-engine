@@ -9,17 +9,17 @@ const { lang = 'de' } = Astro.props;
 const t = translations[lang];
 ---
 
-<section id="bio-sonde" class="border-t border-void-700 bg-void-900/40">
+<section id="bio-sonde" class="border-t border-linec bg-inset/60">
   <div class="mx-auto max-w-6xl px-6 py-20">
-    <p class="font-mono text-[11px] tracking-[0.35em] text-flux/80">{t.scanner.eyebrow}</p>
-    <h2 class="mt-4 text-3xl font-semibold tracking-tight text-void-100 md:text-4xl">
+    <p class="font-mono text-[11px] tracking-[0.35em] text-flux">{t.scanner.eyebrow}</p>
+    <h2 class="mt-4 text-3xl font-semibold tracking-tight text-ink md:text-4xl">
       {t.scanner.h2}
     </h2>
-    <p class="mt-4 max-w-2xl leading-relaxed text-void-300">{t.scanner.body}</p>
+    <p class="mt-4 max-w-2xl leading-relaxed text-muted">{t.scanner.body}</p>
 
     <div class="mt-10 grid gap-6 lg:grid-cols-[3fr,2fr]">
       <div
-        class="relative aspect-[4/3] overflow-hidden rounded border border-void-700 bg-black shadow-flux-glow"
+        class="relative aspect-[4/3] overflow-hidden rounded border border-linec bg-black shadow-card"
       >
         <video
           id="bio-video"
@@ -29,7 +29,7 @@ const t = translations[lang];
         <canvas id="bio-overlay" class="absolute inset-0 h-full w-full"></canvas>
         <div
           id="bio-idle"
-          class="absolute inset-0 grid place-items-center bg-void-950/90 font-mono text-xs tracking-widest text-void-500"
+          class="absolute inset-0 grid place-items-center bg-slate-950/95 font-mono text-xs tracking-widest text-slate-500"
         >
           {t.scanner.idle}
         </div>
@@ -38,40 +38,40 @@ const t = translations[lang];
       <div class="flex flex-col gap-4">
         <button
           id="bio-start"
-          class="rounded border border-flux/60 bg-flux/10 px-5 py-3 text-left font-mono text-sm tracking-wider text-flux transition hover:bg-flux/20"
+          class="rounded border border-flux/60 bg-flux/10 px-5 py-3 text-left font-mono text-sm tracking-wider text-flux shadow-flux-glow transition hover:bg-flux/20"
         >
           {t.scanner.start}
         </button>
         <button
           id="bio-stop"
           disabled
-          class="rounded border border-void-700 px-5 py-3 text-left font-mono text-sm tracking-wider text-void-500 transition enabled:border-ultraviolet/60 enabled:text-void-100 enabled:hover:bg-ultraviolet/10 disabled:cursor-not-allowed"
+          class="rounded border border-linec px-5 py-3 text-left font-mono text-sm tracking-wider text-faint transition enabled:border-ultraviolet/60 enabled:text-ink enabled:hover:bg-ultraviolet/10 disabled:cursor-not-allowed"
         >
           {t.scanner.stop}
         </button>
 
         <dl
-          class="mt-2 space-y-2 rounded border border-void-700 bg-void-900 p-4 font-mono text-xs"
+          class="mt-2 space-y-2 rounded border border-linec bg-surface p-4 font-mono text-xs shadow-card"
         >
           <div class="flex justify-between gap-4">
-            <dt class="text-void-500">{t.scanner.labels.status}</dt>
-            <dd id="bio-status" class="text-right text-void-300">{t.scanner.standby}</dd>
+            <dt class="text-faint">{t.scanner.labels.status}</dt>
+            <dd id="bio-status" class="text-right text-muted">{t.scanner.standby}</dd>
           </div>
           <div class="flex justify-between gap-4">
-            <dt class="text-void-500">{t.scanner.labels.freq}</dt>
-            <dd id="bio-freq" class="text-right text-void-100">——— THz</dd>
+            <dt class="text-faint">{t.scanner.labels.freq}</dt>
+            <dd id="bio-freq" class="text-right text-ink">——— THz</dd>
           </div>
           <div class="flex justify-between gap-4">
-            <dt class="text-void-500">{t.scanner.labels.checksum}</dt>
-            <dd id="bio-hex" class="text-right text-void-100">0x00000000</dd>
+            <dt class="text-faint">{t.scanner.labels.checksum}</dt>
+            <dd id="bio-hex" class="text-right text-ink">0x00000000</dd>
           </div>
           <div class="flex justify-between gap-4">
-            <dt class="text-void-500">{t.scanner.labels.lock}</dt>
-            <dd id="bio-lock" class="text-right text-void-300">STANDBY</dd>
+            <dt class="text-faint">{t.scanner.labels.lock}</dt>
+            <dd id="bio-lock" class="text-right text-muted">STANDBY</dd>
           </div>
         </dl>
 
-        <p class="text-[11px] leading-relaxed text-void-500">{t.scanner.privacy}</p>
+        <p class="text-[11px] leading-relaxed text-faint">{t.scanner.privacy}</p>
       </div>
     </div>
   </div>
@@ -131,7 +131,7 @@ const t = translations[lang];
     const h = overlay.clientHeight;
     octx.clearRect(0, 0, w, h);
 
-    // matrix grid
+    // The sensor viewport keeps its instrument look in both themes.
     octx.strokeStyle = 'rgba(0, 240, 255, 0.08)';
     octx.lineWidth = 1;
     for (let x = 0; x < w; x += 32) {
@@ -187,7 +187,7 @@ const t = translations[lang];
     octx.font = '10px ui-monospace, monospace';
     octx.fillStyle = 'rgba(0, 240, 255, 0.9)';
     octx.fillText('QUANTUM-LOCK · D30', bx, by - 8);
-    octx.fillStyle = 'rgba(112, 0, 255, 0.9)';
+    octx.fillStyle = 'rgba(150, 90, 255, 0.9)';
     octx.fillText(`ΔE ${(entropyIndex / 100).toFixed(4)} eV`, bx, by + bh + 16);
 
     // fluctuating hex + frequency readouts

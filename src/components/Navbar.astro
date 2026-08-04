@@ -3,6 +3,8 @@ import { translations, type Lang } from '../i18n/translations';
 
 interface Props {
   lang?: Lang;
+  deHref?: string;
+  enHref?: string;
 }
 
 const { lang = 'de' } = Astro.props;
@@ -10,45 +12,52 @@ const t = translations[lang];
 
 const rawBase = import.meta.env.BASE_URL;
 const base = rawBase.endsWith('/') ? rawBase : `${rawBase}/`;
+const deHref = Astro.props.deHref ?? base;
+const enHref = Astro.props.enHref ?? `${base}en/`;
+const aboutHref = lang === 'en' ? `${base}en/about/` : `${base}ueber-uns/`;
+const homeHref = lang === 'en' ? `${base}en/` : base;
 const repoUrl = 'https://github.com/NullPunkt-Labs/quantum-saccharose-engine';
 ---
 
-<header class="sticky top-0 z-40 border-b border-void-700 bg-void-950/80 backdrop-blur">
+<header class="sticky top-0 z-40 border-b border-linec bg-page/80 backdrop-blur">
   <div class="mx-auto flex max-w-6xl items-center justify-between px-6 py-3">
-    <a href="#top" class="group flex items-baseline gap-2">
-      <span class="text-sm font-semibold tracking-[0.2em] text-void-100">NULLPUNKT LABS</span>
-      <span class="hidden font-mono text-xs text-void-300 sm:inline group-hover:text-flux/80">
+    <a href={homeHref} class="group flex items-baseline gap-2">
+      <span class="text-sm font-semibold tracking-[0.2em] text-ink">NULLPUNKT LABS</span>
+      <span class="hidden font-mono text-xs text-muted sm:inline group-hover:text-flux/80">
         / quantum-saccharose-engine
       </span>
     </a>
     <div class="flex items-center gap-5">
-      <div class="flex items-center gap-2 font-mono text-[11px] tracking-widest">
+      <div class="hidden items-center gap-2 font-mono text-[11px] tracking-widest md:flex">
         <span
           id="field-status-dot"
           class="h-2 w-2 animate-pulse rounded-full bg-flux shadow-flux-glow"></span>
-        <span id="field-status" class="text-void-300">{t.nav.fieldNominal}</span>
+        <span id="field-status" class="text-muted">{t.nav.fieldNominal}</span>
       </div>
+      <a href={aboutHref} class="font-mono text-xs text-muted transition hover:text-flux">
+        {t.nav.about}
+      </a>
       <nav class="flex items-center gap-1 font-mono text-[11px] tracking-widest">
         <a
-          href={base}
+          href={deHref}
           class:list={[
             'rounded px-2 py-1 transition',
-            lang === 'de' ? 'bg-void-800 text-flux' : 'text-void-500 hover:text-void-300',
+            lang === 'de' ? 'bg-inset text-flux' : 'text-faint hover:text-muted',
           ]}>DE</a
         >
-        <span class="text-void-700">/</span>
+        <span class="text-linec">/</span>
         <a
-          href={`${base}en/`}
+          href={enHref}
           class:list={[
             'rounded px-2 py-1 transition',
-            lang === 'en' ? 'bg-void-800 text-flux' : 'text-void-500 hover:text-void-300',
+            lang === 'en' ? 'bg-inset text-flux' : 'text-faint hover:text-muted',
           ]}>EN</a
         >
       </nav>
       <a
         href={repoUrl}
         rel="noopener"
-        class="rounded border border-void-700 px-3 py-1.5 font-mono text-xs text-void-300 transition hover:border-flux/50 hover:text-flux"
+        class="rounded border border-linec px-3 py-1.5 font-mono text-xs text-muted transition hover:border-flux/50 hover:text-flux"
       >
         GitHub ↗
       </a>

@@ -11,10 +11,10 @@ const t = translations[lang];
 
 <section id="top" class="relative overflow-hidden">
   <div
-    class="pointer-events-none absolute inset-0 opacity-[0.35]"
+    class="pointer-events-none absolute inset-0"
     style="background-image:
-      linear-gradient(to right, rgba(58,64,75,0.25) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(58,64,75,0.25) 1px, transparent 1px);
+      linear-gradient(to right, var(--grid-color) 1px, transparent 1px),
+      linear-gradient(to bottom, var(--grid-color) 1px, transparent 1px);
       background-size: 48px 48px;"
   >
   </div>
@@ -24,15 +24,15 @@ const t = translations[lang];
   </div>
 
   <div class="relative mx-auto max-w-6xl px-6 pb-24 pt-24 md:pt-32">
-    <p class="font-mono text-[11px] tracking-[0.35em] text-flux/80">{t.hero.eyebrow}</p>
+    <p class="font-mono text-[11px] tracking-[0.35em] text-flux">{t.hero.eyebrow}</p>
     <h1
-      class="mt-6 max-w-3xl text-4xl font-semibold leading-tight tracking-tight text-void-100 md:text-6xl"
+      class="mt-6 max-w-3xl text-4xl font-semibold leading-tight tracking-tight text-ink md:text-6xl"
     >
       {t.hero.h1[0]}<br />
       {t.hero.h1[1]}<br />
       <span class="text-flux">{t.hero.h1[2]}</span>
     </h1>
-    <p class="mt-8 max-w-2xl text-base leading-relaxed text-void-300 md:text-lg">
+    <p class="mt-8 max-w-2xl text-base leading-relaxed text-muted md:text-lg">
       {t.hero.sub}
     </p>
 
@@ -45,20 +45,20 @@ const t = translations[lang];
       </a>
       <a
         href="#engine"
-        class="rounded border border-void-700 px-6 py-3 font-mono text-sm tracking-wider text-void-300 transition hover:border-ultraviolet/60 hover:text-void-100"
+        class="rounded border border-linec px-6 py-3 font-mono text-sm tracking-wider text-muted transition hover:border-ultraviolet/60 hover:text-ink"
       >
         {t.hero.ctaEngine}
       </a>
     </div>
 
     <dl
-      class="mt-16 grid max-w-3xl grid-cols-2 gap-px overflow-hidden rounded border border-void-700 bg-void-700 font-mono text-xs md:grid-cols-4"
+      class="mt-16 grid max-w-3xl grid-cols-2 gap-px overflow-hidden rounded border border-linec bg-linec font-mono text-xs shadow-card md:grid-cols-4"
     >
       {
         t.hero.stats.map((stat) => (
-          <div class="bg-void-900 p-4">
-            <dt class="text-void-500">{stat.label}</dt>
-            <dd class="mt-1 text-void-100">{stat.value}</dd>
+          <div class="bg-surface p-4">
+            <dt class="text-faint">{stat.label}</dt>
+            <dd class="mt-1 text-ink">{stat.value}</dd>
           </div>
         ))
       }

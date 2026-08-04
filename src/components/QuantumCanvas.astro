@@ -9,31 +9,31 @@ const { lang = 'de' } = Astro.props;
 const t = translations[lang];
 ---
 
-<section id="engine" class="border-t border-void-700">
+<section id="engine" class="border-t border-linec">
   <div class="mx-auto max-w-6xl px-6 py-20">
     <p class="font-mono text-[11px] tracking-[0.35em] text-ultraviolet">{t.engine.eyebrow}</p>
-    <h2 class="mt-4 text-3xl font-semibold tracking-tight text-void-100 md:text-4xl">
+    <h2 class="mt-4 text-3xl font-semibold tracking-tight text-ink md:text-4xl">
       {t.engine.h2}
     </h2>
-    <p class="mt-4 max-w-2xl leading-relaxed text-void-300">{t.engine.body}</p>
+    <p class="mt-4 max-w-2xl leading-relaxed text-muted">{t.engine.body}</p>
 
     <div class="mt-10 grid gap-6 lg:grid-cols-[3fr,2fr]">
-      <div class="relative overflow-hidden rounded border border-void-700 bg-void-950">
+      <div class="relative overflow-hidden rounded border border-linec bg-inset shadow-card">
         <canvas id="q-canvas" class="block h-96 w-full"></canvas>
       </div>
 
       <div class="flex flex-col gap-4">
-        <dl class="space-y-3 rounded border border-void-700 bg-void-900 p-5 font-mono text-xs">
+        <dl class="space-y-3 rounded border border-linec bg-surface p-5 font-mono text-xs shadow-card">
           <div class="flex justify-between gap-4">
-            <dt class="text-void-500">PHOTON_FLUX</dt>
-            <dd id="q-flux" class="text-void-100">0 Γ·s⁻¹</dd>
+            <dt class="text-faint">PHOTON_FLUX</dt>
+            <dd id="q-flux" class="text-ink">0 Γ·s⁻¹</dd>
           </div>
           <div>
             <div class="flex justify-between gap-4">
-              <dt class="text-void-500">ENTROPY_STATE</dt>
-              <dd id="q-entropy" class="text-void-100">{t.engine.standbyState}</dd>
+              <dt class="text-faint">ENTROPY_STATE</dt>
+              <dd id="q-entropy" class="text-ink">{t.engine.standbyState}</dd>
             </div>
-            <div class="mt-2 h-1 overflow-hidden rounded bg-void-700">
+            <div class="mt-2 h-1 overflow-hidden rounded bg-inset">
               <div
                 id="q-entropy-bar"
                 class="h-full bg-gradient-to-r from-flux to-ultraviolet transition-all duration-500"
@@ -43,41 +43,53 @@ const t = translations[lang];
             </div>
           </div>
           <div class="flex justify-between gap-4">
-            <dt class="text-void-500">CORE_LOAD</dt>
-            <dd id="q-load" class="text-void-100">3 %</dd>
+            <dt class="text-faint">CORE_LOAD</dt>
+            <dd id="q-load" class="text-ink">3 %</dd>
           </div>
           <div class="flex justify-between gap-4">
-            <dt class="text-void-500">EFFICACY</dt>
-            <dd class="text-void-500">0.000</dd>
+            <dt class="text-faint">EFFICACY</dt>
+            <dd class="text-faint">0.000</dd>
           </div>
         </dl>
 
         <button
           id="q-ignite"
           disabled
-          class="rounded border border-void-700 px-5 py-4 font-mono text-sm tracking-wider text-void-500 transition enabled:border-flux/60 enabled:bg-flux/10 enabled:text-flux enabled:shadow-flux-glow enabled:hover:bg-flux/20 disabled:cursor-not-allowed"
+          class="rounded border border-linec px-5 py-4 font-mono text-sm tracking-wider text-faint transition enabled:border-flux/60 enabled:bg-flux/10 enabled:text-flux enabled:shadow-flux-glow enabled:hover:bg-flux/20 disabled:cursor-not-allowed"
         >
           {t.engine.ignite}
         </button>
         <button
           id="q-abort"
           disabled
-          class="rounded border border-void-700 px-5 py-4 font-mono text-sm tracking-wider text-void-500 transition enabled:border-red-500/70 enabled:bg-red-500/10 enabled:text-red-400 enabled:hover:bg-red-500/20 disabled:cursor-not-allowed"
+          class="rounded border border-linec px-5 py-4 font-mono text-sm tracking-wider text-faint transition enabled:border-red-500/70 enabled:bg-red-500/10 enabled:text-red-600 dark:enabled:text-red-400 enabled:hover:bg-red-500/20 disabled:cursor-not-allowed"
         >
           {t.engine.abort}
         </button>
 
-        <p id="q-status" class="font-mono text-[11px] leading-relaxed text-void-500">
+        <div id="q-consent" class="hidden rounded border border-linec bg-inset p-4 shadow-card">
+          <p class="font-mono text-[11px] tracking-widest text-muted">{t.engine.consentTitle}</p>
+          <p class="mt-2 text-[11px] leading-relaxed text-faint">{t.engine.consentBody}</p>
+          <button
+            id="q-consent-accept"
+            class="mt-3 w-full rounded border border-linec bg-surface px-4 py-2 font-mono text-[11px] tracking-wider text-muted transition hover:border-flux/50 hover:text-flux"
+          >
+            {t.engine.consentAccept}
+          </button>
+        </div>
+
+        <p id="q-status" class="font-mono text-[11px] leading-relaxed text-faint">
           {t.engine.locked}
         </p>
 
         <p
-          class="rounded border border-amber-500/40 bg-amber-500/5 p-3 text-[11px] leading-relaxed text-amber-200/80"
+          class="rounded border border-amber-500/50 bg-amber-500/10 p-3 text-[11px] leading-relaxed text-amber-700 dark:bg-amber-500/5 dark:text-amber-200/80"
         >
           ⚠ {t.engine.warning}
         </p>
 
-        <p class="text-[11px] leading-relaxed text-void-500">{t.engine.note}</p>
+        <p class="text-[11px] leading-relaxed text-faint">{t.engine.note}</p>
+        <p class="text-[10px] leading-relaxed text-faint/80">{t.engine.safety}</p>
       </div>
     </div>
   </div>
@@ -129,6 +141,8 @@ const t = translations[lang];
   const statusEl = document.getElementById('q-status');
   const igniteBtn = document.getElementById('q-ignite');
   const abortBtn = document.getElementById('q-abort');
+  const consentBox = document.getElementById('q-consent');
+  const consentBtn = document.getElementById('q-consent-accept');
   const navStatus = document.getElementById('field-status');
   const navDot = document.getElementById('field-status-dot');
 
@@ -140,10 +154,22 @@ const t = translations[lang];
   let workers = [];
   let active = false;
   let calibrated = false;
+  let consented = false;
   let startedAt = 0;
   let flux = 0;
   let timeoutId = 0;
   let frame = 0;
+
+  // Theme-aware canvas palette, refreshed when the hidden polarity toggle fires.
+  let accentCyan = '2 132 199';
+  let accentPurple = '124 58 237';
+  function refreshThemeColors() {
+    const cs = getComputedStyle(document.documentElement);
+    accentCyan = cs.getPropertyValue('--accent-cyan').trim() || accentCyan;
+    accentPurple = cs.getPropertyValue('--accent-purple').trim() || accentPurple;
+  }
+  refreshThemeColors();
+  document.addEventListener('qse:theme', refreshThemeColors);
 
   // Subsystem interlock: the Vacuum Potentiator stays locked until
   // subsystem 01 has delivered a substance spectrum (or its placebo).
@@ -200,8 +226,8 @@ const t = translations[lang];
           const alpha = (1 - Math.sqrt(d2) / LINK_DIST) * (active ? 0.35 : 0.15);
           ctx.strokeStyle =
             a.violet || b.violet
-              ? `rgba(112, 0, 255, ${alpha})`
-              : `rgba(0, 240, 255, ${alpha})`;
+              ? `rgb(${accentPurple} / ${alpha})`
+              : `rgb(${accentCyan} / ${alpha})`;
           ctx.lineWidth = 1;
           ctx.beginPath();
           ctx.moveTo(a.x, a.y);
@@ -212,7 +238,9 @@ const t = translations[lang];
     }
 
     for (const p of particles) {
-      ctx.fillStyle = p.violet ? 'rgba(112, 0, 255, 0.9)' : 'rgba(0, 240, 255, 0.9)';
+      ctx.fillStyle = p.violet
+        ? `rgb(${accentPurple} / 0.9)`
+        : `rgb(${accentCyan} / 0.9)`;
       ctx.beginPath();
       ctx.arc(p.x, p.y, active ? 1.8 : 1.3, 0, Math.PI * 2);
       ctx.fill();
@@ -220,13 +248,13 @@ const t = translations[lang];
 
     if (active) {
       const r = 40 + Math.sin(frame / 12) * 12;
-      ctx.strokeStyle = 'rgba(0, 240, 255, 0.5)';
+      ctx.strokeStyle = `rgb(${accentCyan} / 0.5)`;
       ctx.lineWidth = 1.5;
       ctx.beginPath();
       ctx.arc(w / 2, h / 2, r, 0, Math.PI * 2);
       ctx.stroke();
       ctx.font = '10px ui-monospace, monospace';
-      ctx.fillStyle = 'rgba(0, 240, 255, 0.8)';
+      ctx.fillStyle = `rgb(${accentCyan} / 0.8)`;
       ctx.textAlign = 'center';
       ctx.fillText(L.canvasLabel, w / 2, h / 2 + r + 18);
       ctx.textAlign = 'start';
@@ -237,6 +265,13 @@ const t = translations[lang];
 
   function ignite() {
     if (active || !calibrated) return;
+
+    // GDPR bio-field consent: acknowledged once per page load.
+    if (!consented) {
+      consentBox.classList.remove('hidden');
+      return;
+    }
+
     active = true;
     startedAt = performance.now();
     const channels = Math.min(6, Math.max(1, (navigator.hardwareConcurrency || 4) - 2));
@@ -279,6 +314,12 @@ const t = translations[lang];
     navDot.classList.replace('bg-ultraviolet', 'bg-flux');
     console.info('[QUANTUM-ENGINE] Potentiation complete. Saccharose molecular memory updated.');
   }
+
+  consentBtn.addEventListener('click', () => {
+    consented = true;
+    consentBox.classList.add('hidden');
+    ignite();
+  });
 
   setInterval(() => {
     flux += active ? 0 : Math.floor(Math.random() * 3);
