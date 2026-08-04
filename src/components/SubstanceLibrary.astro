@@ -157,7 +157,8 @@ const t = translations[lang];
         `PRÄPARAT EMPFANGEN: ${n} · ${p} — lokal rekonstruiert. Keine Daten wurden gespeichert. Kein Wirkstoff wurde übertragen.`,
       receivedPrivate: (n, p) =>
         `PRIVATES PRÄPARAT ENTSCHLÜSSELT: ${n} · ${p} — AES-GCM verifiziert, lokal rekonstruiert. Keine Daten wurden gespeichert. Kein Wirkstoff wurde übertragen.`,
-      communityTag: (h) => ` Community-Share für @${h}.`,
+      communityTag: (h) =>
+        ` Community-Share für @${h}. Das Präparat erreicht Ihre Community. Ihre Daten erreichen nicht einmal uns.`,
       sharedBy: (h) => ` · Geteilt von @${h} für die Community.`,
     },
     en: {
@@ -173,7 +174,8 @@ const t = translations[lang];
         `PREPARATION RECEIVED: ${n} · ${p} — reconstructed locally. No data was stored. No active ingredient was transferred.`,
       receivedPrivate: (n, p) =>
         `PRIVATE PREPARATION DECRYPTED: ${n} · ${p} — AES-GCM verified, reconstructed locally. No data was stored. No active ingredient was transferred.`,
-      communityTag: (h) => ` Community share for @${h}.`,
+      communityTag: (h) =>
+        ` Community share for @${h}. The preparation reaches your community. Your data does not even reach us.`,
       sharedBy: (h) => ` · Shared by @${h} for the community.`,
     },
   };
