@@ -17,7 +17,7 @@ export const translations = {
       h1: ['Potenzierung.', 'Client-seitig.', 'Kompromisslos.'],
       sub: 'Die quantum-saccharose-engine induziert entropische D30-Zustandsänderungen in handelsüblichen Kohlenhydrat-Matrizen — direkt im Browser. Hochfrequente Photonen-Emission, Monte-Carlo-Vakuumfluktuation und optisches Bio-Feld-Feedback. Ohne Cloud. Ohne Latenz. Ohne Wirkung über den bekannten Referenzeffekt hinaus.',
       ctaScanner: 'BIO-FELD KALIBRIEREN',
-      ctaEngine: 'FELD-MODULATION ZÜNDEN →',
+      ctaEngine: 'FELD-MODULATION BEGINNEN →',
       stats: [
         { label: 'OPTISCHES BAND', value: '482.5 THz' },
         { label: 'ENTROPIE-BEREICH', value: 'D1 – D30' },
@@ -46,7 +46,7 @@ export const translations = {
       eyebrow: 'SUBSYSTEM 02 · VAKUUM-POTENZIATOR',
       h2: 'Die Quantum-Saccharose-Engine',
       body: 'Der Energetische Nachweis: Monte-Carlo-Vakuumfluktuationen werden in dedizierten Rechenkanälen simuliert, bis die thermische Signatur Ihres Geräts die Potenzierung hörbar bestätigt.',
-      ignite: 'FELD-MODULATION ZÜNDEN',
+      ignite: 'FELD-MODULATION BEGINNEN',
       abort: 'POTENZIERUNG ABBRECHEN',
       locked:
         'Gesperrt — Subsystem 01 (Bio-Feld-Kalibrierung) muss zuerst ausgeführt werden. Ohne Substanz-Spektrum keine Potenzierung.',
