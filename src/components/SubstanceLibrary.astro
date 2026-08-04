@@ -1,6 +1,6 @@
 ---
 import { translations, type Lang } from '../i18n/translations';
-import { GLOBULI, POTENCIES, DEFAULT_POTENCY } from '../data/globuli';
+import { GLOBULI, SCHUESSLER, POTENCIES, DEFAULT_POTENCY } from '../data/globuli';
 
 interface Props {
   lang?: Lang;
@@ -47,7 +47,12 @@ const t = translations[lang];
             class="mt-2 w-full rounded-lg border border-linec bg-page px-3 py-2.5 font-mono text-sm text-ink focus:border-flux/60 focus:outline-none"
           >
             <option value="__custom" selected>{t.library.customOption}</option>
-            {GLOBULI.map((g) => <option value={g}>{g}</option>)}
+            <optgroup label={t.library.groupClassic}>
+              {GLOBULI.map((g) => <option value={g}>{g}</option>)}
+            </optgroup>
+            <optgroup id="lib-beta-group" label={t.library.groupBeta}>
+              {SCHUESSLER.map((s) => <option value={s}>{s}</option>)}
+            </optgroup>
           </select>
         </label>
         <div>
@@ -75,9 +80,16 @@ const t = translations[lang];
         </div>
       </div>
 
+      <label
+        class="mt-6 flex cursor-pointer items-start gap-3 rounded-lg border border-linec bg-inset/60 px-4 py-3"
+      >
+        <input type="checkbox" id="lib-beta" class="mt-0.5 h-4 w-4 accent-flux" />
+        <span class="text-[11px] leading-relaxed text-muted">{t.library.betaLabel}</span>
+      </label>
+
       <p
         id="lib-readout"
-        class="mt-6 rounded-lg border border-linec bg-inset/60 px-4 py-3 font-mono text-[11px] leading-relaxed text-muted"
+        class="mt-4 rounded-lg border border-linec bg-inset/60 px-4 py-3 font-mono text-[11px] leading-relaxed text-muted"
       >
         {t.library.readoutIdle}
       </p>
@@ -105,7 +117,25 @@ const t = translations[lang];
   const select = document.getElementById('lib-select');
   const readout = document.getElementById('lib-readout');
   const potencyBtns = document.querySelectorAll('#lib-potencies [data-potency]');
+  const betaToggle = document.getElementById('lib-beta');
+  const betaGroup = document.getElementById('lib-beta-group');
   let potency = 'D30';
+
+  // The beta program stays invisible until early access is activated.
+  // Without JavaScript, everyone is a beta tester — a known upstream feature.
+  betaGroup.remove();
+  betaToggle.addEventListener('change', () => {
+    if (betaToggle.checked) {
+      select.appendChild(betaGroup);
+    } else {
+      const betaValues = Array.from(betaGroup.querySelectorAll('option'), (o) => o.value);
+      if (betaValues.includes(select.value)) {
+        select.value = '__custom';
+        announce();
+      }
+      betaGroup.remove();
+    }
+  });
 
   function announce() {
     const custom = select.value === '__custom';

@@ -58,3 +58,38 @@ export const GLOBULI = [
 
 export const POTENCIES = ['D6', 'D12', 'D30', 'C30', 'C200'] as const;
 export const DEFAULT_POTENCY = 'D30';
+
+/**
+ * Beta program: the complete biochemical tissue salts after Dr. Schüssler,
+ * function remedies Nos. 1–12 plus supplement remedies Nos. 13–27.
+ * Early access only. Efficacy identical to the main library: 0.000.
+ */
+export const SCHUESSLER = [
+  'Nr. 1 Calcium fluoratum',
+  'Nr. 2 Calcium phosphoricum',
+  'Nr. 3 Ferrum phosphoricum',
+  'Nr. 4 Kalium chloratum',
+  'Nr. 5 Kalium phosphoricum',
+  'Nr. 6 Kalium sulfuricum',
+  'Nr. 7 Magnesium phosphoricum',
+  'Nr. 8 Natrium chloratum',
+  'Nr. 9 Natrium phosphoricum',
+  'Nr. 10 Natrium sulfuricum',
+  'Nr. 11 Silicea',
+  'Nr. 12 Calcium sulfuricum',
+  'Nr. 13 Kalium arsenicosum',
+  'Nr. 14 Kalium bromatum',
+  'Nr. 15 Kalium jodatum',
+  'Nr. 16 Lithium chloratum',
+  'Nr. 17 Manganum sulfuricum',
+  'Nr. 18 Calcium sulfuratum',
+  'Nr. 19 Cuprum arsenicosum',
+  'Nr. 20 Kalium aluminium sulfuricum',
+  'Nr. 21 Zincum chloratum',
+  'Nr. 22 Calcium carbonicum',
+  'Nr. 23 Natrium bicarbonicum',
+  'Nr. 24 Arsenum jodatum',
+  'Nr. 25 Aurum chloratum natronatum',
+  'Nr. 26 Selenium',
+  'Nr. 27 Kalium bichromicum',
+] as const;

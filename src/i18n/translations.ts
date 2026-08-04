@@ -11,6 +11,7 @@ export const translations = {
     nav: {
       fieldNominal: 'FELD: NOMINAL',
       about: 'Über uns',
+      roadmap: 'Roadmap',
     },
     hero: {
       eyebrow: 'QUANTUM FIELD SACCHAROSE MODULATION · REV 0.1',
@@ -34,7 +35,11 @@ export const translations = {
       customOption: 'Eigene Substanz (Bio-Resonanz-Sonde)',
       readoutIdle:
         'AKTIVE MATRIX: Eigene Substanz · D30 — Kalibrierung über Subsystem 01 erforderlich.',
-      note: 'Alle 50 Referenz-Spektren sind vollständig veröffentlicht und damit Stand der Technik (Prior Art). Wirksamkeit je Eintrag: 0.000.',
+      note: 'Alle Referenz-Spektren sind vollständig veröffentlicht und damit Stand der Technik (Prior Art). Wirksamkeit je Eintrag: 0.000.',
+      groupClassic: 'Klassische Einzelmittel',
+      groupBeta: 'Biochemie nach Dr. Schüssler — BETA',
+      betaLabel:
+        'Vorabzugang zu kommenden Potenzierungen aktivieren — Biochemisches Beta-Programm (Schüssler-Salze Nr. 1–27)',
     },
     scanner: {
       eyebrow: 'SUBSYSTEM 01 · BIO-RESONANZ-SONDE',
@@ -104,6 +109,7 @@ export const translations = {
     nav: {
       fieldNominal: 'FIELD: NOMINAL',
       about: 'About us',
+      roadmap: 'Roadmap',
     },
     hero: {
       eyebrow: 'QUANTUM FIELD SACCHAROSE MODULATION · REV 0.1',
@@ -127,7 +133,11 @@ export const translations = {
       customOption: 'Own substance (bio-resonance probe)',
       readoutIdle:
         'ACTIVE MATRIX: Own substance · D30 — calibration via subsystem 01 required.',
-      note: 'All 50 reference spectra are published in full and therefore prior art. Efficacy per entry: 0.000.',
+      note: 'All reference spectra are published in full and therefore prior art. Efficacy per entry: 0.000.',
+      groupClassic: 'Classical remedies',
+      groupBeta: 'Biochemistry after Dr. Schüssler — BETA',
+      betaLabel:
+        'Enable early access to upcoming potentiations — biochemical beta program (Schüssler salts Nos. 1–27)',
     },
     scanner: {
       eyebrow: 'SUBSYSTEM 01 · BIO-RESONANCE PROBE',

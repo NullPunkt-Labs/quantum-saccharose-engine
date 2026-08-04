@@ -133,7 +133,13 @@ const leafletUrl = `${repoUrl}/blob/main/DISCLAIMER.md${lang === 'en' ? '#englis
             <p class="font-semibold tracking-wide text-ink">NULLPUNKT LABS</p>
             <p class="mt-1 font-mono text-xs text-muted">{t.footer.tagline}</p>
           </div>
-          <nav class="flex gap-6 font-mono text-xs text-muted">
+          <nav class="flex flex-wrap gap-6 font-mono text-xs text-muted">
+            <a
+              href={`${base}${lang === 'en' ? 'en/roadmap/' : 'roadmap/'}`}
+              class="hover:text-flux"
+            >
+              {t.nav.roadmap}
+            </a>
             <a href={`${base}${lang === 'en' ? 'en/about/' : 'ueber-uns/'}`} class="hover:text-flux">
               {t.nav.about}
             </a>
