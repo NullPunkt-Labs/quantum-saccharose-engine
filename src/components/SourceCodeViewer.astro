@@ -1,6 +1,14 @@
 ---
+import { translations, type Lang } from '../i18n/translations';
 import potentiatorSource from '../engine/vacuum-potentiator.ts?raw';
 import webcamSource from '../engine/webcam-resonance.ts?raw';
+
+interface Props {
+  lang?: Lang;
+}
+
+const { lang = 'de' } = Astro.props;
+const t = translations[lang];
 
 const files = [
   { id: 'potentiator', name: 'src/engine/vacuum-potentiator.ts', code: potentiatorSource },
@@ -10,16 +18,11 @@ const files = [
 
 <section id="core" class="border-t border-void-700 bg-void-900/40">
   <div class="mx-auto max-w-6xl px-6 py-20">
-    <p class="font-mono text-[11px] tracking-[0.35em] text-flux/80">
-      SUBSYSTEM 03 · OPEN CORE
-    </p>
+    <p class="font-mono text-[11px] tracking-[0.35em] text-flux/80">{t.viewer.eyebrow}</p>
     <h2 class="mt-4 text-3xl font-semibold tracking-tight text-void-100 md:text-4xl">
-      Der Algorithmus. Ungeschönt.
+      {t.viewer.h2}
     </h2>
-    <p class="mt-4 max-w-2xl leading-relaxed text-void-300">
-      Vollständige Transparenz ist Teil der Nullpunkt-Philosophie: Der Kern der
-      Engine liegt offen — inklusive sämtlicher Kommentare. Lesen lohnt sich.
-    </p>
+    <p class="mt-4 max-w-2xl leading-relaxed text-void-300">{t.viewer.body}</p>
 
     <div class="mt-10 overflow-hidden rounded border border-void-700 bg-void-950">
       <div class="flex border-b border-void-700 bg-void-900 font-mono text-xs">

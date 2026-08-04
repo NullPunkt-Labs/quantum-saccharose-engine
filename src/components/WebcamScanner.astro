@@ -1,19 +1,21 @@
 ---
+import { translations, type Lang } from '../i18n/translations';
+
+interface Props {
+  lang?: Lang;
+}
+
+const { lang = 'de' } = Astro.props;
+const t = translations[lang];
 ---
 
 <section id="bio-sonde" class="border-t border-void-700 bg-void-900/40">
   <div class="mx-auto max-w-6xl px-6 py-20">
-    <p class="font-mono text-[11px] tracking-[0.35em] text-flux/80">
-      SUBSYSTEM 01 · OPTICAL RESONANCE &amp; BIO-FIELD FEEDBACK
-    </p>
+    <p class="font-mono text-[11px] tracking-[0.35em] text-flux/80">{t.scanner.eyebrow}</p>
     <h2 class="mt-4 text-3xl font-semibold tracking-tight text-void-100 md:text-4xl">
-      Die Bio-Resonanz-Sonde
+      {t.scanner.h2}
     </h2>
-    <p class="mt-4 max-w-2xl leading-relaxed text-void-300">
-      Platzieren Sie Ihre Substanz — Globuli, Bachblüten, Brennnesseltee — vor der
-      Linse. Die Sonde erfasst photonische Reflexionen in Echtzeit und justiert die
-      D30-Modulationsmatrix dynamisch nach.
-    </p>
+    <p class="mt-4 max-w-2xl leading-relaxed text-void-300">{t.scanner.body}</p>
 
     <div class="mt-10 grid gap-6 lg:grid-cols-[3fr,2fr]">
       <div
@@ -29,7 +31,7 @@
           id="bio-idle"
           class="absolute inset-0 grid place-items-center bg-void-950/90 font-mono text-xs tracking-widest text-void-500"
         >
-          SONDE OFFLINE — KALIBRIERUNG ERFORDERLICH
+          {t.scanner.idle}
         </div>
       </div>
 
@@ -38,47 +40,58 @@
           id="bio-start"
           class="rounded border border-flux/60 bg-flux/10 px-5 py-3 text-left font-mono text-sm tracking-wider text-flux transition hover:bg-flux/20"
         >
-          BIO-FELD-KALIBRIERUNG STARTEN
+          {t.scanner.start}
         </button>
         <button
           id="bio-stop"
           disabled
           class="rounded border border-void-700 px-5 py-3 text-left font-mono text-sm tracking-wider text-void-500 transition enabled:border-ultraviolet/60 enabled:text-void-100 enabled:hover:bg-ultraviolet/10 disabled:cursor-not-allowed"
         >
-          SONDE TRENNEN
+          {t.scanner.stop}
         </button>
 
         <dl
           class="mt-2 space-y-2 rounded border border-void-700 bg-void-900 p-4 font-mono text-xs"
         >
           <div class="flex justify-between gap-4">
-            <dt class="text-void-500">STATUS</dt>
-            <dd id="bio-status" class="text-right text-void-300">Standby</dd>
+            <dt class="text-void-500">{t.scanner.labels.status}</dt>
+            <dd id="bio-status" class="text-right text-void-300">{t.scanner.standby}</dd>
           </div>
           <div class="flex justify-between gap-4">
-            <dt class="text-void-500">SUBSTANZ-FREQUENZ</dt>
+            <dt class="text-void-500">{t.scanner.labels.freq}</dt>
             <dd id="bio-freq" class="text-right text-void-100">——— THz</dd>
           </div>
           <div class="flex justify-between gap-4">
-            <dt class="text-void-500">FELD-CHECKSUM</dt>
+            <dt class="text-void-500">{t.scanner.labels.checksum}</dt>
             <dd id="bio-hex" class="text-right text-void-100">0x00000000</dd>
           </div>
           <div class="flex justify-between gap-4">
-            <dt class="text-void-500">QUANTUM-LOCK</dt>
+            <dt class="text-void-500">{t.scanner.labels.lock}</dt>
             <dd id="bio-lock" class="text-right text-void-300">STANDBY</dd>
           </div>
         </dl>
 
-        <p class="text-[11px] leading-relaxed text-void-500">
-          Ihre Photonen und Videostreams verlassen niemals das Gerät — lokale
-          optische Resonanz-Analyse. Keine Uploads, kein Tracking.
-        </p>
+        <p class="text-[11px] leading-relaxed text-void-500">{t.scanner.privacy}</p>
       </div>
     </div>
   </div>
 </section>
 
 <script>
+  const STRINGS = {
+    de: {
+      active: 'Resonanz aktiv — Substanz-Spektrum erkannt',
+      blocked: 'Kamera blockiert — universelles Placebo-Spektrum geladen',
+      standby: 'Standby',
+    },
+    en: {
+      active: 'Resonance active — substance spectrum detected',
+      blocked: 'Camera blocked — universal placebo spectrum loaded',
+      standby: 'Standby',
+    },
+  };
+  const L = STRINGS[document.documentElement.lang === 'en' ? 'en' : 'de'];
+
   const video = document.getElementById('bio-video');
   const overlay = document.getElementById('bio-overlay');
   const idle = document.getElementById('bio-idle');
@@ -135,7 +148,7 @@
     }
 
     // sweeping scanline
-    const scanY = (tick * 2.2) % (h + 60) - 30;
+    const scanY = ((tick * 2.2) % (h + 60)) - 30;
     const grad = octx.createLinearGradient(0, scanY - 24, 0, scanY + 24);
     grad.addColorStop(0, 'rgba(0, 240, 255, 0)');
     grad.addColorStop(0.5, 'rgba(0, 240, 255, 0.16)');
@@ -179,8 +192,16 @@
 
     // fluctuating hex + frequency readouts
     octx.fillStyle = 'rgba(230, 233, 238, 0.75)';
-    octx.fillText(`0x${((checksum ^ (tick * 2654435761)) >>> 0).toString(16).padStart(8, '0').toUpperCase()}`, 12, 20);
-    octx.fillText(`${(482.5 + Math.sin(tick / 29) * 0.8 + entropyIndex / 250).toFixed(3)} THz`, 12, h - 14);
+    octx.fillText(
+      `0x${((checksum ^ (tick * 2654435761)) >>> 0).toString(16).padStart(8, '0').toUpperCase()}`,
+      12,
+      20
+    );
+    octx.fillText(
+      `${(482.5 + Math.sin(tick / 29) * 0.8 + entropyIndex / 250).toFixed(3)} THz`,
+      12,
+      h - 14
+    );
     octx.fillText(`FRAME ${String(tick).padStart(6, '0')}`, w - 90, 20);
 
     rafId = requestAnimationFrame(drawOverlay);
@@ -217,11 +238,11 @@
       video.srcObject = stream;
       await video.play();
       synthetic = false;
-      statusEl.textContent = 'Resonanz aktiv — Substanz-Spektrum erkannt';
+      statusEl.textContent = L.active;
       console.info('[BIOCAM] Optical resonance link established. Bachblüten spectrum detected.');
     } catch (err) {
       synthetic = true;
-      statusEl.textContent = 'Kamera blockiert — universelles Placebo-Spektrum geladen';
+      statusEl.textContent = L.blocked;
       console.warn('[BIOCAM] Camera blocked. Falling back to default universal placebo spectrum.');
     }
     running = true;
@@ -230,6 +251,11 @@
     resizeOverlay();
     drawOverlay();
     sampleTimer = setInterval(sampleFrame, 500);
+
+    // Subsystem interlock: calibration unlocks the Vacuum Potentiator.
+    // The universal placebo spectrum counts — obviously.
+    document.documentElement.dataset.qseCalibrated = '1';
+    document.dispatchEvent(new CustomEvent('qse:calibrated'));
   }
 
   function stop() {
@@ -243,7 +269,7 @@
     video.srcObject = null;
     octx.clearRect(0, 0, overlay.clientWidth, overlay.clientHeight);
     idle.style.display = 'grid';
-    statusEl.textContent = 'Standby';
+    statusEl.textContent = L.standby;
     freqEl.textContent = '——— THz';
     lockEl.textContent = 'STANDBY';
     lockEl.classList.remove('text-flux');

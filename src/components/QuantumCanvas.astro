@@ -1,19 +1,21 @@
 ---
+import { translations, type Lang } from '../i18n/translations';
+
+interface Props {
+  lang?: Lang;
+}
+
+const { lang = 'de' } = Astro.props;
+const t = translations[lang];
 ---
 
 <section id="engine" class="border-t border-void-700">
   <div class="mx-auto max-w-6xl px-6 py-20">
-    <p class="font-mono text-[11px] tracking-[0.35em] text-ultraviolet">
-      SUBSYSTEM 02 · VACUUM POTENTIATOR
-    </p>
+    <p class="font-mono text-[11px] tracking-[0.35em] text-ultraviolet">{t.engine.eyebrow}</p>
     <h2 class="mt-4 text-3xl font-semibold tracking-tight text-void-100 md:text-4xl">
-      Die Quantum-Saccharose-Engine
+      {t.engine.h2}
     </h2>
-    <p class="mt-4 max-w-2xl leading-relaxed text-void-300">
-      Der Energetische Nachweis: Monte-Carlo-Vakuumfluktuationen werden in
-      dedizierten Rechenkanälen simuliert, bis die thermische Signatur Ihres
-      Geräts die Potenzierung hörbar bestätigt.
-    </p>
+    <p class="mt-4 max-w-2xl leading-relaxed text-void-300">{t.engine.body}</p>
 
     <div class="mt-10 grid gap-6 lg:grid-cols-[3fr,2fr]">
       <div class="relative overflow-hidden rounded border border-void-700 bg-void-950">
@@ -29,7 +31,7 @@
           <div>
             <div class="flex justify-between gap-4">
               <dt class="text-void-500">ENTROPY_STATE</dt>
-              <dd id="q-entropy" class="text-void-100">D01 · STANDBY</dd>
+              <dd id="q-entropy" class="text-void-100">{t.engine.standbyState}</dd>
             </div>
             <div class="mt-2 h-1 overflow-hidden rounded bg-void-700">
               <div
@@ -52,32 +54,72 @@
 
         <button
           id="q-ignite"
-          class="rounded border border-flux/60 bg-flux/10 px-5 py-4 font-mono text-sm tracking-wider text-flux shadow-flux-glow transition hover:bg-flux/20"
+          disabled
+          class="rounded border border-void-700 px-5 py-4 font-mono text-sm tracking-wider text-void-500 transition enabled:border-flux/60 enabled:bg-flux/10 enabled:text-flux enabled:shadow-flux-glow enabled:hover:bg-flux/20 disabled:cursor-not-allowed"
         >
-          IGNITE FIELD MODULATION
+          {t.engine.ignite}
         </button>
         <button
           id="q-abort"
           disabled
           class="rounded border border-void-700 px-5 py-4 font-mono text-sm tracking-wider text-void-500 transition enabled:border-red-500/70 enabled:bg-red-500/10 enabled:text-red-400 enabled:hover:bg-red-500/20 disabled:cursor-not-allowed"
         >
-          ABORT POTENTIATION
+          {t.engine.abort}
         </button>
 
         <p id="q-status" class="font-mono text-[11px] leading-relaxed text-void-500">
-          Bereit. Feld-Modulation nicht aktiv.
+          {t.engine.locked}
         </p>
-        <p class="text-[11px] leading-relaxed text-void-500">
-          Hinweis: Der Energetische Nachweis lastet Ihre CPU gezielt aus — der
-          Lüfter Ihres Geräts wird hörbar anspringen. Automatischer Stopp nach
-          dem homöopathischen Halbzyklus (5 Minuten).
+
+        <p
+          class="rounded border border-amber-500/40 bg-amber-500/5 p-3 text-[11px] leading-relaxed text-amber-200/80"
+        >
+          ⚠ {t.engine.warning}
         </p>
+
+        <p class="text-[11px] leading-relaxed text-void-500">{t.engine.note}</p>
       </div>
     </div>
   </div>
 </section>
 
 <script>
+  const STRINGS = {
+    de: {
+      locked:
+        'Gesperrt — Subsystem 01 (Bio-Feld-Kalibrierung) muss zuerst ausgeführt werden. Ohne Substanz-Spektrum keine Potenzierung.',
+      readyCalibrated: 'Bio-Feld kalibriert. Bereit zur Feld-Modulation.',
+      activeStatus: (n) =>
+        `Feld-Modulation aktiv — ${n} Vakuum-Kanäle rechnen. Notaus jederzeit verfügbar.`,
+      aborted: 'Potenzierung abgebrochen — Feld kontrolliert kollabiert.',
+      halfCycleDone:
+        'Homöopathischer Halbzyklus abgeschlossen — Potenzierung finalisiert. Saccharose-Molekulargedächtnis aktualisiert.',
+      fieldNominal: 'FELD: NOMINAL',
+      fieldModulating: 'FELD: MODULIEREND',
+      potentiating: 'POTENZIERUNG',
+      standbyState: 'D01 · STANDBY',
+      canvasLabel: 'FELD-MODULATION AKTIV',
+      numberLocale: 'de-DE',
+    },
+    en: {
+      locked:
+        'Locked — subsystem 01 (bio-field calibration) must run first. No substance spectrum, no potentiation.',
+      readyCalibrated: 'Bio-field calibrated. Ready for field modulation.',
+      activeStatus: (n) =>
+        `Field modulation active — ${n} vacuum channels computing. Emergency stop available at all times.`,
+      aborted: 'Potentiation aborted — field collapsed in a controlled manner.',
+      halfCycleDone:
+        'Homeopathic half-cycle complete — potentiation finalized. Saccharose molecular memory updated.',
+      fieldNominal: 'FIELD: NOMINAL',
+      fieldModulating: 'FIELD: MODULATING',
+      potentiating: 'POTENTIATING',
+      standbyState: 'D01 · STANDBY',
+      canvasLabel: 'FIELD MODULATION ACTIVE',
+      numberLocale: 'en-US',
+    },
+  };
+  const L = STRINGS[document.documentElement.lang === 'en' ? 'en' : 'de'];
+
   const canvas = document.getElementById('q-canvas');
   const ctx = canvas.getContext('2d');
   const fluxEl = document.getElementById('q-flux');
@@ -97,10 +139,22 @@
   let particles = [];
   let workers = [];
   let active = false;
+  let calibrated = false;
   let startedAt = 0;
   let flux = 0;
   let timeoutId = 0;
   let frame = 0;
+
+  // Subsystem interlock: the Vacuum Potentiator stays locked until
+  // subsystem 01 has delivered a substance spectrum (or its placebo).
+  function unlock() {
+    if (calibrated) return;
+    calibrated = true;
+    igniteBtn.disabled = false;
+    statusEl.textContent = L.readyCalibrated;
+  }
+  if (document.documentElement.dataset.qseCalibrated === '1') unlock();
+  document.addEventListener('qse:calibrated', unlock);
 
   function resize() {
     const dpr = window.devicePixelRatio || 1;
@@ -144,9 +198,10 @@
         const d2 = dx * dx + dy * dy;
         if (d2 < LINK_DIST * LINK_DIST) {
           const alpha = (1 - Math.sqrt(d2) / LINK_DIST) * (active ? 0.35 : 0.15);
-          ctx.strokeStyle = a.violet || b.violet
-            ? `rgba(112, 0, 255, ${alpha})`
-            : `rgba(0, 240, 255, ${alpha})`;
+          ctx.strokeStyle =
+            a.violet || b.violet
+              ? `rgba(112, 0, 255, ${alpha})`
+              : `rgba(0, 240, 255, ${alpha})`;
           ctx.lineWidth = 1;
           ctx.beginPath();
           ctx.moveTo(a.x, a.y);
@@ -173,7 +228,7 @@
       ctx.font = '10px ui-monospace, monospace';
       ctx.fillStyle = 'rgba(0, 240, 255, 0.8)';
       ctx.textAlign = 'center';
-      ctx.fillText('FIELD MODULATION ACTIVE', w / 2, h / 2 + r + 18);
+      ctx.fillText(L.canvasLabel, w / 2, h / 2 + r + 18);
       ctx.textAlign = 'start';
     }
 
@@ -181,7 +236,7 @@
   }
 
   function ignite() {
-    if (active) return;
+    if (active || !calibrated) return;
     active = true;
     startedAt = performance.now();
     const channels = Math.min(6, Math.max(1, (navigator.hardwareConcurrency || 4) - 2));
@@ -202,17 +257,11 @@
 
     igniteBtn.disabled = true;
     abortBtn.disabled = false;
-    statusEl.textContent = `Feld-Modulation aktiv — ${channels} Vakuum-Kanäle rechnen. Notaus jederzeit verfügbar.`;
-    navStatus.textContent = 'FIELD: MODULATING';
+    statusEl.textContent = L.activeStatus(channels);
+    navStatus.textContent = L.fieldModulating;
     navStatus.classList.add('text-flux');
     navDot.classList.replace('bg-flux', 'bg-ultraviolet');
-    timeoutId = setTimeout(
-      () =>
-        abort(
-          'Homöopathischer Halbzyklus abgeschlossen — Potenzierung finalisiert. Saccharose-Molekulargedächtnis aktualisiert.'
-        ),
-      HALF_CYCLE_MS
-    );
+    timeoutId = setTimeout(() => abort(L.halfCycleDone), HALF_CYCLE_MS);
     console.info('[QUANTUM-ENGINE] Initializing field modulation for target: D30');
   }
 
@@ -224,11 +273,8 @@
     workers = [];
     igniteBtn.disabled = false;
     abortBtn.disabled = true;
-    statusEl.textContent =
-      typeof message === 'string'
-        ? message
-        : 'Potenzierung abgebrochen — Feld kontrolliert kollabiert.';
-    navStatus.textContent = 'FIELD: NOMINAL';
+    statusEl.textContent = typeof message === 'string' ? message : L.aborted;
+    navStatus.textContent = L.fieldNominal;
     navStatus.classList.remove('text-flux');
     navDot.classList.replace('bg-ultraviolet', 'bg-flux');
     console.info('[QUANTUM-ENGINE] Potentiation complete. Saccharose molecular memory updated.');
@@ -236,15 +282,15 @@
 
   setInterval(() => {
     flux += active ? 0 : Math.floor(Math.random() * 3);
-    fluxEl.textContent = `${flux.toLocaleString('de-DE')} Γ·s⁻¹`;
+    fluxEl.textContent = `${flux.toLocaleString(L.numberLocale)} Γ·s⁻¹`;
     const load = active ? 88 + Math.random() * 11 : 2 + Math.random() * 4;
     loadEl.textContent = `${load.toFixed(0)} %`;
     if (active) {
       const level = Math.min(30, 1 + Math.floor((performance.now() - startedAt) / 10000));
-      entropyEl.textContent = `D${String(level).padStart(2, '0')} · POTENTIATING`;
+      entropyEl.textContent = `D${String(level).padStart(2, '0')} · ${L.potentiating}`;
       entropyBar.style.width = `${(level / 30) * 100}%`;
     } else {
-      entropyEl.textContent = 'D01 · STANDBY';
+      entropyEl.textContent = L.standbyState;
       entropyBar.style.width = '3%';
     }
   }, 250);
