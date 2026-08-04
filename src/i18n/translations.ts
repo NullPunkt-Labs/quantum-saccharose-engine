@@ -25,6 +25,17 @@ export const translations = {
         { label: 'WIRKSAMKEIT', value: '0.000' },
       ],
     },
+    library: {
+      eyebrow: 'SUBSYSTEM 00 · SUBSTANZ-BIBLIOTHEK',
+      h2: 'Ihre Substanz. Oder unsere Referenz.',
+      body: 'Potenzieren Sie Ihr eigenes Material über die Bio-Resonanz-Sonde — oder laden Sie eines von 50 klassischen Referenz-Spektren aus der Nullpunkt-Bibliothek. Anschließend wählen Sie die Ziel-Potenz. Höhere Potenzen sind selbstverständlich wirksamer: Es ist ja weniger drin.',
+      substanceLabel: 'REFERENZ-SUBSTANZ',
+      potencyLabel: 'ZIEL-POTENZ',
+      customOption: 'Eigene Substanz (Bio-Resonanz-Sonde)',
+      readoutIdle:
+        'AKTIVE MATRIX: Eigene Substanz · D30 — Kalibrierung über Subsystem 01 erforderlich.',
+      note: 'Alle 50 Referenz-Spektren sind vollständig veröffentlicht und damit Stand der Technik (Prior Art). Wirksamkeit je Eintrag: 0.000.',
+    },
     scanner: {
       eyebrow: 'SUBSYSTEM 01 · BIO-RESONANZ-SONDE',
       h2: 'Zeigen Sie Ihre Substanz. Den Rest erledigt das Licht.',
@@ -49,8 +60,9 @@ export const translations = {
       ignite: 'FELD-MODULATION BEGINNEN',
       abort: 'POTENZIERUNG ABBRECHEN',
       locked:
-        'Gesperrt — Subsystem 01 (Bio-Feld-Kalibrierung) muss zuerst ausgeführt werden. Ohne Substanz-Spektrum keine Potenzierung.',
+        'Gesperrt — Subsystem 01 (Bio-Feld-Kalibrierung) muss zuerst ausgeführt werden, oder laden Sie ein Referenz-Spektrum aus der Bibliothek (Subsystem 00). Ohne Substanz-Spektrum keine Potenzierung.',
       ready: 'Bereit. Feld-Modulation nicht aktiv.',
+      targetDefault: 'EIGENE SUBSTANZ · D30',
       standbyState: 'D01 · STANDBY',
       note: 'Prozess-Zyklus gemäß DIN EN ISO 17025 — Homöopathischer Halbzyklus nach Hahnemann-Standard (5 Minuten), thermisch erzwungen durch CPU-Proof-of-Work. Der Lüfter Ihres Geräts wird hörbar anspringen; automatischer Stopp nach Zyklusende.',
       warning:
@@ -106,6 +118,17 @@ export const translations = {
         { label: 'EFFICACY', value: '0.000' },
       ],
     },
+    library: {
+      eyebrow: 'SUBSYSTEM 00 · SUBSTANCE LIBRARY',
+      h2: 'Your substance. Or our reference.',
+      body: 'Potentiate your own material via the bio-resonance probe — or load one of 50 classical reference spectra from the Nullpunkt library. Then select the target potency. Higher potencies are of course more effective: there is less in them.',
+      substanceLabel: 'REFERENCE SUBSTANCE',
+      potencyLabel: 'TARGET POTENCY',
+      customOption: 'Own substance (bio-resonance probe)',
+      readoutIdle:
+        'ACTIVE MATRIX: Own substance · D30 — calibration via subsystem 01 required.',
+      note: 'All 50 reference spectra are published in full and therefore prior art. Efficacy per entry: 0.000.',
+    },
     scanner: {
       eyebrow: 'SUBSYSTEM 01 · BIO-RESONANCE PROBE',
       h2: 'Show us your substance. Light does the rest.',
@@ -130,8 +153,9 @@ export const translations = {
       ignite: 'IGNITE FIELD MODULATION',
       abort: 'ABORT POTENTIATION',
       locked:
-        'Locked — subsystem 01 (bio-field calibration) must run first. No substance spectrum, no potentiation.',
+        'Locked — run subsystem 01 (bio-field calibration) first, or load a reference spectrum from the library (subsystem 00). No substance spectrum, no potentiation.',
       ready: 'Ready. Field modulation inactive.',
+      targetDefault: 'OWN SUBSTANCE · D30',
       standbyState: 'D01 · STANDBY',
       note: 'Process cycle per DIN EN ISO 17025 — homeopathic half-cycle per Hahnemann standard (5 minutes), thermally enforced via CPU proof of work. Your device fan will audibly spin up; automatic stop at end of cycle.',
       warning:

@@ -39,6 +39,12 @@ const t = translations[lang];
       <div class="flex flex-col gap-4">
         <dl class="space-y-3 rounded border border-linec bg-surface p-5 font-mono text-xs shadow-card">
           <div class="flex justify-between gap-4">
+            <dt class="text-faint">TARGET_MATRIX</dt>
+            <dd id="q-target" class="max-w-[60%] truncate text-right text-ink">
+              {t.engine.targetDefault}
+            </dd>
+          </div>
+          <div class="flex justify-between gap-4">
             <dt class="text-faint">PHOTON_FLUX</dt>
             <dd id="q-flux" class="text-ink">0 Γ·s⁻¹</dd>
           </div>
@@ -123,7 +129,7 @@ const t = translations[lang];
       fieldNominal: 'FELD: NOMINAL',
       fieldModulating: 'FELD: MODULIEREND',
       potentiating: 'POTENZIERUNG',
-      standbyState: 'D01 · STANDBY',
+      customSubstance: 'EIGENE SUBSTANZ',
       canvasLabel: 'FELD-MODULATION AKTIV',
       numberLocale: 'de-DE',
     },
@@ -139,7 +145,7 @@ const t = translations[lang];
       fieldNominal: 'FIELD: NOMINAL',
       fieldModulating: 'FIELD: MODULATING',
       potentiating: 'POTENTIATING',
-      standbyState: 'D01 · STANDBY',
+      customSubstance: 'OWN SUBSTANCE',
       canvasLabel: 'FIELD MODULATION ACTIVE',
       numberLocale: 'en-US',
     },
@@ -157,6 +163,7 @@ const t = translations[lang];
   const abortBtn = document.getElementById('q-abort');
   const consentBox = document.getElementById('q-consent');
   const consentBtn = document.getElementById('q-consent-accept');
+  const targetEl = document.getElementById('q-target');
   const navStatus = document.getElementById('field-status');
   const navDot = document.getElementById('field-status-dot');
 
@@ -195,6 +202,17 @@ const t = translations[lang];
   }
   if (document.documentElement.dataset.qseCalibrated === '1') unlock();
   document.addEventListener('qse:calibrated', unlock);
+
+  // Target matrix and potency, fed by the substance library (subsystem 00).
+  let potency = { prefix: 'D', num: 30, label: 'D30' };
+  let substanceName = null;
+  document.addEventListener('qse:substance', (event) => {
+    const detail = event.detail || {};
+    const match = String(detail.potency || '').match(/^([A-Z]+)(\d+)$/);
+    if (match) potency = { prefix: match[1], num: Number(match[2]), label: detail.potency };
+    substanceName = detail.custom ? null : detail.name;
+    targetEl.textContent = `${(substanceName || L.customSubstance).toUpperCase()} · ${potency.label}`;
+  });
 
   function resize() {
     const dpr = window.devicePixelRatio || 1;
@@ -341,11 +359,13 @@ const t = translations[lang];
     const load = active ? 88 + Math.random() * 11 : 2 + Math.random() * 4;
     loadEl.textContent = `${load.toFixed(0)} %`;
     if (active) {
-      const level = Math.min(30, 1 + Math.floor((performance.now() - startedAt) / 10000));
-      entropyEl.textContent = `D${String(level).padStart(2, '0')} · ${L.potentiating}`;
-      entropyBar.style.width = `${(level / 30) * 100}%`;
+      const steps = Math.min(30, potency.num);
+      const step = Math.min(steps, 1 + Math.floor((performance.now() - startedAt) / 10000));
+      const level = Math.max(1, Math.round((potency.num * step) / steps));
+      entropyEl.textContent = `${potency.prefix}${String(level).padStart(2, '0')} · ${L.potentiating}`;
+      entropyBar.style.width = `${(step / steps) * 100}%`;
     } else {
-      entropyEl.textContent = L.standbyState;
+      entropyEl.textContent = `${potency.prefix}01 · STANDBY`;
       entropyBar.style.width = '3%';
     }
   }, 250);
