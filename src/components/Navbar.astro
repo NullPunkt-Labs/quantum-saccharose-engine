@@ -1,0 +1,31 @@
+---
+const repoUrl = 'https://github.com/NullPunkt-Labs/quantum-saccharose-engine';
+---
+
+<header
+  class="sticky top-0 z-40 border-b border-void-700 bg-void-950/80 backdrop-blur"
+>
+  <div class="mx-auto flex max-w-6xl items-center justify-between px-6 py-3">
+    <a href="#top" class="group flex items-baseline gap-2">
+      <span class="text-sm font-semibold tracking-[0.2em] text-void-100">NULLPUNKT LABS</span>
+      <span class="hidden font-mono text-xs text-void-300 sm:inline group-hover:text-flux/80">
+        / quantum-saccharose-engine
+      </span>
+    </a>
+    <div class="flex items-center gap-5">
+      <div class="flex items-center gap-2 font-mono text-[11px] tracking-widest">
+        <span
+          id="field-status-dot"
+          class="h-2 w-2 animate-pulse rounded-full bg-flux shadow-flux-glow"></span>
+        <span id="field-status" class="text-void-300">FIELD: NOMINAL</span>
+      </div>
+      <a
+        href={repoUrl}
+        rel="noopener"
+        class="rounded border border-void-700 px-3 py-1.5 font-mono text-xs text-void-300 transition hover:border-flux/50 hover:text-flux"
+      >
+        GitHub ↗
+      </a>
+    </div>
+  </div>
+</header>

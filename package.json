@@ -1,0 +1,18 @@
+{
+  "name": "quantum-saccharose-engine",
+  "version": "0.1.0",
+  "description": "Quantum Field Saccharose Modulation Engine — client-side D30 potentiation for standard carbohydrate matrices.",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "@astrojs/sitemap": "3.1.6",
+    "@astrojs/tailwind": "^5.1.5",
+    "astro": "^4.16.19",
+    "tailwindcss": "^3.4.17"
+  }
+}

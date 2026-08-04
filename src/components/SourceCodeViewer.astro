@@ -1,0 +1,72 @@
+---
+import potentiatorSource from '../engine/vacuum-potentiator.ts?raw';
+import webcamSource from '../engine/webcam-resonance.ts?raw';
+
+const files = [
+  { id: 'potentiator', name: 'src/engine/vacuum-potentiator.ts', code: potentiatorSource },
+  { id: 'webcam', name: 'src/engine/webcam-resonance.ts', code: webcamSource },
+];
+---
+
+<section id="core" class="border-t border-void-700 bg-void-900/40">
+  <div class="mx-auto max-w-6xl px-6 py-20">
+    <p class="font-mono text-[11px] tracking-[0.35em] text-flux/80">
+      SUBSYSTEM 03 · OPEN CORE
+    </p>
+    <h2 class="mt-4 text-3xl font-semibold tracking-tight text-void-100 md:text-4xl">
+      Der Algorithmus. Ungeschönt.
+    </h2>
+    <p class="mt-4 max-w-2xl leading-relaxed text-void-300">
+      Vollständige Transparenz ist Teil der Nullpunkt-Philosophie: Der Kern der
+      Engine liegt offen — inklusive sämtlicher Kommentare. Lesen lohnt sich.
+    </p>
+
+    <div class="mt-10 overflow-hidden rounded border border-void-700 bg-void-950">
+      <div class="flex border-b border-void-700 bg-void-900 font-mono text-xs">
+        {
+          files.map((file, index) => (
+            <button
+              type="button"
+              data-code-tab={file.id}
+              class:list={[
+                'border-r border-void-700 px-4 py-2.5 transition hover:text-flux',
+                index === 0 ? 'bg-void-950 text-flux' : 'text-void-300',
+              ]}
+            >
+              {file.name}
+            </button>
+          ))
+        }
+      </div>
+      {
+        files.map((file, index) => (
+          <pre
+            data-code-panel={file.id}
+            class:list={[
+              'max-h-[32rem] overflow-auto p-5 font-mono text-[12px] leading-relaxed text-void-300',
+              index !== 0 && 'hidden',
+            ]}><code>{file.code}</code></pre>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<script>
+  const tabs = document.querySelectorAll('[data-code-tab]');
+  const panels = document.querySelectorAll('[data-code-panel]');
+  tabs.forEach((tab) => {
+    tab.addEventListener('click', () => {
+      const id = tab.getAttribute('data-code-tab');
+      tabs.forEach((t) => {
+        const isActive = t === tab;
+        t.classList.toggle('bg-void-950', isActive);
+        t.classList.toggle('text-flux', isActive);
+        t.classList.toggle('text-void-300', !isActive);
+      });
+      panels.forEach((p) => {
+        p.classList.toggle('hidden', p.getAttribute('data-code-panel') !== id);
+      });
+    });
+  });
+</script>

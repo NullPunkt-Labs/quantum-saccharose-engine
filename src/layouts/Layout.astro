@@ -1,0 +1,103 @@
+---
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = 'quantum-saccharose-engine — Nullpunkt Labs',
+  description =
+    'Client-seitige Quantenfeld-Modulation für Saccharose-Matrizen: D30-Potenzierung im Browser via Photonen-Emission, Monte-Carlo-Vakuumfluktuation und optischem Bio-Feld-Feedback. Ohne Cloud. Ohne Kompromisse.',
+} = Astro.props;
+
+const rawBase = import.meta.env.BASE_URL;
+const base = rawBase.endsWith('/') ? rawBase : `${rawBase}/`;
+const canonical = Astro.site ? new URL(Astro.url.pathname, Astro.site) : Astro.url;
+const repoUrl = 'https://github.com/NullPunkt-Labs/quantum-saccharose-engine';
+---
+
+<!doctype html>
+<html lang="de" class="scroll-smooth">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" type="image/svg+xml" href={`${base}favicon.svg`} />
+    <link rel="sitemap" href={`${base}sitemap-index.xml`} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Nullpunkt Labs" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:locale" content="de_DE" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="generator" content={Astro.generator} />
+  </head>
+  <body
+    class="min-h-screen bg-void-950 font-sans text-void-100 antialiased selection:bg-flux/20 selection:text-flux"
+  >
+    <div
+      class="border-b border-void-700 bg-void-900 px-4 py-1.5 text-center font-mono text-[11px] tracking-widest text-void-300"
+    >
+      OPEN SOURCE · MIT ·
+      <a href={repoUrl} class="text-flux/80 hover:text-flux" rel="noopener">
+        github.com/NullPunkt-Labs/quantum-saccharose-engine
+      </a>
+    </div>
+
+    <slot />
+
+    <footer class="border-t border-void-700 bg-void-900">
+      <div class="mx-auto max-w-6xl px-6 py-10">
+        <div class="flex flex-col gap-6 md:flex-row md:items-start md:justify-between">
+          <div>
+            <p class="font-semibold tracking-wide text-void-100">NULLPUNKT LABS</p>
+            <p class="mt-1 font-mono text-xs text-void-300">
+              Quantum Field Saccharose Modulation · Rev 0.1.0
+            </p>
+          </div>
+          <nav class="flex gap-6 font-mono text-xs text-void-300">
+            <a href={repoUrl} class="hover:text-flux" rel="noopener">GitHub</a>
+            <a href={`${repoUrl}/blob/main/LICENSE`} class="hover:text-flux" rel="noopener">
+              Lizenz (MIT)
+            </a>
+            <a
+              href={`${repoUrl}/blob/main/DISCLAIMER.md`}
+              class="hover:text-flux"
+              rel="noopener"
+            >
+              Fachinformation
+            </a>
+          </nav>
+        </div>
+        <p class="mt-8 text-[11px] leading-relaxed text-void-500">
+          © 2026 Nullpunkt Labs. Alle Messwerte werden lokal erhoben; kein Tracking, keine
+          Cookies, keine Cloud. Zu Risiken und Nebenwirkungen lesen Sie die
+          <a
+            href={`${repoUrl}/blob/main/DISCLAIMER.md`}
+            class="underline decoration-void-500 underline-offset-2 hover:text-void-300"
+            rel="noopener">Fachinformation</a
+          > oder fragen Sie Ihren Quantenphysiker.
+        </p>
+      </div>
+    </footer>
+
+    <script>
+      console.info(
+        '%c[NULLPUNKT LABS] quantum-saccharose-engine v0.1.0 — field integrity nominal.',
+        'color:#00F0FF;font-weight:bold'
+      );
+      console.info(
+        '[QUANTUM-ENGINE] Hinweis für Konsolen-Leser: EFFICACY bleibt 0.000 — der einzige ehrliche Messwert dieser Anwendung. ' +
+          'Dies ist ein satirisches Kunstprojekt; Homöopathie funktioniert nicht, und diese Engine potenziert ausschließlich Ihre Stromrechnung. ' +
+          'Der Webcam-Stream verlässt niemals Ihr Gerät. Fachinformation: ' +
+          'https://github.com/NullPunkt-Labs/quantum-saccharose-engine/blob/main/DISCLAIMER.md'
+      );
+    </script>
+  </body>
+</html>

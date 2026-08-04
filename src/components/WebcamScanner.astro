@@ -1,0 +1,258 @@
+---
+---
+
+<section id="bio-sonde" class="border-t border-void-700 bg-void-900/40">
+  <div class="mx-auto max-w-6xl px-6 py-20">
+    <p class="font-mono text-[11px] tracking-[0.35em] text-flux/80">
+      SUBSYSTEM 01 · OPTICAL RESONANCE &amp; BIO-FIELD FEEDBACK
+    </p>
+    <h2 class="mt-4 text-3xl font-semibold tracking-tight text-void-100 md:text-4xl">
+      Die Bio-Resonanz-Sonde
+    </h2>
+    <p class="mt-4 max-w-2xl leading-relaxed text-void-300">
+      Platzieren Sie Ihre Substanz — Globuli, Bachblüten, Brennnesseltee — vor der
+      Linse. Die Sonde erfasst photonische Reflexionen in Echtzeit und justiert die
+      D30-Modulationsmatrix dynamisch nach.
+    </p>
+
+    <div class="mt-10 grid gap-6 lg:grid-cols-[3fr,2fr]">
+      <div
+        class="relative aspect-[4/3] overflow-hidden rounded border border-void-700 bg-black shadow-flux-glow"
+      >
+        <video
+          id="bio-video"
+          playsinline
+          muted
+          class="absolute inset-0 h-full w-full object-cover"></video>
+        <canvas id="bio-overlay" class="absolute inset-0 h-full w-full"></canvas>
+        <div
+          id="bio-idle"
+          class="absolute inset-0 grid place-items-center bg-void-950/90 font-mono text-xs tracking-widest text-void-500"
+        >
+          SONDE OFFLINE — KALIBRIERUNG ERFORDERLICH
+        </div>
+      </div>
+
+      <div class="flex flex-col gap-4">
+        <button
+          id="bio-start"
+          class="rounded border border-flux/60 bg-flux/10 px-5 py-3 text-left font-mono text-sm tracking-wider text-flux transition hover:bg-flux/20"
+        >
+          BIO-FELD-KALIBRIERUNG STARTEN
+        </button>
+        <button
+          id="bio-stop"
+          disabled
+          class="rounded border border-void-700 px-5 py-3 text-left font-mono text-sm tracking-wider text-void-500 transition enabled:border-ultraviolet/60 enabled:text-void-100 enabled:hover:bg-ultraviolet/10 disabled:cursor-not-allowed"
+        >
+          SONDE TRENNEN
+        </button>
+
+        <dl
+          class="mt-2 space-y-2 rounded border border-void-700 bg-void-900 p-4 font-mono text-xs"
+        >
+          <div class="flex justify-between gap-4">
+            <dt class="text-void-500">STATUS</dt>
+            <dd id="bio-status" class="text-right text-void-300">Standby</dd>
+          </div>
+          <div class="flex justify-between gap-4">
+            <dt class="text-void-500">SUBSTANZ-FREQUENZ</dt>
+            <dd id="bio-freq" class="text-right text-void-100">——— THz</dd>
+          </div>
+          <div class="flex justify-between gap-4">
+            <dt class="text-void-500">FELD-CHECKSUM</dt>
+            <dd id="bio-hex" class="text-right text-void-100">0x00000000</dd>
+          </div>
+          <div class="flex justify-between gap-4">
+            <dt class="text-void-500">QUANTUM-LOCK</dt>
+            <dd id="bio-lock" class="text-right text-void-300">STANDBY</dd>
+          </div>
+        </dl>
+
+        <p class="text-[11px] leading-relaxed text-void-500">
+          Ihre Photonen und Videostreams verlassen niemals das Gerät — lokale
+          optische Resonanz-Analyse. Keine Uploads, kein Tracking.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const video = document.getElementById('bio-video');
+  const overlay = document.getElementById('bio-overlay');
+  const idle = document.getElementById('bio-idle');
+  const startBtn = document.getElementById('bio-start');
+  const stopBtn = document.getElementById('bio-stop');
+  const statusEl = document.getElementById('bio-status');
+  const freqEl = document.getElementById('bio-freq');
+  const hexEl = document.getElementById('bio-hex');
+  const lockEl = document.getElementById('bio-lock');
+
+  const octx = overlay.getContext('2d');
+  const sampler = document.createElement('canvas');
+  sampler.width = 64;
+  sampler.height = 48;
+  const sctx = sampler.getContext('2d', { willReadFrequently: true });
+
+  let stream = null;
+  let rafId = 0;
+  let sampleTimer = 0;
+  let running = false;
+  let synthetic = false;
+  let tick = 0;
+  let checksum = 0;
+  let entropyIndex = 0;
+
+  function resizeOverlay() {
+    const dpr = window.devicePixelRatio || 1;
+    overlay.width = overlay.clientWidth * dpr;
+    overlay.height = overlay.clientHeight * dpr;
+    octx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  }
+
+  function drawOverlay() {
+    if (!running) return;
+    tick++;
+    const w = overlay.clientWidth;
+    const h = overlay.clientHeight;
+    octx.clearRect(0, 0, w, h);
+
+    // matrix grid
+    octx.strokeStyle = 'rgba(0, 240, 255, 0.08)';
+    octx.lineWidth = 1;
+    for (let x = 0; x < w; x += 32) {
+      octx.beginPath();
+      octx.moveTo(x, 0);
+      octx.lineTo(x, h);
+      octx.stroke();
+    }
+    for (let y = 0; y < h; y += 32) {
+      octx.beginPath();
+      octx.moveTo(0, y);
+      octx.lineTo(w, y);
+      octx.stroke();
+    }
+
+    // sweeping scanline
+    const scanY = (tick * 2.2) % (h + 60) - 30;
+    const grad = octx.createLinearGradient(0, scanY - 24, 0, scanY + 24);
+    grad.addColorStop(0, 'rgba(0, 240, 255, 0)');
+    grad.addColorStop(0.5, 'rgba(0, 240, 255, 0.16)');
+    grad.addColorStop(1, 'rgba(0, 240, 255, 0)');
+    octx.fillStyle = grad;
+    octx.fillRect(0, scanY - 24, w, 48);
+
+    // glitch bars
+    if (tick % 7 === 0) {
+      octx.fillStyle = 'rgba(255, 255, 255, 0.04)';
+      octx.fillRect(0, Math.random() * h, w, 2 + Math.random() * 5);
+    }
+
+    // QUANTUM-LOCK bounding box (jittering around center)
+    const jx = Math.sin(tick / 17) * 9 + (Math.random() - 0.5) * 4;
+    const jy = Math.cos(tick / 23) * 7 + (Math.random() - 0.5) * 4;
+    const bw = w * 0.44;
+    const bh = h * 0.5;
+    const bx = (w - bw) / 2 + jx;
+    const by = (h - bh) / 2 + jy;
+    const corner = 18;
+    octx.strokeStyle = 'rgba(0, 240, 255, 0.85)';
+    octx.lineWidth = 1.5;
+    for (const [cx, cy, dx, dy] of [
+      [bx, by, 1, 1],
+      [bx + bw, by, -1, 1],
+      [bx, by + bh, 1, -1],
+      [bx + bw, by + bh, -1, -1],
+    ]) {
+      octx.beginPath();
+      octx.moveTo(cx + dx * corner, cy);
+      octx.lineTo(cx, cy);
+      octx.lineTo(cx, cy + dy * corner);
+      octx.stroke();
+    }
+    octx.font = '10px ui-monospace, monospace';
+    octx.fillStyle = 'rgba(0, 240, 255, 0.9)';
+    octx.fillText('QUANTUM-LOCK · D30', bx, by - 8);
+    octx.fillStyle = 'rgba(112, 0, 255, 0.9)';
+    octx.fillText(`ΔE ${(entropyIndex / 100).toFixed(4)} eV`, bx, by + bh + 16);
+
+    // fluctuating hex + frequency readouts
+    octx.fillStyle = 'rgba(230, 233, 238, 0.75)';
+    octx.fillText(`0x${((checksum ^ (tick * 2654435761)) >>> 0).toString(16).padStart(8, '0').toUpperCase()}`, 12, 20);
+    octx.fillText(`${(482.5 + Math.sin(tick / 29) * 0.8 + entropyIndex / 250).toFixed(3)} THz`, 12, h - 14);
+    octx.fillText(`FRAME ${String(tick).padStart(6, '0')}`, w - 90, 20);
+
+    rafId = requestAnimationFrame(drawOverlay);
+  }
+
+  function sampleFrame() {
+    if (!running) return;
+    let colorSum = 0;
+    if (synthetic) {
+      // universal placebo spectrum: statistically indistinguishable from Bachblüten
+      colorSum = Math.floor(Math.random() * 999999);
+    } else {
+      sctx.drawImage(video, 0, 0, sampler.width, sampler.height);
+      const frame = sctx.getImageData(0, 0, sampler.width, sampler.height);
+      // completely meaningless checksum to "prove" substance analysis
+      for (let i = 0; i < frame.data.length; i += 4) {
+        colorSum += frame.data[i] + frame.data[i + 1] + frame.data[i + 2];
+      }
+    }
+    checksum = colorSum >>> 0;
+    entropyIndex = (colorSum % 999) / 10.0;
+    freqEl.textContent = `${entropyIndex.toFixed(2)} THz`;
+    hexEl.textContent = `0x${checksum.toString(16).padStart(8, '0').toUpperCase()}`;
+    lockEl.textContent = 'LOCKED';
+    lockEl.classList.add('text-flux');
+  }
+
+  async function start() {
+    startBtn.disabled = true;
+    try {
+      stream = await navigator.mediaDevices.getUserMedia({
+        video: { width: 640, height: 480, facingMode: 'user' },
+      });
+      video.srcObject = stream;
+      await video.play();
+      synthetic = false;
+      statusEl.textContent = 'Resonanz aktiv — Substanz-Spektrum erkannt';
+      console.info('[BIOCAM] Optical resonance link established. Bachblüten spectrum detected.');
+    } catch (err) {
+      synthetic = true;
+      statusEl.textContent = 'Kamera blockiert — universelles Placebo-Spektrum geladen';
+      console.warn('[BIOCAM] Camera blocked. Falling back to default universal placebo spectrum.');
+    }
+    running = true;
+    idle.style.display = 'none';
+    stopBtn.disabled = false;
+    resizeOverlay();
+    drawOverlay();
+    sampleTimer = setInterval(sampleFrame, 500);
+  }
+
+  function stop() {
+    running = false;
+    cancelAnimationFrame(rafId);
+    clearInterval(sampleTimer);
+    if (stream) {
+      stream.getTracks().forEach((t) => t.stop());
+      stream = null;
+    }
+    video.srcObject = null;
+    octx.clearRect(0, 0, overlay.clientWidth, overlay.clientHeight);
+    idle.style.display = 'grid';
+    statusEl.textContent = 'Standby';
+    freqEl.textContent = '——— THz';
+    lockEl.textContent = 'STANDBY';
+    lockEl.classList.remove('text-flux');
+    startBtn.disabled = false;
+    stopBtn.disabled = true;
+  }
+
+  startBtn.addEventListener('click', start);
+  stopBtn.addEventListener('click', stop);
+  window.addEventListener('resize', () => running && resizeOverlay());
+  window.addEventListener('pagehide', stop);
+</script>

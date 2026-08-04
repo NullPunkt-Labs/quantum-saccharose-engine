@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://nullpunkt-labs.github.io/quantum-saccharose-engine/sitemap-index.xml
