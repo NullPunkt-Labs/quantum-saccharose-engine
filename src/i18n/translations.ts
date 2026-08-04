@@ -26,8 +26,8 @@ export const translations = {
       ],
     },
     scanner: {
-      eyebrow: 'SUBSYSTEM 01 · OPTISCHE RESONANZ & BIO-FELD-FEEDBACK',
-      h2: 'Die Bio-Resonanz-Sonde',
+      eyebrow: 'SUBSYSTEM 01 · BIO-RESONANZ-SONDE',
+      h2: 'Zeigen Sie Ihre Substanz. Den Rest erledigt das Licht.',
       body: 'Platzieren Sie Ihre Substanz — Globuli, Bachblüten, Brennnesseltee — vor der Linse. Die Sonde erfasst photonische Reflexionen in Echtzeit und justiert die D30-Modulationsmatrix dynamisch nach.',
       start: 'BIO-FELD-KALIBRIERUNG STARTEN',
       stop: 'SONDE TRENNEN',
@@ -44,7 +44,7 @@ export const translations = {
     },
     engine: {
       eyebrow: 'SUBSYSTEM 02 · VAKUUM-POTENZIATOR',
-      h2: 'Die Quantum-Saccharose-Engine',
+      h2: 'Rechenleistung, die man hören kann.',
       body: 'Der Energetische Nachweis: Monte-Carlo-Vakuumfluktuationen werden in dedizierten Rechenkanälen simuliert, bis die thermische Signatur Ihres Geräts die Potenzierung hörbar bestätigt.',
       ignite: 'FELD-MODULATION BEGINNEN',
       abort: 'POTENZIERUNG ABBRECHEN',
@@ -64,7 +64,7 @@ export const translations = {
     },
     viewer: {
       eyebrow: 'SUBSYSTEM 03 · OFFENER KERN',
-      h2: 'Der Algorithmus. Ungeschönt.',
+      h2: 'Nichts zu verbergen. Wörtlich.',
       body: 'Vollständige Transparenz ist Teil der Nullpunkt-Philosophie: Der Kern der Engine liegt offen — inklusive sämtlicher Kommentare. Lesen lohnt sich.',
     },
     footer: {
@@ -107,8 +107,8 @@ export const translations = {
       ],
     },
     scanner: {
-      eyebrow: 'SUBSYSTEM 01 · OPTICAL RESONANCE & BIO-FIELD FEEDBACK',
-      h2: 'The Bio-Resonance Probe',
+      eyebrow: 'SUBSYSTEM 01 · BIO-RESONANCE PROBE',
+      h2: 'Show us your substance. Light does the rest.',
       body: 'Place your substance — sugar globules, Bach flower remedies, nettle tea — in front of the lens. The probe captures photonic reflections in real time and dynamically re-adjusts the D30 modulation matrix.',
       start: 'START BIO-FIELD CALIBRATION',
       stop: 'DISCONNECT PROBE',
@@ -125,7 +125,7 @@ export const translations = {
     },
     engine: {
       eyebrow: 'SUBSYSTEM 02 · VACUUM POTENTIATOR',
-      h2: 'The Quantum Saccharose Engine',
+      h2: 'Computing power you can hear.',
       body: 'The energetic proof of work: Monte-Carlo vacuum fluctuations are simulated in dedicated compute channels until the thermal signature of your device audibly confirms potentiation.',
       ignite: 'IGNITE FIELD MODULATION',
       abort: 'ABORT POTENTIATION',
@@ -145,7 +145,7 @@ export const translations = {
     },
     viewer: {
       eyebrow: 'SUBSYSTEM 03 · OPEN CORE',
-      h2: 'The Algorithm. Unvarnished.',
+      h2: 'Nothing to hide. Literally.',
       body: 'Full transparency is part of the Nullpunkt philosophy: the core of the engine is open — including every single comment. Reading it is worth your time.',
     },
     footer: {

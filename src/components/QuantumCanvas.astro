@@ -10,22 +10,28 @@ const t = translations[lang];
 ---
 
 <section id="engine" class="scroll-mt-14 border-t border-linec">
-  <div class="mx-auto max-w-6xl px-6 py-20">
-    <p data-reveal class="font-mono text-[11px] tracking-[0.35em] text-ultraviolet">
-      {t.engine.eyebrow}
-    </p>
-    <h2
-      data-reveal
-      style="--reveal-delay: 90ms"
-      class="mt-4 text-3xl font-semibold tracking-tight text-ink md:text-4xl"
-    >
-      {t.engine.h2}
-    </h2>
-    <p data-reveal style="--reveal-delay: 180ms" class="mt-4 max-w-2xl leading-relaxed text-muted">
-      {t.engine.body}
-    </p>
+  <div class="mx-auto max-w-6xl px-6 py-24 md:py-32">
+    <div class="text-center">
+      <p data-reveal class="font-mono text-[11px] tracking-[0.35em] text-ultraviolet">
+        {t.engine.eyebrow}
+      </p>
+      <h2
+        data-reveal
+        style="--reveal-delay: 90ms"
+        class="mx-auto mt-6 max-w-3xl text-3xl font-semibold leading-tight tracking-tight text-ink md:text-5xl"
+      >
+        {t.engine.h2}
+      </h2>
+      <p
+        data-reveal
+        style="--reveal-delay: 180ms"
+        class="mx-auto mt-6 max-w-2xl leading-relaxed text-muted"
+      >
+        {t.engine.body}
+      </p>
+    </div>
 
-    <div data-reveal style="--reveal-delay: 270ms" class="mt-10 grid gap-6 lg:grid-cols-[3fr,2fr]">
+    <div data-reveal style="--reveal-delay: 270ms" class="mt-14 grid gap-6 lg:grid-cols-[3fr,2fr]">
       <div class="relative overflow-hidden rounded border border-linec bg-inset shadow-card">
         <canvas id="q-canvas" class="block h-96 w-full"></canvas>
       </div>

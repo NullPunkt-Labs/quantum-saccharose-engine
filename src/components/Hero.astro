@@ -15,7 +15,9 @@ const t = translations[lang];
     style="background-image:
       linear-gradient(to right, var(--grid-color) 1px, transparent 1px),
       linear-gradient(to bottom, var(--grid-color) 1px, transparent 1px);
-      background-size: 48px 48px;"
+      background-size: 48px 48px;
+      mask-image: radial-gradient(ellipse 80% 60% at 50% 40%, black 40%, transparent 100%);
+      -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 40%, black 40%, transparent 100%);"
   >
   </div>
   <div
@@ -23,12 +25,12 @@ const t = translations[lang];
   >
   </div>
 
-  <div class="relative mx-auto max-w-6xl px-6 pb-24 pt-24 md:pt-32">
+  <div class="relative mx-auto max-w-6xl px-6 pb-28 pt-28 text-center md:pb-36 md:pt-40">
     <p data-reveal class="font-mono text-[11px] tracking-[0.35em] text-flux">{t.hero.eyebrow}</p>
     <h1
       data-reveal
       style="--reveal-delay: 90ms"
-      class="mt-6 max-w-3xl text-4xl font-semibold leading-tight tracking-tight text-ink md:text-6xl"
+      class="mx-auto mt-8 max-w-4xl text-5xl font-semibold leading-[1.05] tracking-tight text-ink md:text-7xl"
     >
       {t.hero.h1[0]}<br />
       {t.hero.h1[1]}<br />
@@ -37,21 +39,25 @@ const t = translations[lang];
     <p
       data-reveal
       style="--reveal-delay: 180ms"
-      class="mt-8 max-w-2xl text-base leading-relaxed text-muted md:text-lg"
+      class="mx-auto mt-8 max-w-2xl text-base leading-relaxed text-muted md:text-lg"
     >
       {t.hero.sub}
     </p>
 
-    <div data-reveal style="--reveal-delay: 270ms" class="mt-10 flex flex-wrap gap-4">
+    <div
+      data-reveal
+      style="--reveal-delay: 270ms"
+      class="mt-12 flex flex-wrap justify-center gap-4"
+    >
       <a
         href="#bio-sonde"
-        class="rounded border border-flux/60 bg-flux/10 px-6 py-3 font-mono text-sm tracking-wider text-flux shadow-flux-glow transition hover:bg-flux/20"
+        class="rounded-full border border-flux/60 bg-flux/10 px-8 py-3.5 font-mono text-sm tracking-wider text-flux shadow-flux-glow transition hover:bg-flux/20"
       >
         {t.hero.ctaScanner}
       </a>
       <a
         href="#engine"
-        class="rounded border border-linec px-6 py-3 font-mono text-sm tracking-wider text-muted transition hover:border-ultraviolet/60 hover:text-ink"
+        class="rounded-full border border-linec px-8 py-3.5 font-mono text-sm tracking-wider text-muted transition hover:border-ultraviolet/60 hover:text-ink"
       >
         {t.hero.ctaEngine}
       </a>
@@ -60,7 +66,7 @@ const t = translations[lang];
     <dl
       data-reveal
       style="--reveal-delay: 360ms"
-      class="mt-16 grid max-w-3xl grid-cols-2 gap-px overflow-hidden rounded border border-linec bg-linec font-mono text-xs shadow-card md:grid-cols-4"
+      class="mx-auto mt-24 grid max-w-3xl grid-cols-2 gap-px overflow-hidden rounded-xl border border-linec bg-linec font-mono text-xs shadow-card md:grid-cols-4"
     >
       {
         t.hero.stats.map((stat) => (

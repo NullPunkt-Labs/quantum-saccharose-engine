@@ -88,10 +88,10 @@ const repoUrl = 'https://github.com/NullPunkt-Labs/quantum-saccharose-engine';
       /* Scroll reveal — only when JS is available, honors reduced motion. */
       html.js [data-reveal] {
         opacity: 0;
-        transform: translateY(28px);
+        transform: translateY(36px) scale(0.985);
         transition:
-          opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1) var(--reveal-delay, 0ms),
-          transform 0.8s cubic-bezier(0.16, 1, 0.3, 1) var(--reveal-delay, 0ms);
+          opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1) var(--reveal-delay, 0ms),
+          transform 0.9s cubic-bezier(0.16, 1, 0.3, 1) var(--reveal-delay, 0ms);
         will-change: opacity, transform;
       }
       html.js [data-reveal].is-revealed {
@@ -231,7 +231,7 @@ const repoUrl = 'https://github.com/NullPunkt-Labs/quantum-saccharose-engine';
         bg.width = window.innerWidth * dpr;
         bg.height = window.innerHeight * dpr;
         bctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-        const count = Math.min(90, Math.round((window.innerWidth * window.innerHeight) / 22000));
+        const count = Math.min(120, Math.round((window.innerWidth * window.innerHeight) / 15000));
         dots = Array.from({ length: count }, () => ({
           x: Math.random() * window.innerWidth,
           y: Math.random() * window.innerHeight,
@@ -262,7 +262,7 @@ const repoUrl = 'https://github.com/NullPunkt-Labs/quantum-saccharose-engine';
             const dy = a.y - b.y;
             const d2 = dx * dx + dy * dy;
             if (d2 < BG_LINK * BG_LINK) {
-              const alpha = (1 - Math.sqrt(d2) / BG_LINK) * 0.06;
+              const alpha = (1 - Math.sqrt(d2) / BG_LINK) * 0.14;
               bctx.strokeStyle =
                 a.violet || b.violet ? `rgb(${purple} / ${alpha})` : `rgb(${cyan} / ${alpha})`;
               bctx.lineWidth = 1;
@@ -275,9 +275,9 @@ const repoUrl = 'https://github.com/NullPunkt-Labs/quantum-saccharose-engine';
         }
 
         for (const d of dots) {
-          bctx.fillStyle = d.violet ? `rgb(${purple} / 0.22)` : `rgb(${cyan} / 0.22)`;
+          bctx.fillStyle = d.violet ? `rgb(${purple} / 0.45)` : `rgb(${cyan} / 0.45)`;
           bctx.beginPath();
-          bctx.arc(d.x, d.y, 1.4, 0, Math.PI * 2);
+          bctx.arc(d.x, d.y, 1.7, 0, Math.PI * 2);
           bctx.fill();
         }
 
