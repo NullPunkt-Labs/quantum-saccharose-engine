@@ -20,6 +20,7 @@ const canonical = Astro.site ? new URL(Astro.url.pathname, Astro.site) : Astro.u
 const deUrl = Astro.site ? new URL(`${base}${altDePath}`, Astro.site) : `${base}${altDePath}`;
 const enUrl = Astro.site ? new URL(`${base}${altEnPath}`, Astro.site) : `${base}${altEnPath}`;
 const repoUrl = 'https://github.com/NullPunkt-Labs/quantum-saccharose-engine';
+const leafletUrl = `${repoUrl}/blob/main/DISCLAIMER.md${lang === 'en' ? '#english' : '#deutsch'}`;
 ---
 
 <!doctype html>
@@ -140,11 +141,7 @@ const repoUrl = 'https://github.com/NullPunkt-Labs/quantum-saccharose-engine';
             <a href={`${repoUrl}/blob/main/LICENSE`} class="hover:text-flux" rel="noopener">
               {t.footer.license}
             </a>
-            <a
-              href={`${repoUrl}/blob/main/DISCLAIMER.md`}
-              class="hover:text-flux"
-              rel="noopener"
-            >
+            <a href={leafletUrl} class="hover:text-flux" rel="noopener">
               {t.footer.leaflet}
             </a>
           </nav>
@@ -163,7 +160,7 @@ const repoUrl = 'https://github.com/NullPunkt-Labs/quantum-saccharose-engine';
           <span>
             {t.footer.smallprint}
             <a
-              href={`${repoUrl}/blob/main/DISCLAIMER.md`}
+              href={leafletUrl}
               class="underline decoration-linec underline-offset-2 hover:text-muted"
               rel="noopener">{t.footer.smallprintLink}</a
             >
@@ -189,11 +186,11 @@ const repoUrl = 'https://github.com/NullPunkt-Labs/quantum-saccharose-engine';
           ? '[QUANTUM-ENGINE] Note for console readers: EFFICACY stays at 0.000 — the only honest metric in this application. ' +
               'This is a satirical art project; homeopathy does not work, and this engine potentiates nothing but your electricity bill. ' +
               'The webcam stream never leaves your device. Package leaflet: ' +
-              'https://github.com/NullPunkt-Labs/quantum-saccharose-engine/blob/main/DISCLAIMER.md'
+              'https://github.com/NullPunkt-Labs/quantum-saccharose-engine/blob/main/DISCLAIMER.md#english'
           : '[QUANTUM-ENGINE] Hinweis für Konsolen-Leser: EFFICACY bleibt 0.000 — der einzige ehrliche Messwert dieser Anwendung. ' +
               'Dies ist ein satirisches Kunstprojekt; Homöopathie funktioniert nicht, und diese Engine potenziert ausschließlich Ihre Stromrechnung. ' +
               'Der Webcam-Stream verlässt niemals Ihr Gerät. Fachinformation: ' +
-              'https://github.com/NullPunkt-Labs/quantum-saccharose-engine/blob/main/DISCLAIMER.md'
+              'https://github.com/NullPunkt-Labs/quantum-saccharose-engine/blob/main/DISCLAIMER.md#deutsch'
       );
 
       // Hidden field polarity inverter. Finding it is part of the therapy.
