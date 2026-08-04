@@ -29,6 +29,10 @@ Kein Backend. Keine Cloud. Keine Kompromisse. Keine Wirkung.
   automatisches Timeout nach dem homöopathischen Halbzyklus (5 min).
 - **Live-HUD-Telemetrie** — `PHOTON_FLUX`, `ENTROPY_STATE` (D1–D30),
   `CORE_LOAD` und der einzige ehrliche Messwert: `EFFICACY: 0.000`.
+- **Präparat-Sharing** — Hash-Links im URL-Fragment (öffentlich oder privat;
+  privat zusätzlich Ende-zu-Ende-AES-GCM-verschlüsselt, Schlüssel nur im
+  Link), optional mit Creator-Handle für Community-Shares. Gespeichert wird
+  dabei: nichts. Es gibt keinen Server.
 
 ### Entwicklung
 
@@ -84,6 +88,10 @@ No backend. No cloud. No compromises. No effect.
   timeout after the homeopathic half-cycle (5 min).
 - **Live HUD telemetry** — `PHOTON_FLUX`, `ENTROPY_STATE` (D1–D30),
   `CORE_LOAD`, and the only honest metric on the page: `EFFICACY: 0.000`.
+- **Preparation sharing** — hash links in the URL fragment (public or
+  private; private additionally end-to-end AES-GCM encrypted, key in the
+  link only), optionally with a creator handle for community shares.
+  Amount of data stored: none. There is no server.
 
 ### Development
 

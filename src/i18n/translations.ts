@@ -40,6 +40,15 @@ export const translations = {
       groupBeta: 'Biochemie nach Dr. Schüssler — BETA',
       betaLabel:
         'Vorabzugang zu kommenden Potenzierungen aktivieren — Biochemisches Beta-Programm (Schüssler-Salze Nr. 1–27)',
+      shareLabel: 'PRÄPARAT TEILEN (HASH-LINK)',
+      creatorPlaceholder: 'creator-handle (optional)',
+      sharePublic: 'ÖFFENTLICH TEILEN',
+      sharePrivate: 'PRIVAT TEILEN',
+      shareNote:
+        'ÖFFENTLICH: Das Präparat darf gefunden, katalogisiert und künftig in der Galerie angezeigt werden (siehe Roadmap). PRIVAT: nur über den nicht erratbaren Link erreichbar und zusätzlich Ende-zu-Ende-AES-GCM-verschlüsselt — der Schlüssel steht ausschließlich im URL-Fragment und wird technisch bedingt niemals an einen Server übertragen (an unseren schon gar nicht, wir haben keinen). Übertragene Wirkung in beiden Fällen: 0.000.',
+      galleryLabel: 'MEINE GETEILTEN PRÄPARATE (LOKALE GALERIE)',
+      galleryNote:
+        'Diese Galerie existiert ausschließlich in Ihrem Browser (localStorage). Ihre Präparate erreichen zu keinem Zeitpunkt unseren Server — wir hätten auch keinen. Private Präparate erscheinen aus Diskretionsgründen nicht einmal hier.',
     },
     scanner: {
       eyebrow: 'SUBSYSTEM 01 · BIO-RESONANZ-SONDE',
@@ -138,6 +147,15 @@ export const translations = {
       groupBeta: 'Biochemistry after Dr. Schüssler — BETA',
       betaLabel:
         'Enable early access to upcoming potentiations — biochemical beta program (Schüssler salts Nos. 1–27)',
+      shareLabel: 'SHARE PREPARATION (HASH LINK)',
+      creatorPlaceholder: 'creator handle (optional)',
+      sharePublic: 'SHARE PUBLICLY',
+      sharePrivate: 'SHARE PRIVATELY',
+      shareNote:
+        'PUBLIC: the preparation may be found, cataloged, and eventually displayed in the gallery (see roadmap). PRIVATE: reachable only via the unguessable link and additionally end-to-end AES-GCM encrypted — the key lives exclusively in the URL fragment and is, by technical necessity, never transmitted to any server (least of all ours; we do not have one). Transferred efficacy in both cases: 0.000.',
+      galleryLabel: 'MY SHARED PREPARATIONS (LOCAL GALLERY)',
+      galleryNote:
+        'This gallery exists exclusively in your browser (localStorage). Your preparations never reach our server at any point — we would not have one anyway. Private preparations, for reasons of discretion, do not even appear here.',
     },
     scanner: {
       eyebrow: 'SUBSYSTEM 01 · BIO-RESONANCE PROBE',

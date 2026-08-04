@@ -93,7 +93,50 @@ const t = translations[lang];
       >
         {t.library.readoutIdle}
       </p>
-      <p class="mt-3 text-[10px] leading-relaxed text-faint/80">{t.library.note}</p>
+
+      <div class="mt-6">
+        <span class="font-mono text-[11px] tracking-widest text-faint">
+          {t.library.shareLabel}
+        </span>
+        <div class="mt-2 flex flex-wrap items-center gap-2">
+          <input
+            id="lib-creator"
+            type="text"
+            maxlength="24"
+            placeholder={t.library.creatorPlaceholder}
+            class="w-56 rounded-full border border-linec bg-page px-4 py-2 font-mono text-xs text-ink placeholder:text-faint/70 focus:border-flux/60 focus:outline-none"
+          />
+          <button
+            id="lib-share-public"
+            type="button"
+            class="rounded-full border border-flux/60 bg-flux/10 px-4 py-2 font-mono text-xs tracking-wider text-flux transition hover:bg-flux/20"
+          >
+            {t.library.sharePublic}
+          </button>
+          <button
+            id="lib-share-private"
+            type="button"
+            class="rounded-full border border-ultraviolet/60 bg-ultraviolet/10 px-4 py-2 font-mono text-xs tracking-wider text-ultraviolet transition hover:bg-ultraviolet/20"
+          >
+            {t.library.sharePrivate}
+          </button>
+        </div>
+        <input
+          id="lib-share-link"
+          readonly
+          hidden
+          class="mt-3 w-full rounded-lg border border-linec bg-page px-3 py-2 font-mono text-[11px] text-muted focus:border-flux/60 focus:outline-none"
+        />
+        <p class="mt-3 text-[10px] leading-relaxed text-faint/80">{t.library.shareNote}</p>
+
+        <div id="lib-gallery" hidden class="mt-6">
+          <span class="font-mono text-[11px] tracking-widest text-faint">
+            {t.library.galleryLabel}
+          </span>
+          <ul id="lib-gallery-list" class="mt-2 space-y-1.5"></ul>
+          <p class="mt-2 text-[10px] leading-relaxed text-faint/80">{t.library.galleryNote}</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -105,11 +148,33 @@ const t = translations[lang];
         `AKTIVE MATRIX: ${n} · ${p} — Referenz-Spektrum geladen, Kalibrierung übersprungen.`,
       custom: (p) =>
         `AKTIVE MATRIX: Eigene Substanz · ${p} — Kalibrierung über Subsystem 01 erforderlich.`,
+      customName: 'Eigene Substanz',
+      copiedPublic:
+        'Öffentlicher Präparat-Link kopiert — darf gefunden, katalogisiert und ausgestellt werden. Übertragene Wirkung: 0.000.',
+      copiedPrivate:
+        'Privater Präparat-Link kopiert — Ende-zu-Ende-AES-GCM-verschlüsselt, Schlüssel nur im Fragment. So sicher wie wirkungslos.',
+      received: (n, p) =>
+        `PRÄPARAT EMPFANGEN: ${n} · ${p} — lokal rekonstruiert. Keine Daten wurden gespeichert. Kein Wirkstoff wurde übertragen.`,
+      receivedPrivate: (n, p) =>
+        `PRIVATES PRÄPARAT ENTSCHLÜSSELT: ${n} · ${p} — AES-GCM verifiziert, lokal rekonstruiert. Keine Daten wurden gespeichert. Kein Wirkstoff wurde übertragen.`,
+      communityTag: (h) => ` Community-Share für @${h}.`,
+      sharedBy: (h) => ` · Geteilt von @${h} für die Community.`,
     },
     en: {
       loaded: (n, p) =>
         `ACTIVE MATRIX: ${n} · ${p} — reference spectrum loaded, calibration skipped.`,
       custom: (p) => `ACTIVE MATRIX: Own substance · ${p} — calibration via subsystem 01 required.`,
+      customName: 'Own substance',
+      copiedPublic:
+        'Public preparation link copied — may be found, cataloged, and exhibited. Transferred efficacy: 0.000.',
+      copiedPrivate:
+        'Private preparation link copied — end-to-end AES-GCM encrypted, key lives in the fragment only. As secure as it is ineffective.',
+      received: (n, p) =>
+        `PREPARATION RECEIVED: ${n} · ${p} — reconstructed locally. No data was stored. No active ingredient was transferred.`,
+      receivedPrivate: (n, p) =>
+        `PRIVATE PREPARATION DECRYPTED: ${n} · ${p} — AES-GCM verified, reconstructed locally. No data was stored. No active ingredient was transferred.`,
+      communityTag: (h) => ` Community share for @${h}.`,
+      sharedBy: (h) => ` · Shared by @${h} for the community.`,
     },
   };
   const L = STRINGS[document.documentElement.lang === 'en' ? 'en' : 'de'];
@@ -119,7 +184,18 @@ const t = translations[lang];
   const potencyBtns = document.querySelectorAll('#lib-potencies [data-potency]');
   const betaToggle = document.getElementById('lib-beta');
   const betaGroup = document.getElementById('lib-beta-group');
+  const sharePublicBtn = document.getElementById('lib-share-public');
+  const sharePrivateBtn = document.getElementById('lib-share-private');
+  const linkField = document.getElementById('lib-share-link');
+  const creatorField = document.getElementById('lib-creator');
+  const creatorHandle = () =>
+    (creatorField.value || '').toLowerCase().replace(/[^a-z0-9_-]/g, '').slice(0, 24);
   let potency = 'D30';
+
+  // Stable catalog order for hash links — captured before the beta group detaches.
+  const CATALOG = Array.from(select.querySelectorAll('option'), (o) => o.value);
+  const BETA_VALUES = Array.from(betaGroup.querySelectorAll('option'), (o) => o.value);
+  const POT = Array.from(potencyBtns, (b) => b.getAttribute('data-potency'));
 
   // The beta program stays invisible until early access is activated.
   // Without JavaScript, everyone is a beta tester — a known upstream feature.
@@ -128,8 +204,7 @@ const t = translations[lang];
     if (betaToggle.checked) {
       select.appendChild(betaGroup);
     } else {
-      const betaValues = Array.from(betaGroup.querySelectorAll('option'), (o) => o.value);
-      if (betaValues.includes(select.value)) {
+      if (BETA_VALUES.includes(select.value)) {
         select.value = '__custom';
         announce();
       }
@@ -168,4 +243,157 @@ const t = translations[lang];
       announce();
     });
   });
+
+  // --- Preparation sharing. The fragment never reaches any server; ours least of all.
+  const toHex = (bytes) => Array.from(bytes, (b) => b.toString(16).padStart(2, '0')).join('');
+  const fromHex = (hex) => new Uint8Array(hex.match(/../g).map((h) => parseInt(h, 16)));
+  const randomHex = (chars) => {
+    const bytes = new Uint8Array(chars / 2);
+    crypto.getRandomValues(bytes);
+    return toHex(bytes);
+  };
+
+  function currentPayload() {
+    return {
+      idx: Math.max(0, CATALOG.indexOf(select.value)),
+      pIdx: Math.max(0, POT.indexOf(potency)),
+    };
+  }
+
+  function presentLink(link, message) {
+    linkField.value = link;
+    linkField.hidden = false;
+    navigator.clipboard?.writeText(link).catch(() => {});
+    readout.textContent = message;
+  }
+
+  // Local gallery: public shares only, localStorage only. Private shares do
+  // not even appear in your own gallery — discretion is absolute.
+  const GALLERY_KEY = 'qse-gallery';
+  const galleryBox = document.getElementById('lib-gallery');
+  const galleryList = document.getElementById('lib-gallery-list');
+
+  function readGallery() {
+    try {
+      return JSON.parse(localStorage.getItem(GALLERY_KEY)) || [];
+    } catch {
+      return [];
+    }
+  }
+
+  function renderGallery() {
+    const entries = readGallery();
+    galleryBox.hidden = entries.length === 0;
+    galleryList.innerHTML = '';
+    for (const entry of entries) {
+      const li = document.createElement('li');
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className =
+        'w-full truncate rounded-lg border border-linec bg-inset/60 px-3 py-2 text-left font-mono text-[11px] text-muted transition hover:border-flux/50 hover:text-flux';
+      btn.textContent = `${entry.n} · ${entry.p}${entry.via ? ` · @${entry.via}` : ''} — ${new Date(entry.t).toLocaleDateString()}`;
+      btn.title = entry.l;
+      btn.addEventListener('click', () => {
+        navigator.clipboard?.writeText(entry.l).catch(() => {});
+        linkField.value = entry.l;
+        linkField.hidden = false;
+      });
+      li.appendChild(btn);
+      galleryList.appendChild(li);
+    }
+  }
+
+  function addToGallery(name, pot, via, link) {
+    const entries = readGallery();
+    entries.unshift({ n: name, p: pot, via, l: link, t: Date.now() });
+    try {
+      localStorage.setItem(GALLERY_KEY, JSON.stringify(entries.slice(0, 10)));
+    } catch {}
+    renderGallery();
+  }
+
+  sharePublicBtn.addEventListener('click', () => {
+    const { idx, pIdx } = currentPayload();
+    const via = creatorHandle();
+    const hash =
+      randomHex(44) + idx.toString(16).padStart(2, '0') + pIdx.toString(16) + '0';
+    const link = `${location.origin}${location.pathname}#rx=${hash}${via ? `~${via}` : ''}`;
+    presentLink(link, L.copiedPublic + (via ? L.communityTag(via) : ''));
+    addToGallery(idx === 0 ? L.customName : CATALOG[idx], POT[pIdx], via, link);
+  });
+
+  sharePrivateBtn.addEventListener('click', async () => {
+    const { idx, pIdx } = currentPayload();
+    const key = await crypto.subtle.generateKey({ name: 'AES-GCM', length: 128 }, true, [
+      'encrypt',
+    ]);
+    const iv = crypto.getRandomValues(new Uint8Array(12));
+    const ciphertext = await crypto.subtle.encrypt(
+      { name: 'AES-GCM', iv },
+      key,
+      new Uint8Array([idx, pIdx])
+    );
+    const rawKey = await crypto.subtle.exportKey('raw', key);
+    const via = creatorHandle();
+    const hash = toHex(iv) + toHex(new Uint8Array(ciphertext)) + toHex(new Uint8Array(rawKey));
+    presentLink(
+      `${location.origin}${location.pathname}#rxp=${hash}${via ? `~${via}` : ''}`,
+      L.copiedPrivate + (via ? L.communityTag(via) : '')
+    );
+  });
+
+  async function applyIncomingLink() {
+    const plain = location.hash.match(/^#rx=([0-9a-fA-F]{48})(?:~([a-z0-9_-]{1,24}))?$/);
+    const encrypted = location.hash.match(/^#rxp=([0-9a-fA-F]{92})(?:~([a-z0-9_-]{1,24}))?$/);
+    const via = (plain && plain[2]) || (encrypted && encrypted[2]) || '';
+    let idx;
+    let pIdx;
+    let isPrivate = false;
+
+    if (plain) {
+      const payload = plain[1].slice(-4);
+      idx = parseInt(payload.slice(0, 2), 16);
+      pIdx = parseInt(payload.charAt(2), 16);
+    } else if (encrypted) {
+      isPrivate = true;
+      try {
+        const h = encrypted[1];
+        const key = await crypto.subtle.importKey(
+          'raw',
+          fromHex(h.slice(60)),
+          'AES-GCM',
+          false,
+          ['decrypt']
+        );
+        const data = new Uint8Array(
+          await crypto.subtle.decrypt(
+            { name: 'AES-GCM', iv: fromHex(h.slice(0, 24)) },
+            key,
+            fromHex(h.slice(24, 60))
+          )
+        );
+        idx = data[0];
+        pIdx = data[1];
+      } catch {
+        return;
+      }
+    } else {
+      return;
+    }
+
+    if (!(idx >= 0 && idx < CATALOG.length && pIdx >= 0 && pIdx < POT.length)) return;
+    if (BETA_VALUES.includes(CATALOG[idx])) {
+      betaToggle.checked = true;
+      select.appendChild(betaGroup);
+    }
+    select.value = CATALOG[idx];
+    potencyBtns[pIdx].click();
+    const name = idx === 0 ? L.customName : CATALOG[idx];
+    readout.textContent =
+      (isPrivate ? L.receivedPrivate : L.received)(name, POT[pIdx]) +
+      (via ? L.sharedBy(via) : '');
+  }
+
+  applyIncomingLink();
+  renderGallery();
 </script>
