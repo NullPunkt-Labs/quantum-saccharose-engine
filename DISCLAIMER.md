@@ -10,7 +10,7 @@
 **Wirkstoff:** Saccharose, potenziert (D30)
 **Darreichungsform:** Statische Website
 **Wirkung:** Keine.
-**Nebenwirkungen:** Lüfterrauschen, thermisches Throttling, messbar erhöhte Stromrechnung, spontanes Stirnrunzeln bei Physikern.
+**Nebenwirkungen:** Lüfterrauschen, thermisches Throttling, messbar erhöhte Stromrechnung, spontanes Stirnrunzeln bei Physikern, lachinduzierte Flüssigkeits-Emission (bei Fachpublikum, siehe Abschnitt 3).
 
 ### 1. Keine Heilversprechen
 
@@ -37,6 +37,20 @@ Akkulaufzeit, thermisches Throttling, vorzeitige Hardware-Alterung oder in
 Bildschirmnähe geschmolzene Globuli. **Use at your own risk.** Wer den
 Zünd-Button drückt, tut dies in voller Kenntnis der Sinnlosigkeit des dadurch
 ausgelösten Rechenvorgangs.
+
+**Lachinduzierte Flüssigkeits-Emission (LIFE):** Bei technisch vorgebildeten
+Anwendern kann die Lektüre dieser Dokumentation, des Quellcodes oder der
+Roadmap zu unkontrollierter oraler Dispersion von Heißgetränken, Bier oder
+sonstigen Flüssigkeiten im Wirkradius des Anzeigegeräts führen
+(Spontan-Ejektion nach Erkennen der Pointe). Nullpunkt Labs übernimmt
+keinerlei Haftung für hierdurch verursachte Schäden an Tastaturen,
+Bildschirmen, Touchpads oder mitlesenden Kollegen. Empfohlen wird, Getränke
+während der Lektüre in einem Mindestabstand von zwei Metern zu lagern
+(analog zur Kaffeemühlen-Sicherheitszone) und vor jedem Absatzwechsel
+vollständig zu schlucken. Die Emissionswahrscheinlichkeit korreliert
+nachweislich positiv mit der Fachkenntnis der lesenden Person — LIFE ist
+damit nach der Stromrechnung der zweite real messbare Effekt dieses
+Projekts.
 
 ### 4. Kein Scam, kein Verkauf, keine Datensammlung
 
@@ -95,7 +109,7 @@ Sie Ihren Quantenphysiker.*
 **Active ingredient:** Saccharose, potentiated (D30)
 **Dosage form:** Static website
 **Effect:** None.
-**Side effects:** Fan noise, thermal throttling, measurably increased electricity bill, spontaneous frowning among physicists.
+**Side effects:** Fan noise, thermal throttling, measurably increased electricity bill, spontaneous frowning among physicists, laughter-induced fluid emission (in expert audiences, see section 3).
 
 ### 1. No promises of healing
 
@@ -122,6 +136,19 @@ battery life, thermal throttling, premature hardware aging, or globules
 melted in the vicinity of your screen. **Use at your own risk.** Whoever
 presses the ignition button does so in full knowledge of the pointlessness of
 the computation thereby triggered.
+
+**Laughter-Induced Fluid Emission (LIFE):** In technically literate users,
+reading this documentation, the source code, or the roadmap may cause
+uncontrolled oral dispersion of hot beverages, beer, or other fluids within
+the effective radius of the display device (spontaneous ejection upon
+punchline recognition). Nullpunkt Labs accepts no liability whatsoever for
+resulting damage to keyboards, screens, touchpads, or colleagues reading
+along. It is recommended to store beverages at a minimum distance of two
+meters while reading (analogous to the coffee-grinder safety zone) and to
+swallow completely before each paragraph transition. Emission probability
+demonstrably correlates positively with the reader's technical expertise —
+making LIFE, after the electricity bill, the second measurably real effect
+of this project.
 
 ### 4. No scam, no sales, no data collection
 
