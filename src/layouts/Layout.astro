@@ -271,7 +271,7 @@ const leafletUrl = `${repoUrl}/blob/main/DISCLAIMER.md${lang === 'en' ? '#englis
             const dy = a.y - b.y;
             const d2 = dx * dx + dy * dy;
             if (d2 < BG_LINK * BG_LINK) {
-              const alpha = (1 - Math.sqrt(d2) / BG_LINK) * 0.2;
+              const alpha = (1 - Math.sqrt(d2) / BG_LINK) * 0.18;
               bctx.strokeStyle =
                 a.violet || b.violet ? `rgb(${purple} / ${alpha})` : `rgb(${cyan} / ${alpha})`;
               bctx.lineWidth = 1;
@@ -284,7 +284,7 @@ const leafletUrl = `${repoUrl}/blob/main/DISCLAIMER.md${lang === 'en' ? '#englis
         }
 
         for (const d of dots) {
-          bctx.fillStyle = d.violet ? `rgb(${purple} / 0.65)` : `rgb(${cyan} / 0.65)`;
+          bctx.fillStyle = d.violet ? `rgb(${purple} / 0.58)` : `rgb(${cyan} / 0.58)`;
           bctx.beginPath();
           bctx.arc(d.x, d.y, 1.9, 0, Math.PI * 2);
           bctx.fill();
