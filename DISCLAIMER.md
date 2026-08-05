@@ -41,8 +41,9 @@ ausgelösten Rechenvorgangs.
 **Lachinduzierte Flüssigkeits-Emission (LIFE):** Bei technisch vorgebildeten
 Anwendern kann die Lektüre dieser Dokumentation, des Quellcodes oder der
 Roadmap zu unkontrollierter oraler Dispersion von Heißgetränken, Bier oder
-sonstigen Flüssigkeiten im Wirkradius des Anzeigegeräts führen
-(Spontan-Ejektion nach Erkennen der Pointe). Nullpunkt Labs übernimmt
+sonstigen Flüssigkeiten im Wirkradius des Anzeigegeräts führen —
+klinisch klassifiziert als Spontan-Ejektion nach Kognitiver
+Trigger-Erkennung (SEKT). Nullpunkt Labs übernimmt
 keinerlei Haftung für hierdurch verursachte Schäden an Tastaturen,
 Bildschirmen, Touchpads oder mitlesenden Kollegen. Empfohlen wird, Getränke
 während der Lektüre in einem Mindestabstand von zwei Metern zu lagern
@@ -140,8 +141,9 @@ the computation thereby triggered.
 **Laughter-Induced Fluid Emission (LIFE):** In technically literate users,
 reading this documentation, the source code, or the roadmap may cause
 uncontrolled oral dispersion of hot beverages, beer, or other fluids within
-the effective radius of the display device (spontaneous ejection upon
-punchline recognition). Nullpunkt Labs accepts no liability whatsoever for
+the effective radius of the display device — clinically classified as
+Abrupt Liquid Ejection (ALE) upon cognitive trigger recognition.
+Nullpunkt Labs accepts no liability whatsoever for
 resulting damage to keyboards, screens, touchpads, or colleagues reading
 along. It is recommended to store beverages at a minimum distance of two
 meters while reading (analogous to the coffee-grinder safety zone) and to
