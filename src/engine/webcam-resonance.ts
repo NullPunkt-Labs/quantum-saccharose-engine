@@ -2,7 +2,8 @@
  * Subsystem: Optical Resonance & Bio-Field Feedback (Webcam Capture)
  * Description: Captures real-time photonic reflections from physical
  * homeopathic substances (e.g., Bachblüten, Brennnesseltee) via local
- * camera hardware to dynamically adjust the D30 modulation matrix.
+ * camera hardware to dynamically adjust the modulation matrix of the
+ * selected target potency (D6 through C200).
  *
  * Privacy note (the only serious line in this file): the video stream
  * never leaves the device. No uploads, no tracking, no analytics.

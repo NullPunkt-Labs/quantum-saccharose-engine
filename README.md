@@ -10,8 +10,8 @@
 
 Client-seitige Hochfrequenz-Photonen-Emission und
 Monte-Carlo-Vakuumfluktuations-Simulation zur Induktion entropischer
-D30-Zustandsänderungen in handelsüblichen Kohlenhydrat-Matrizen, die
-senkrecht zum Viewport platziert werden.
+Zustandsänderungen (D6 bis C200) in handelsüblichen Kohlenhydrat-Matrizen,
+die senkrecht zum Viewport platziert werden.
 
 Kein Backend. Keine Cloud. Keine Kompromisse. Keine Wirkung.
 
@@ -27,8 +27,9 @@ Kein Backend. Keine Cloud. Keine Kompromisse. Keine Wirkung.
 - **Vacuum Potentiator** — Web-Worker-basierter CPU-Belastungs-Loop
   ("Energetischer Nachweis"). Strikt opt-in, unübersehbarer Notaus,
   automatisches Timeout nach dem homöopathischen Halbzyklus (5 min).
-- **Live-HUD-Telemetrie** — `PHOTON_FLUX`, `ENTROPY_STATE` (D1–D30),
-  `CORE_LOAD` und der einzige ehrliche Messwert: `EFFICACY: 0.000`.
+- **Live-HUD-Telemetrie** — `PHOTON_FLUX`, `ENTROPY_STATE` (D1 bis zur
+  gewählten Ziel-Potenz, max. C200), `CORE_LOAD` und der einzige ehrliche
+  Messwert: `EFFICACY: 0.000`.
 - **Präparat-Sharing** — Hash-Links im URL-Fragment (öffentlich oder privat;
   privat zusätzlich Ende-zu-Ende-AES-GCM-verschlüsselt, Schlüssel nur im
   Link), optional mit Creator-Handle für Community-Shares. Gespeichert wird
@@ -69,8 +70,9 @@ oder fragen Sie Ihren Quantenphysiker.*
 ## English
 
 Client-side high-frequency photon emission and Monte-Carlo vacuum
-fluctuation simulation to induce D30 homeopathic entropic state changes
-onto standard carbohydrate matrices placed perpendicular to the viewport.
+fluctuation simulation to induce homeopathic entropic state changes
+(D6 through C200) onto standard carbohydrate matrices placed
+perpendicular to the viewport.
 
 No backend. No cloud. No compromises. No effect.
 
@@ -86,8 +88,9 @@ No backend. No cloud. No compromises. No effect.
 - **Vacuum Potentiator** — web-worker-based CPU load loop ("energetic
   proof of work"). Strictly opt-in, unmissable emergency stop, automatic
   timeout after the homeopathic half-cycle (5 min).
-- **Live HUD telemetry** — `PHOTON_FLUX`, `ENTROPY_STATE` (D1–D30),
-  `CORE_LOAD`, and the only honest metric on the page: `EFFICACY: 0.000`.
+- **Live HUD telemetry** — `PHOTON_FLUX`, `ENTROPY_STATE` (D1 up to the
+  selected target potency, max. C200), `CORE_LOAD`, and the only honest
+  metric on the page: `EFFICACY: 0.000`.
 - **Preparation sharing** — hash links in the URL fragment (public or
   private; private additionally end-to-end AES-GCM encrypted, key in the
   link only), optionally with a creator handle for community shares.

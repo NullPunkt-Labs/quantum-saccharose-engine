@@ -5,12 +5,13 @@
  *
  * Description:
  * Implements client-side high-frequency photon emission and Monte-Carlo
- * vacuum fluctuation simulation to induce D30 homeopathic entropic state
- * changes onto standard carbohydrate matrices placed perpendicular to the viewport.
+ * vacuum fluctuation simulation to induce homeopathic entropic state
+ * changes (D6 through C200) onto standard carbohydrate matrices placed
+ * perpendicular to the viewport.
  */
 
 interface QuantumConfig {
-  targetPotency: 'D1' | 'D12' | 'D30' | 'C100';
+  targetPotency: 'D6' | 'D12' | 'D30' | 'C30' | 'C200';
   photonFrequencyHz: number;
   thermalCpuLoadIntensity: number;
 }

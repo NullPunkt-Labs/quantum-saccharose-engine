@@ -329,7 +329,9 @@ const t = translations[lang];
     navStatus.classList.add('text-flux');
     navDot.classList.replace('bg-flux', 'bg-ultraviolet');
     timeoutId = setTimeout(() => abort(L.halfCycleDone), HALF_CYCLE_MS);
-    console.info('[QUANTUM-ENGINE] Initializing field modulation for target: D30');
+    console.info(
+      `[QUANTUM-ENGINE] Initializing field modulation for target: ${potency.label}`
+    );
   }
 
   function abort(message) {

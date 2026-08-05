@@ -6,7 +6,7 @@ export const translations = {
     meta: {
       title: 'quantum-saccharose-engine — Nullpunkt Labs',
       description:
-        'Client-seitige Quantenfeld-Modulation für Saccharose-Matrizen: D30-Potenzierung im Browser via Photonen-Emission, Monte-Carlo-Vakuumfluktuation und optischem Bio-Feld-Feedback. Ohne Cloud. Ohne Kompromisse.',
+        'Client-seitige Quantenfeld-Modulation für Saccharose-Matrizen: Potenzierung von D6 bis C200 im Browser via Photonen-Emission, Monte-Carlo-Vakuumfluktuation und optischem Bio-Feld-Feedback. Ohne Cloud. Ohne Kompromisse.',
     },
     nav: {
       fieldNominal: 'FELD: NOMINAL',
@@ -16,12 +16,12 @@ export const translations = {
     hero: {
       eyebrow: 'QUANTUM FIELD SACCHAROSE MODULATION · REV 0.1',
       h1: ['Potenzierung.', 'Client-seitig.', 'Kompromisslos.'],
-      sub: 'Die quantum-saccharose-engine induziert entropische D30-Zustandsänderungen in handelsüblichen Kohlenhydrat-Matrizen — direkt im Browser. Hochfrequente Photonen-Emission, Monte-Carlo-Vakuumfluktuation und optisches Bio-Feld-Feedback. Ohne Cloud. Ohne Latenz. Ohne Wirkung über den bekannten Referenzeffekt hinaus.',
+      sub: 'Die quantum-saccharose-engine induziert entropische Zustandsänderungen von D6 bis C200 in handelsüblichen Kohlenhydrat-Matrizen — direkt im Browser. Hochfrequente Photonen-Emission, Monte-Carlo-Vakuumfluktuation und optisches Bio-Feld-Feedback. Ohne Cloud. Ohne Latenz. Ohne Wirkung über den bekannten Referenzeffekt hinaus.',
       ctaScanner: 'BIO-FELD KALIBRIEREN',
       ctaEngine: 'FELD-MODULATION BEGINNEN →',
       stats: [
         { label: 'OPTISCHES BAND', value: '482.5 THz' },
-        { label: 'ENTROPIE-BEREICH', value: 'D1 – D30' },
+        { label: 'ENTROPIE-BEREICH', value: 'D6 – C200' },
         { label: 'CLOUD-ABHÄNGIGKEITEN', value: '0' },
         { label: 'WIRKSAMKEIT', value: '0.000' },
       ],
@@ -55,7 +55,7 @@ export const translations = {
     scanner: {
       eyebrow: 'SUBSYSTEM 01 · BIO-RESONANZ-SONDE',
       h2: 'Zeigen Sie Ihre Substanz. Den Rest erledigt das Licht.',
-      body: 'Platzieren Sie Ihre Substanz — Globuli, Bachblüten, Brennnesseltee — vor der Linse. Die Sonde erfasst photonische Reflexionen in Echtzeit und justiert die D30-Modulationsmatrix dynamisch nach.',
+      body: 'Platzieren Sie Ihre Substanz — Globuli, Bachblüten, Brennnesseltee — vor der Linse. Die Sonde erfasst photonische Reflexionen in Echtzeit und justiert die Modulationsmatrix der gewählten Ziel-Potenz dynamisch nach.',
       start: 'BIO-FELD-KALIBRIERUNG STARTEN',
       stop: 'SONDE TRENNEN',
       idle: 'SONDE OFFLINE — KALIBRIERUNG ERFORDERLICH',
@@ -116,7 +116,7 @@ export const translations = {
     meta: {
       title: 'quantum-saccharose-engine — Nullpunkt Labs',
       description:
-        'Client-side quantum field modulation for saccharose matrices: in-browser D30 potentiation via photon emission, Monte-Carlo vacuum fluctuation, and optical bio-field feedback. No cloud. No compromises.',
+        'Client-side quantum field modulation for saccharose matrices: in-browser potentiation from D6 through C200 via photon emission, Monte-Carlo vacuum fluctuation, and optical bio-field feedback. No cloud. No compromises.',
     },
     nav: {
       fieldNominal: 'FIELD: NOMINAL',
@@ -126,12 +126,12 @@ export const translations = {
     hero: {
       eyebrow: 'QUANTUM FIELD SACCHAROSE MODULATION · REV 0.1',
       h1: ['Potentiation.', 'Client-side.', 'Uncompromising.'],
-      sub: 'The quantum-saccharose-engine induces entropic D30 state changes in standard carbohydrate matrices — directly in your browser. High-frequency photon emission, Monte-Carlo vacuum fluctuation, and optical bio-field feedback. No cloud. No latency. No effect beyond the well-known reference effect.',
+      sub: 'The quantum-saccharose-engine induces entropic state changes from D6 through C200 in standard carbohydrate matrices — directly in your browser. High-frequency photon emission, Monte-Carlo vacuum fluctuation, and optical bio-field feedback. No cloud. No latency. No effect beyond the well-known reference effect.',
       ctaScanner: 'CALIBRATE BIO-FIELD',
       ctaEngine: 'IGNITE FIELD MODULATION →',
       stats: [
         { label: 'OPTICAL BAND', value: '482.5 THz' },
-        { label: 'ENTROPY RANGE', value: 'D1 – D30' },
+        { label: 'ENTROPY RANGE', value: 'D6 – C200' },
         { label: 'CLOUD DEPS', value: '0' },
         { label: 'EFFICACY', value: '0.000' },
       ],
@@ -165,7 +165,7 @@ export const translations = {
     scanner: {
       eyebrow: 'SUBSYSTEM 01 · BIO-RESONANCE PROBE',
       h2: 'Show us your substance. Light does the rest.',
-      body: 'Place your substance — sugar globules, Bach flower remedies, nettle tea — in front of the lens. The probe captures photonic reflections in real time and dynamically re-adjusts the D30 modulation matrix.',
+      body: 'Place your substance — sugar globules, Bach flower remedies, nettle tea — in front of the lens. The probe captures photonic reflections in real time and dynamically re-adjusts the modulation matrix of the selected target potency.',
       start: 'START BIO-FIELD CALIBRATION',
       stop: 'DISCONNECT PROBE',
       idle: 'PROBE OFFLINE — CALIBRATION REQUIRED',
