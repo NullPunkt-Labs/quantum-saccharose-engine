@@ -69,7 +69,8 @@ daher auch kommerziell genutzt werden. Nach dem Vorbild von Vims
 Charityware-Modell gilt zusätzlich:
 
 > Wer mit dieser Engine oder Ableitungen davon Geld verdient, wird
-> eindringlich gebeten, **90 % der damit erzielten Gewinne an die GWUP e.V.**
+> eindringlich gebeten, **90 % der damit direkt oder indirekt erzielten
+> Bruttoumsätze an die GWUP e.V.**
 > (Gesellschaft zur wissenschaftlichen Untersuchung von Parawissenschaften,
 > https://www.gwup.org) zu spenden.
 >
@@ -167,7 +168,8 @@ may therefore be used commercially. Following the model of Vim's charityware
 license, the following applies in addition:
 
 > Whoever earns money with this engine or derivatives thereof is urgently
-> requested to donate **90% of the resulting profits to GWUP e.V.**
+> requested to donate **90% of all directly or indirectly generated gross
+> revenues to GWUP e.V.**
 > (Gesellschaft zur wissenschaftlichen Untersuchung von Parawissenschaften,
 > https://www.gwup.org) or a comparable skeptics organization.
 >
