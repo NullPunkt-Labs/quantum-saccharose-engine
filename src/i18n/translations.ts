@@ -49,6 +49,8 @@ export const translations = {
       galleryLabel: 'MEINE GETEILTEN PRÄPARATE (LOKALE GALERIE)',
       galleryNote:
         'Diese Galerie existiert ausschließlich in Ihrem Browser (localStorage). Ihre Präparate erreichen zu keinem Zeitpunkt unseren Server — wir hätten auch keinen. Private Präparate erscheinen aus Diskretionsgründen nicht einmal hier.',
+      drmNote:
+        'Deflationäre Tokenomics: Jeder Link trägt ein Dosis-Kontingent von 4 Potenzierungen (Client-Side-DRM für Zero-Efficacy-Assets). Das Kontingent wird ausschließlich auf dem Gerät des Empfängers geführt.',
     },
     scanner: {
       eyebrow: 'SUBSYSTEM 01 · BIO-RESONANZ-SONDE',
@@ -103,6 +105,7 @@ export const translations = {
       ],
       license: 'Lizenz (MIT)',
       leaflet: 'Fachinformation',
+      privacy: 'Datenschutz',
       smallprint:
         '© 2026 Nullpunkt Labs. Alle Messwerte werden lokal erhoben; kein Tracking, keine Cookies, keine Cloud. Zu Risiken und Nebenwirkungen lesen Sie die',
       smallprintLink: 'Fachinformation',
@@ -156,6 +159,8 @@ export const translations = {
       galleryLabel: 'MY SHARED PREPARATIONS (LOCAL GALLERY)',
       galleryNote:
         'This gallery exists exclusively in your browser (localStorage). Your preparations never reach our server at any point — we would not have one anyway. Private preparations, for reasons of discretion, do not even appear here.',
+      drmNote:
+        'Deflationary tokenomics: every link carries a dose quota of 4 potentiations (client-side DRM for zero-efficacy assets). The quota is maintained exclusively on the recipient’s device.',
     },
     scanner: {
       eyebrow: 'SUBSYSTEM 01 · BIO-RESONANCE PROBE',
@@ -210,6 +215,7 @@ export const translations = {
       ],
       license: 'License (MIT)',
       leaflet: 'Package leaflet',
+      privacy: 'Privacy',
       smallprint:
         '© 2026 Nullpunkt Labs. All measurements are taken locally; no tracking, no cookies, no cloud. For risks and side effects, read the',
       smallprintLink: 'package leaflet',

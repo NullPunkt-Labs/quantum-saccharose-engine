@@ -150,6 +150,12 @@ const leafletUrl = `${repoUrl}/blob/main/DISCLAIMER.md${lang === 'en' ? '#englis
             <a href={leafletUrl} class="hover:text-flux" rel="noopener">
               {t.footer.leaflet}
             </a>
+            <a
+              href={`${base}${lang === 'en' ? 'en/privacy/' : 'datenschutz/'}`}
+              class="hover:text-flux"
+            >
+              {t.footer.privacy}
+            </a>
           </nav>
         </div>
         <details class="mt-8 rounded border border-linec bg-inset/60">

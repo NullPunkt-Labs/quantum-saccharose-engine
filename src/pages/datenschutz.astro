@@ -1,0 +1,80 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+
+const rawBase = import.meta.env.BASE_URL;
+const base = rawBase.endsWith('/') ? rawBase : `${rawBase}/`;
+
+const sections = [
+  {
+    title: '1. Verantwortlicher',
+    body: 'Nullpunkt Labs AG, Zug (Schweiz) — ein satirisches Kunstprojekt. Kontakt über das GitHub-Repository NullPunkt-Labs/quantum-saccharose-engine.',
+  },
+  {
+    title: '2. Was wir erheben: nichts',
+    body: 'Diese Website betreibt kein Tracking, setzt keine Cookies, lädt keine Analytics, keine Werbenetzwerke, keine externen Fonts und keine Drittanbieter-Skripte. Es existiert kein eigener Server, keine Datenbank und kein Login. Wir könnten Ihre Daten nicht einmal speichern, wenn wir wollten — und wir wollen nicht.',
+  },
+  {
+    title: '3. Webcam (Bio-Resonanz-Sonde)',
+    body: 'Der Kamerazugriff ist strikt opt-in und wird ausschließlich lokal in Ihrem Browser verarbeitet. Der Videostream verlässt zu keinem Zeitpunkt Ihr Gerät: keine Uploads, keine Speicherung, keine Übertragung. Die „Analyse" ist eine lokal berechnete, dokumentiert bedeutungslose Pixel-Prüfsumme. Mit dem Trennen der Sonde oder dem Schließen des Tabs ist der Stream beendet.',
+  },
+  {
+    title: '4. Lokaler Speicher (localStorage)',
+    body: 'Ihr Browser speichert lokal: die Theme-Wahl (Feld-Polarität), Ihre lokale Präparat-Galerie sowie die Dosis-Kontingente geteilter Links (Client-Side-DRM). Diese Daten liegen ausschließlich auf Ihrem Gerät, werden von uns weder ausgelesen noch übertragen und lassen sich jederzeit über die Browser-Einstellungen löschen. Präparat-Links selbst tragen ihre Daten im URL-Fragment — dieses wird technisch bedingt niemals an einen Webserver übertragen.',
+  },
+  {
+    title: '5. Hosting (GitHub Pages)',
+    body: 'Diese Website wird von GitHub Pages (GitHub, Inc., USA) ausgeliefert. GitHub erfasst beim Seitenabruf technisch bedingt die IP-Adressen der Besucher und speichert sie zu Sicherheitszwecken (Schutz vor Missbrauch, DDoS-Abwehr) in Server-Logs. Auf diese Verarbeitung haben wir keinen Einfluss; Details regelt die GitHub Privacy Statement (https://docs.github.com/site-policy/privacy-policies/github-privacy-statement). Das ist der einzige Punkt dieser Erklärung, an dem überhaupt Daten fließen — und es sind nicht unsere.',
+  },
+  {
+    title: '6. Ihre Rechte',
+    body: 'Da wir keine personenbezogenen Daten verarbeiten, laufen Auskunfts-, Berichtigungs- und Löschansprüche uns gegenüber ins Leere — es gibt nichts, worüber wir Auskunft geben könnten. Für die Server-Logs des Hostings wenden Sie sich an GitHub. Ihr lokaler Speicher gehört Ihnen; löschen Sie ihn nach Belieben. Ihre Photonenströme sowieso.',
+  },
+];
+---
+
+<Layout
+  lang="de"
+  title="Datenschutzerklärung — Nullpunkt Labs"
+  description="Datenschutz bei der quantum-saccharose-engine: Wir erheben nichts. Kein Tracking, keine Cookies, kein Server. GitHub Pages als Hoster protokolliert IP-Adressen zu Sicherheitszwecken."
+  altDePath="datenschutz/"
+  altEnPath="en/privacy/"
+>
+  <Navbar lang="de" deHref={`${base}datenschutz/`} enHref={`${base}en/privacy/`} />
+  <main class="mx-auto max-w-4xl px-6 py-20">
+    <p data-reveal class="font-mono text-[11px] tracking-[0.35em] text-flux">
+      NULLPUNKT LABS AG · COMPLIANCE &amp; BIO-CHECK
+    </p>
+    <h1
+      data-reveal
+      style="--reveal-delay: 90ms"
+      class="mt-4 text-4xl font-semibold tracking-tight text-ink md:text-5xl"
+    >
+      Datenschutzerklärung
+    </h1>
+    <p
+      data-reveal
+      style="--reveal-delay: 180ms"
+      class="mt-6 max-w-2xl leading-relaxed text-muted"
+    >
+      Die kürzeste Datenschutzerklärung der Branche wäre: „Wir haben keine
+      Daten." Der Vollständigkeit halber — geprüft von unserer Head of
+      Compliance &amp; Bio-Check — hier die lange Fassung.
+    </p>
+
+    <div class="mt-12 space-y-6">
+      {
+        sections.map((s) => (
+          <section data-reveal class="rounded-xl border border-linec bg-surface p-6 shadow-card">
+            <h2 class="font-mono text-xs tracking-widest text-ink">{s.title}</h2>
+            <p class="mt-3 text-sm leading-relaxed text-muted">{s.body}</p>
+          </section>
+        ))
+      }
+    </div>
+
+    <p class="mt-14 border-t border-linec pt-6 text-center font-mono text-[11px] text-faint">
+      Stand: August 2026 · Erfasste personenbezogene Daten seit Projektstart: 0.000
+    </p>
+  </main>
+</Layout>
