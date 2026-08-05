@@ -16,6 +16,7 @@ const deHref = Astro.props.deHref ?? base;
 const enHref = Astro.props.enHref ?? `${base}en/`;
 const aboutHref = lang === 'en' ? `${base}en/about/` : `${base}ueber-uns/`;
 const roadmapHref = lang === 'en' ? `${base}en/roadmap/` : `${base}roadmap/`;
+const leafletHref = lang === 'en' ? `${base}en/leaflet/` : `${base}fachinformation/`;
 const homeHref = lang === 'en' ? `${base}en/` : base;
 const repoUrl = 'https://github.com/NullPunkt-Labs/quantum-saccharose-engine';
 ---
@@ -40,6 +41,12 @@ const repoUrl = 'https://github.com/NullPunkt-Labs/quantum-saccharose-engine';
         class="hidden font-mono text-xs text-muted transition hover:text-flux sm:inline"
       >
         {t.nav.roadmap}
+      </a>
+      <a
+        href={leafletHref}
+        class="hidden font-mono text-xs text-muted transition hover:text-flux md:inline"
+      >
+        {t.nav.leaflet}
       </a>
       <a href={aboutHref} class="font-mono text-xs text-muted transition hover:text-flux">
         {t.nav.about}

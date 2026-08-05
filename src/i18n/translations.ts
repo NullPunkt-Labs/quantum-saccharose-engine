@@ -12,6 +12,7 @@ export const translations = {
       fieldNominal: 'FELD: NOMINAL',
       about: 'Über uns',
       roadmap: 'Roadmap',
+      leaflet: 'Fachinformation',
     },
     hero: {
       eyebrow: 'QUANTUM FIELD SACCHAROSE MODULATION · REV 0.1',
@@ -122,6 +123,7 @@ export const translations = {
       fieldNominal: 'FIELD: NOMINAL',
       about: 'About us',
       roadmap: 'Roadmap',
+      leaflet: 'Leaflet',
     },
     hero: {
       eyebrow: 'QUANTUM FIELD SACCHAROSE MODULATION · REV 0.1',

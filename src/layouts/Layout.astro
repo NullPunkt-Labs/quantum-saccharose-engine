@@ -20,7 +20,7 @@ const canonical = Astro.site ? new URL(Astro.url.pathname, Astro.site) : Astro.u
 const deUrl = Astro.site ? new URL(`${base}${altDePath}`, Astro.site) : `${base}${altDePath}`;
 const enUrl = Astro.site ? new URL(`${base}${altEnPath}`, Astro.site) : `${base}${altEnPath}`;
 const repoUrl = 'https://github.com/NullPunkt-Labs/quantum-saccharose-engine';
-const leafletUrl = `${repoUrl}/blob/main/DISCLAIMER.md${lang === 'en' ? '#english' : '#deutsch'}`;
+const leafletUrl = `${base}${lang === 'en' ? 'en/leaflet/' : 'fachinformation/'}`;
 ---
 
 <!doctype html>
@@ -148,7 +148,7 @@ const leafletUrl = `${repoUrl}/blob/main/DISCLAIMER.md${lang === 'en' ? '#englis
             <a href={`${repoUrl}/blob/main/LICENSE`} class="hover:text-flux" rel="noopener">
               {t.footer.license}
             </a>
-            <a href={leafletUrl} class="hover:text-flux" rel="noopener">
+            <a href={leafletUrl} class="hover:text-flux">
               {t.footer.leaflet}
             </a>
             <a
@@ -175,7 +175,7 @@ const leafletUrl = `${repoUrl}/blob/main/DISCLAIMER.md${lang === 'en' ? '#englis
             <a
               href={leafletUrl}
               class="underline decoration-linec underline-offset-2 hover:text-muted"
-              rel="noopener">{t.footer.smallprintLink}</a
+              >{t.footer.smallprintLink}</a
             >
             {t.footer.smallprintEnd}
           </span>

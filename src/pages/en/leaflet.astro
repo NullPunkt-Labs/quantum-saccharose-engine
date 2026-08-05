@@ -1,0 +1,118 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/Navbar.astro';
+
+const rawBase = import.meta.env.BASE_URL;
+const base = rawBase.endsWith('/') ? rawBase : `${rawBase}/`;
+const repoUrl = 'https://github.com/NullPunkt-Labs/quantum-saccharose-engine';
+const qsblUrl = `${repoUrl}/blob/main/LICENSE.md`;
+const licenseUrl = `${repoUrl}/blob/main/LICENSE`;
+
+const facts = [
+  ['Preparation', 'quantum-saccharose-engine'],
+  ['Active ingredient', 'Saccharose, potentiated (D30, factory default)'],
+  ['Dosage form', 'Static website'],
+  ['Effect', 'None.'],
+  [
+    'Side effects',
+    'Fan noise, thermal throttling, measurably increased electricity bill, spontaneous frowning among physicists, laughter-induced fluid emission (in expert audiences, see section 3).',
+  ],
+];
+
+const sections = [
+  {
+    title: '1. No promises of healing',
+    html: 'This project makes <strong>no promises whatsoever of healing, efficacy, or health benefits</strong>. It is not a medical device, not a health app, and no substitute for medical diagnosis or treatment. For real complaints: a real doctor. No globules. No website. Not even this one.',
+  },
+  {
+    title: '2. No medical effect',
+    html: 'Nothing about this project has any therapeutic effect. Neither the "photon emission" of your screen nor the "Monte-Carlo vacuum fluctuation" of your CPU changes the properties of sugar globules, Bach flower remedies, or nettle tea. No methodologically sound study has ever demonstrated effects of homeopathy beyond placebo. <code>EFFICACY: 0.000</code> in the telemetry is the only honest metric in this application.',
+  },
+  {
+    title: '3. No Warranty for Hardware Failures',
+    html: 'THE FIELD MODULATION LOOP IS PROVIDED "AS IS". The "energetic proof of work" deliberately loads your CPU (opt-in, with an emergency stop and a 5-minute timeout). Nullpunkt Labs assumes <strong>no warranty whatsoever</strong> for fan bearings, battery life, thermal throttling, premature hardware aging, or globules melted in the vicinity of your screen. <strong>Use at your own risk.</strong> Whoever presses the ignition button does so in full knowledge of the pointlessness of the computation thereby triggered.<br><br><strong>Laughter-Induced Fluid Emission (LIFE):</strong> In technically literate users, reading this documentation, the source code, or the roadmap may cause uncontrolled oral dispersion of hot beverages, beer, or other fluids within the effective radius of the display device — clinically classified as Abrupt Liquid Ejection (ALE) upon cognitive trigger recognition. Nullpunkt Labs accepts no liability whatsoever for resulting damage to keyboards, screens, touchpads, or colleagues reading along. It is recommended to store beverages at a minimum distance of two meters while reading (analogous to the coffee-grinder safety zone) and to swallow completely before each paragraph transition. Emission probability demonstrably correlates positively with the reader’s technical expertise — making LIFE, after the electricity bill, the second measurably real effect of this project.',
+  },
+  {
+    title: '4. No scam, no sales, no data collection',
+    html: 'This project <strong>sells nothing, collects no data, and intends to deceive no one</strong>. The source code is fully open. The webcam stream of the "bio-resonance probe" never leaves your device: no uploads, no tracking, no cookies, no analytics. The entire "analysis" is a locally computed, meaningless pixel checksum — and that is exactly what the code comment says.',
+  },
+  {
+    title: '5. Public Rationality Dividend (charityware clause)',
+    html: `This project is MIT-licensed and may therefore be used commercially. Following the model of Vim's charityware license, the following applies in addition: whoever earns money with this engine or derivatives thereof is urgently requested to donate <strong>90% of the resulting profits to GWUP&nbsp;e.V.</strong> (Gesellschaft zur wissenschaftlichen Untersuchung von Parawissenschaften, <a href="https://www.gwup.org" rel="noopener">gwup.org</a>) or a comparable skeptics organization. Under the MIT License, this clause is <strong>legally unenforceable</strong>. Morally, it is absolute. Whoever uses this engine commercially without donating knows what they did. The full text of the morally binding companion license can be found in the <a href="${qsblUrl}" rel="noopener">QUANTUM SOURCE AND BENEFIT LICENSE (QSBL)</a>.`,
+  },
+  {
+    title: '6. License',
+    html: `MIT. The license text in <a href="${licenseUrl}" rel="noopener">LICENSE</a> is unchanged and verbatim — unlike everything else this website claims.`,
+  },
+  {
+    title: '7. Satirical art project',
+    html: 'And now for the actual diagnosis: this project is a <strong>satirical art project</strong>. Homeopathy does not work. This code potentiates nothing but your electricity bill. And it has no effect beyond placebo — the only clinically proven exception being your electricity bill, where the effect is real and measurable.<br><br>The site deliberately presents itself in dead earnest. That is part of the joke. If you have read this far: congratulations, you belong to the people who read the fine print to the very end. It was written precisely for you.',
+  },
+];
+---
+
+<Layout
+  lang="en"
+  title="Package Leaflet — quantum-saccharose-engine"
+  description="Package leaflet of the quantum-saccharose-engine: active ingredient saccharose D30, effect none, side effects fan noise and laughter-induced fluid emission. Full disclosure including section 7."
+  altDePath="fachinformation/"
+  altEnPath="en/leaflet/"
+>
+  <Navbar lang="en" deHref={`${base}fachinformation/`} enHref={`${base}en/leaflet/`} />
+  <main class="mx-auto max-w-4xl px-6 py-20">
+    <p data-reveal class="font-mono text-[11px] tracking-[0.35em] text-flux">
+      NULLPUNKT LABS AG · COMPLIANCE &amp; BIO-CHECK
+    </p>
+    <h1
+      data-reveal
+      style="--reveal-delay: 90ms"
+      class="mt-4 text-4xl font-semibold tracking-tight text-ink md:text-5xl"
+    >
+      Package Leaflet
+    </h1>
+    <p data-reveal style="--reveal-delay: 180ms" class="mt-3 font-mono text-sm text-muted">
+      Fachinformation · Rev 0.1.2
+    </p>
+
+    <dl
+      data-reveal
+      style="--reveal-delay: 270ms"
+      class="mt-10 space-y-3 rounded-xl border border-linec bg-surface p-6 font-mono text-xs shadow-card"
+    >
+      {
+        facts.map(([k, v]) => (
+          <div class="grid gap-1 sm:grid-cols-[11rem,1fr]">
+            <dt class="text-faint">{k.toUpperCase()}</dt>
+            <dd class="leading-relaxed text-ink">{v}</dd>
+          </div>
+        ))
+      }
+    </dl>
+
+    <div class="mt-10 space-y-6">
+      {
+        sections.map((s) => (
+          <section data-reveal class="rounded-xl border border-linec bg-surface p-6 shadow-card">
+            <h2 class="font-mono text-xs tracking-widest text-ink">{s.title.toUpperCase()}</h2>
+            <p
+              class="mt-3 text-sm leading-relaxed text-muted [&_a]:text-flux [&_a]:underline [&_a]:decoration-linec [&_a]:underline-offset-2 [&_code]:font-mono [&_strong]:text-ink"
+              set:html={s.html}
+            />
+          </section>
+        ))
+      }
+    </div>
+
+    <p class="mt-10 text-center text-[11px] leading-relaxed text-faint">
+      Canonical version: <a
+        href={`${repoUrl}/blob/main/DISCLAIMER.md#english`}
+        class="underline decoration-linec underline-offset-2 hover:text-muted"
+        rel="noopener">DISCLAIMER.md</a
+      > in the repository.
+    </p>
+    <p class="mt-8 border-t border-linec pt-6 text-center font-mono text-[11px] italic text-faint">
+      For risks and side effects, read this package leaflet or ask your quantum
+      physicist.
+    </p>
+  </main>
+</Layout>
