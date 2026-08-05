@@ -114,6 +114,7 @@ const leafletUrl = `${repoUrl}/blob/main/DISCLAIMER.md${lang === 'en' ? '#englis
     <canvas
       id="bg-matrix"
       class="pointer-events-none fixed inset-0 -z-10 h-full w-full"
+      style="mask-image: linear-gradient(to right, black 0%, black 15%, rgb(0 0 0 / 0.88) 38%, rgb(0 0 0 / 0.88) 62%, black 85%, black 100%); -webkit-mask-image: linear-gradient(to right, black 0%, black 15%, rgb(0 0 0 / 0.88) 38%, rgb(0 0 0 / 0.88) 62%, black 85%, black 100%);"
       aria-hidden="true"></canvas>
     <div
       class="border-b border-linec bg-surface px-4 py-1.5 text-center font-mono text-[11px] tracking-widest text-muted"
@@ -271,7 +272,7 @@ const leafletUrl = `${repoUrl}/blob/main/DISCLAIMER.md${lang === 'en' ? '#englis
             const dy = a.y - b.y;
             const d2 = dx * dx + dy * dy;
             if (d2 < BG_LINK * BG_LINK) {
-              const alpha = (1 - Math.sqrt(d2) / BG_LINK) * 0.18;
+              const alpha = (1 - Math.sqrt(d2) / BG_LINK) * 0.2;
               bctx.strokeStyle =
                 a.violet || b.violet ? `rgb(${purple} / ${alpha})` : `rgb(${cyan} / ${alpha})`;
               bctx.lineWidth = 1;
@@ -284,7 +285,7 @@ const leafletUrl = `${repoUrl}/blob/main/DISCLAIMER.md${lang === 'en' ? '#englis
         }
 
         for (const d of dots) {
-          bctx.fillStyle = d.violet ? `rgb(${purple} / 0.58)` : `rgb(${cyan} / 0.58)`;
+          bctx.fillStyle = d.violet ? `rgb(${purple} / 0.65)` : `rgb(${cyan} / 0.65)`;
           bctx.beginPath();
           bctx.arc(d.x, d.y, 1.9, 0, Math.PI * 2);
           bctx.fill();
