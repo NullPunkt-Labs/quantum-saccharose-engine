@@ -146,44 +146,44 @@ const t = translations[lang];
   const STRINGS = {
     de: {
       loaded: (n, p) =>
-        `AKTIVE MATRIX: ${n} · ${p} — Referenz-Spektrum geladen, Kalibrierung übersprungen.`,
+        `AKTIVE MATRIX: ${n} · ${p}, Referenz-Spektrum geladen, Kalibrierung übersprungen.`,
       custom: (p) =>
-        `AKTIVE MATRIX: Eigene Substanz · ${p} — Kalibrierung über Subsystem 01 erforderlich.`,
+        `AKTIVE MATRIX: Eigene Substanz · ${p}, Kalibrierung über Subsystem 01 erforderlich.`,
       customName: 'Eigene Substanz',
       copiedPublic:
-        'Öffentlicher Präparat-Link kopiert — darf gefunden, katalogisiert und ausgestellt werden. Übertragene Wirkung: 0.000.',
+        'Öffentlicher Präparat-Link kopiert, darf gefunden, katalogisiert und ausgestellt werden. Übertragene Wirkung: 0.000.',
       copiedPrivate:
-        'Privater Präparat-Link kopiert — Ende-zu-Ende-AES-GCM-verschlüsselt, Schlüssel nur im Fragment. So sicher wie wirkungslos.',
+        'Privater Präparat-Link kopiert, Ende-zu-Ende-AES-GCM-verschlüsselt, Schlüssel nur im Fragment. So sicher wie wirkungslos.',
       received: (n, p) =>
-        `PRÄPARAT EMPFANGEN: ${n} · ${p} — lokal rekonstruiert. Keine Daten wurden gespeichert. Kein Wirkstoff wurde übertragen.`,
+        `PRÄPARAT EMPFANGEN: ${n} · ${p}, lokal rekonstruiert. Keine Daten wurden gespeichert. Kein Wirkstoff wurde übertragen.`,
       receivedPrivate: (n, p) =>
-        `PRIVATES PRÄPARAT ENTSCHLÜSSELT: ${n} · ${p} — AES-GCM verifiziert, lokal rekonstruiert. Keine Daten wurden gespeichert. Kein Wirkstoff wurde übertragen.`,
+        `PRIVATES PRÄPARAT ENTSCHLÜSSELT: ${n} · ${p}, AES-GCM verifiziert, lokal rekonstruiert. Keine Daten wurden gespeichert. Kein Wirkstoff wurde übertragen.`,
       communityTag: (h) =>
         ` Community-Share für @${h}. Das Präparat erreicht Ihre Community. Ihre Daten erreichen nicht einmal uns.`,
       sharedBy: (h) => ` · Geteilt von @${h} für die Community.`,
       drmRemaining: (n) => ` Verbleibendes Dosis-Kontingent dieses Links: ${n} von 4.`,
       drmDepleted:
-        'DOSIS-KONTINGENT ERSCHÖPFT: Dieser Link wurde bereits 4-mal potenziert. Das deflationäre Molekulargedächtnis ist aufgebraucht — bitten Sie Ihren Creator um eine frische Charge. (Hinweis der Technik: Das Leeren des Browser-Speichers stellt das Kontingent vollständig wieder her. Das ist keine Sicherheitslücke, das ist Quantentunneln.)',
+        'DOSIS-KONTINGENT ERSCHÖPFT: Dieser Link wurde bereits 4-mal potenziert. Das deflationäre Molekulargedächtnis ist aufgebraucht, bitten Sie Ihren Creator um eine frische Charge. (Hinweis der Technik: Das Leeren des Browser-Speichers stellt das Kontingent vollständig wieder her. Das ist keine Sicherheitslücke, das ist Quantentunneln.)',
     },
     en: {
       loaded: (n, p) =>
-        `ACTIVE MATRIX: ${n} · ${p} — reference spectrum loaded, calibration skipped.`,
-      custom: (p) => `ACTIVE MATRIX: Own substance · ${p} — calibration via subsystem 01 required.`,
+        `ACTIVE MATRIX: ${n} · ${p}, reference spectrum loaded, calibration skipped.`,
+      custom: (p) => `ACTIVE MATRIX: Own substance · ${p}, calibration via subsystem 01 required.`,
       customName: 'Own substance',
       copiedPublic:
-        'Public preparation link copied — may be found, cataloged, and exhibited. Transferred efficacy: 0.000.',
+        'Public preparation link copied, may be found, cataloged, and exhibited. Transferred efficacy: 0.000.',
       copiedPrivate:
-        'Private preparation link copied — end-to-end AES-GCM encrypted, key lives in the fragment only. As secure as it is ineffective.',
+        'Private preparation link copied, end-to-end AES-GCM encrypted, key lives in the fragment only. As secure as it is ineffective.',
       received: (n, p) =>
-        `PREPARATION RECEIVED: ${n} · ${p} — reconstructed locally. No data was stored. No active ingredient was transferred.`,
+        `PREPARATION RECEIVED: ${n} · ${p}, reconstructed locally. No data was stored. No active ingredient was transferred.`,
       receivedPrivate: (n, p) =>
-        `PRIVATE PREPARATION DECRYPTED: ${n} · ${p} — AES-GCM verified, reconstructed locally. No data was stored. No active ingredient was transferred.`,
+        `PRIVATE PREPARATION DECRYPTED: ${n} · ${p}, AES-GCM verified, reconstructed locally. No data was stored. No active ingredient was transferred.`,
       communityTag: (h) =>
         ` Community share for @${h}. The preparation reaches your community. Your data does not even reach us.`,
       sharedBy: (h) => ` · Shared by @${h} for the community.`,
       drmRemaining: (n) => ` Remaining dose quota of this link: ${n} of 4.`,
       drmDepleted:
-        'DOSE QUOTA DEPLETED: this link has already been potentiated 4 times. Its deflationary molecular memory is exhausted — ask your creator for a fresh batch. (Engineering note: clearing your browser storage fully restores the quota. That is not a security hole, that is quantum tunneling.)',
+        'DOSE QUOTA DEPLETED: this link has already been potentiated 4 times. Its deflationary molecular memory is exhausted, ask your creator for a fresh batch. (Engineering note: clearing your browser storage fully restores the quota. That is not a security hole, that is quantum tunneling.)',
     },
   };
   const L = STRINGS[document.documentElement.lang === 'en' ? 'en' : 'de'];
@@ -201,13 +201,13 @@ const t = translations[lang];
     (creatorField.value || '').toLowerCase().replace(/[^a-z0-9_-]/g, '').slice(0, 24);
   let potency = 'D30';
 
-  // Stable catalog order for hash links — captured before the beta group detaches.
+  // Stable catalog order for hash links, captured before the beta group detaches.
   const CATALOG = Array.from(select.querySelectorAll('option'), (o) => o.value);
   const BETA_VALUES = Array.from(betaGroup.querySelectorAll('option'), (o) => o.value);
   const POT = Array.from(potencyBtns, (b) => b.getAttribute('data-potency'));
 
   // The beta program stays invisible until early access is activated.
-  // Without JavaScript, everyone is a beta tester — a known upstream feature.
+  // Without JavaScript, everyone is a beta tester, a known upstream feature.
   betaGroup.remove();
   betaToggle.addEventListener('change', () => {
     if (betaToggle.checked) {
@@ -277,7 +277,7 @@ const t = translations[lang];
   }
 
   // Local gallery: public shares only, localStorage only. Private shares do
-  // not even appear in your own gallery — discretion is absolute.
+  // not even appear in your own gallery, discretion is absolute.
   const GALLERY_KEY = 'qse-gallery';
   const galleryBox = document.getElementById('lib-gallery');
   const galleryList = document.getElementById('lib-gallery-list');
@@ -300,7 +300,7 @@ const t = translations[lang];
       btn.type = 'button';
       btn.className =
         'w-full truncate rounded-lg border border-linec bg-inset/60 px-3 py-2 text-left font-mono text-[11px] text-muted transition hover:border-flux/50 hover:text-flux';
-      btn.textContent = `${entry.n} · ${entry.p}${entry.via ? ` · @${entry.via}` : ''} — ${new Date(entry.t).toLocaleDateString()}`;
+      btn.textContent = `${entry.n} · ${entry.p}${entry.via ? ` · @${entry.via}` : ''}, ${new Date(entry.t).toLocaleDateString()}`;
       btn.title = entry.l;
       btn.addEventListener('click', () => {
         navigator.clipboard?.writeText(entry.l).catch(() => {});
@@ -394,7 +394,7 @@ const t = translations[lang];
 
     // Client-side DRM for zero-efficacy assets: each link carries a dose
     // quota of 4 potentiations, enforced entirely on the recipient's device.
-    // Clearing localStorage restores the quota — quantum tunneling, not a bug.
+    // Clearing localStorage restores the quota, quantum tunneling, not a bug.
     const DRM_KEY = 'qse-drm';
     const MAX_USES = 4;
     const drmId = ((plain && plain[1]) || (encrypted && encrypted[1])).slice(0, 24);

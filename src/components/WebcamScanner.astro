@@ -73,7 +73,7 @@ const t = translations[lang];
           </div>
           <div class="flex justify-between gap-4">
             <dt class="text-faint">{t.scanner.labels.freq}</dt>
-            <dd id="bio-freq" class="text-right text-ink">——— THz</dd>
+            <dd id="bio-freq" class="text-right text-ink">--- THz</dd>
           </div>
           <div class="flex justify-between gap-4">
             <dt class="text-faint">{t.scanner.labels.checksum}</dt>
@@ -94,13 +94,13 @@ const t = translations[lang];
 <script>
   const STRINGS = {
     de: {
-      active: 'Resonanz aktiv — Substanz-Spektrum erkannt',
-      blocked: 'Kamera blockiert — universelles Placebo-Spektrum geladen',
+      active: 'Resonanz aktiv, Substanz-Spektrum erkannt',
+      blocked: 'Kamera blockiert, universelles Placebo-Spektrum geladen',
       standby: 'Standby',
     },
     en: {
-      active: 'Resonance active — substance spectrum detected',
-      blocked: 'Camera blocked — universal placebo spectrum loaded',
+      active: 'Resonance active, substance spectrum detected',
+      blocked: 'Camera blocked, universal placebo spectrum loaded',
       standby: 'Standby',
     },
   };
@@ -267,7 +267,7 @@ const t = translations[lang];
     sampleTimer = setInterval(sampleFrame, 500);
 
     // Subsystem interlock: calibration unlocks the Vacuum Potentiator.
-    // The universal placebo spectrum counts — obviously.
+    // The universal placebo spectrum counts, obviously.
     document.documentElement.dataset.qseCalibrated = '1';
     document.dispatchEvent(new CustomEvent('qse:calibrated'));
   }
@@ -284,7 +284,7 @@ const t = translations[lang];
     octx.clearRect(0, 0, overlay.clientWidth, overlay.clientHeight);
     idle.style.display = 'grid';
     statusEl.textContent = L.standby;
-    freqEl.textContent = '——— THz';
+    freqEl.textContent = '--- THz';
     lockEl.textContent = 'STANDBY';
     lockEl.classList.remove('text-flux');
     startBtn.disabled = false;

@@ -4,7 +4,7 @@ export type Lang = keyof typeof languages;
 export const translations = {
   de: {
     meta: {
-      title: 'quantum-saccharose-engine — Nullpunkt Labs',
+      title: 'quantum-saccharose-engine · Nullpunkt Labs',
       description:
         'Client-seitige Quantenfeld-Modulation für Saccharose-Matrizen: Potenzierung von D6 bis C200 im Browser via Photonen-Emission, Monte-Carlo-Vakuumfluktuation und optischem Bio-Feld-Feedback. Ohne Cloud. Ohne Kompromisse.',
     },
@@ -13,11 +13,12 @@ export const translations = {
       about: 'Über uns',
       roadmap: 'Roadmap',
       leaflet: 'Fachinformation',
+      fontSize: 'Schriftgröße umschalten',
     },
     hero: {
       eyebrow: 'QUANTUM FIELD SACCHAROSE MODULATION · REV 0.1',
       h1: ['Potenzierung.', 'Client-seitig.', 'Kompromisslos.'],
-      sub: 'Die quantum-saccharose-engine induziert entropische Zustandsänderungen von D6 bis C200 in handelsüblichen Kohlenhydrat-Matrizen — direkt im Browser. Hochfrequente Photonen-Emission, Monte-Carlo-Vakuumfluktuation und optisches Bio-Feld-Feedback. Ohne Cloud. Ohne Latenz. Ohne Wirkung über den bekannten Referenzeffekt hinaus.',
+      sub: 'Die quantum-saccharose-engine induziert entropische Zustandsänderungen von D6 bis C200 in handelsüblichen Kohlenhydrat-Matrizen, direkt im Browser. Hochfrequente Photonen-Emission, Monte-Carlo-Vakuumfluktuation und optisches Bio-Feld-Feedback. Ohne Cloud. Ohne Latenz. Ohne Wirkung über den bekannten Referenzeffekt hinaus.',
       ctaScanner: 'BIO-FELD KALIBRIEREN',
       ctaEngine: 'FELD-MODULATION BEGINNEN →',
       stats: [
@@ -30,36 +31,36 @@ export const translations = {
     library: {
       eyebrow: 'SUBSYSTEM 00 · SUBSTANZ-BIBLIOTHEK',
       h2: 'Ihre Substanz. Oder unsere Referenz.',
-      body: 'Potenzieren Sie Ihr eigenes Material über die Bio-Resonanz-Sonde — oder laden Sie eines von 50 klassischen Referenz-Spektren aus der Nullpunkt-Bibliothek. Anschließend wählen Sie die Ziel-Potenz. Höhere Potenzen sind selbstverständlich wirksamer: Es ist ja weniger drin.',
+      body: 'Potenzieren Sie Ihr eigenes Material über die Bio-Resonanz-Sonde, oder laden Sie eines von 50 klassischen Referenz-Spektren aus der Nullpunkt-Bibliothek. Anschließend wählen Sie die Ziel-Potenz. Höhere Potenzen sind selbstverständlich wirksamer: Es ist ja weniger drin.',
       substanceLabel: 'REFERENZ-SUBSTANZ',
       potencyLabel: 'ZIEL-POTENZ',
       customOption: 'Eigene Substanz (Bio-Resonanz-Sonde)',
       readoutIdle:
-        'AKTIVE MATRIX: Eigene Substanz · D30 — Kalibrierung über Subsystem 01 erforderlich.',
+        'AKTIVE MATRIX: Eigene Substanz · D30, Kalibrierung über Subsystem 01 erforderlich.',
       note: 'Alle Referenz-Spektren sind vollständig veröffentlicht und damit Stand der Technik (Prior Art). Wirksamkeit je Eintrag: 0.000.',
       groupClassic: 'Klassische Einzelmittel',
-      groupBeta: 'Biochemie nach Dr. Schüssler — BETA',
+      groupBeta: 'Biochemie nach Dr. Schüssler, BETA',
       betaLabel:
-        'Vorabzugang zu kommenden Potenzierungen aktivieren — Biochemisches Beta-Programm (Schüssler-Salze Nr. 1–27)',
+        'Vorabzugang zu kommenden Potenzierungen aktivieren, Biochemisches Beta-Programm (Schüssler-Salze Nr. 1–27)',
       shareLabel: 'PRÄPARAT TEILEN (HASH-LINK)',
       creatorPlaceholder: 'creator-handle (optional)',
       sharePublic: 'ÖFFENTLICH TEILEN',
       sharePrivate: 'PRIVAT TEILEN',
       shareNote:
-        'ÖFFENTLICH: Das Präparat darf gefunden, katalogisiert und künftig in der Galerie angezeigt werden (siehe Roadmap). PRIVAT: nur über den nicht erratbaren Link erreichbar und zusätzlich Ende-zu-Ende-AES-GCM-verschlüsselt — der Schlüssel steht ausschließlich im URL-Fragment und wird technisch bedingt niemals an einen Server übertragen (an unseren schon gar nicht, wir haben keinen). Übertragene Wirkung in beiden Fällen: 0.000.',
+        'ÖFFENTLICH: Das Präparat darf gefunden, katalogisiert und künftig in der Galerie angezeigt werden (siehe Roadmap). PRIVAT: nur über den nicht erratbaren Link erreichbar und zusätzlich Ende-zu-Ende-AES-GCM-verschlüsselt, der Schlüssel steht ausschließlich im URL-Fragment und wird technisch bedingt niemals an einen Server übertragen (an unseren schon gar nicht, wir haben keinen). Übertragene Wirkung in beiden Fällen: 0.000.',
       galleryLabel: 'MEINE GETEILTEN PRÄPARATE (LOKALE GALERIE)',
       galleryNote:
-        'Diese Galerie existiert ausschließlich in Ihrem Browser (localStorage). Ihre Präparate erreichen zu keinem Zeitpunkt unseren Server — wir hätten auch keinen. Private Präparate erscheinen aus Diskretionsgründen nicht einmal hier.',
+        'Diese Galerie existiert ausschließlich in Ihrem Browser (localStorage). Ihre Präparate erreichen zu keinem Zeitpunkt unseren Server, wir hätten auch keinen. Private Präparate erscheinen aus Diskretionsgründen nicht einmal hier.',
       drmNote:
         'Deflationäre Tokenomics: Jeder Link trägt ein Dosis-Kontingent von 4 Potenzierungen (Client-Side-DRM für Zero-Efficacy-Assets). Das Kontingent wird ausschließlich auf dem Gerät des Empfängers geführt.',
     },
     scanner: {
       eyebrow: 'SUBSYSTEM 01 · BIO-RESONANZ-SONDE',
       h2: 'Zeigen Sie Ihre Substanz. Den Rest erledigt das Licht.',
-      body: 'Platzieren Sie Ihre Substanz — Globuli, Bachblüten, Brennnesseltee — vor der Linse. Die Sonde erfasst photonische Reflexionen in Echtzeit und justiert die Modulationsmatrix der gewählten Ziel-Potenz dynamisch nach.',
+      body: 'Platzieren Sie Ihre Substanz vor der Linse: Globuli, Bachblüten, Brennnesseltee. Die Sonde erfasst photonische Reflexionen in Echtzeit und justiert die Modulationsmatrix der gewählten Ziel-Potenz dynamisch nach.',
       start: 'BIO-FELD-KALIBRIERUNG STARTEN',
       stop: 'SONDE TRENNEN',
-      idle: 'SONDE OFFLINE — KALIBRIERUNG ERFORDERLICH',
+      idle: 'SONDE OFFLINE, KALIBRIERUNG ERFORDERLICH',
       labels: {
         status: 'STATUS',
         freq: 'SUBSTANZ-FREQUENZ',
@@ -68,7 +69,7 @@ export const translations = {
       },
       standby: 'Standby',
       privacy:
-        'Ihre Photonen und Videostreams verlassen niemals das Gerät — lokale optische Resonanz-Analyse. Keine Uploads, kein Tracking.',
+        'Ihre Photonen und Videostreams verlassen niemals das Gerät, lokale optische Resonanz-Analyse. Keine Uploads, kein Tracking.',
     },
     engine: {
       eyebrow: 'SUBSYSTEM 02 · VAKUUM-POTENZIATOR',
@@ -77,11 +78,11 @@ export const translations = {
       ignite: 'FELD-MODULATION BEGINNEN',
       abort: 'POTENZIERUNG ABBRECHEN',
       locked:
-        'Gesperrt — Subsystem 01 (Bio-Feld-Kalibrierung) muss zuerst ausgeführt werden, oder laden Sie ein Referenz-Spektrum aus der Bibliothek (Subsystem 00). Ohne Substanz-Spektrum keine Potenzierung.',
+        'Gesperrt, Subsystem 01 (Bio-Feld-Kalibrierung) muss zuerst ausgeführt werden, oder laden Sie ein Referenz-Spektrum aus der Bibliothek (Subsystem 00). Ohne Substanz-Spektrum keine Potenzierung.',
       ready: 'Bereit. Feld-Modulation nicht aktiv.',
       targetDefault: 'EIGENE SUBSTANZ · D30',
       standbyState: 'D01 · STANDBY',
-      note: 'Prozess-Zyklus gemäß DIN EN ISO 17025 — Homöopathischer Halbzyklus nach Hahnemann-Standard (5 Minuten), thermisch erzwungen durch CPU-Proof-of-Work. Der Lüfter Ihres Geräts wird hörbar anspringen; automatischer Stopp nach Zyklusende.',
+      note: 'Prozess-Zyklus gemäß DIN EN ISO 17025, Homöopathischer Halbzyklus nach Hahnemann-Standard (5 Minuten), thermisch erzwungen durch CPU-Proof-of-Work. Der Lüfter Ihres Geräts wird hörbar anspringen; automatischer Stopp nach Zyklusende.',
       warning:
         'ACHTUNG: Dieser Vorgang potenziert nachweislich Ihren Strom- und Akkuverbrauch. Es ist der einzige Effekt dieser Engine mit belastbarer klinischer Evidenz.',
       safety:
@@ -89,20 +90,20 @@ export const translations = {
       consentTitle: 'Bio-Feld-Einwilligung (Art. 6 DSGVO)',
       consentBody:
         'Gemäß Art. 6 DSGVO wird hiermit versichert, dass Ihre optischen Photonenströme (Bachblüten-/Globuli-Spektrum) weder an Cloud-Konnektoren noch an Pharma-Großkonzerne übermittelt werden, sondern lokal im CPU-Cache verglühen.',
-      consentAccept: 'ZUR KENNTNIS GENOMMEN — POTENZIERUNG FORTSETZEN',
+      consentAccept: 'ZUR KENNTNIS GENOMMEN, POTENZIERUNG FORTSETZEN',
     },
     viewer: {
       eyebrow: 'SUBSYSTEM 03 · OFFENER KERN',
       h2: 'Nichts zu verbergen. Wörtlich.',
-      body: 'Vollständige Transparenz ist Teil der Nullpunkt-Philosophie: Der Kern der Engine liegt offen — inklusive sämtlicher Kommentare. Lesen lohnt sich.',
+      body: 'Vollständige Transparenz ist Teil der Nullpunkt-Philosophie: Der Kern der Engine liegt offen, inklusive sämtlicher Kommentare. Lesen lohnt sich.',
     },
     footer: {
       tagline: 'Quantum Field Saccharose Modulation · Rev 0.1.2',
       changelogLabel: 'Revisionshistorie',
       changelog: [
-        'Rev 0.1.2 — Korrektur im Monte-Carlo-Vakuum-Modul: thermische CPU-Last von 85 % auf 95 % angehoben, um die homöopathische Wirkstofffreisetzung im MacBook Pro hörbarer zu machen.',
-        'Rev 0.1.1 — Bugfix: Bio-Resonanz-Sonde erkennt nun auch billigen Discounter-Zucker zuverlässig als Hochsektor-Globuli.',
-        'Rev 0.1.0 — Erstfreigabe nach interner Placebo-Abnahme (bestanden: 0 von 0 Wirksamkeitstests).',
+        'Rev 0.1.2, Korrektur im Monte-Carlo-Vakuum-Modul: thermische CPU-Last von 85 % auf 95 % angehoben, um die homöopathische Wirkstofffreisetzung im MacBook Pro hörbarer zu machen.',
+        'Rev 0.1.1, Bugfix: Bio-Resonanz-Sonde erkennt nun auch billigen Discounter-Zucker zuverlässig als Hochsektor-Globuli.',
+        'Rev 0.1.0, Erstfreigabe nach interner Placebo-Abnahme (bestanden: 0 von 0 Wirksamkeitstests).',
       ],
       license: 'Lizenz (MIT)',
       leaflet: 'Fachinformation',
@@ -115,7 +116,7 @@ export const translations = {
   },
   en: {
     meta: {
-      title: 'quantum-saccharose-engine — Nullpunkt Labs',
+      title: 'quantum-saccharose-engine · Nullpunkt Labs',
       description:
         'Client-side quantum field modulation for saccharose matrices: in-browser potentiation from D6 through C200 via photon emission, Monte-Carlo vacuum fluctuation, and optical bio-field feedback. No cloud. No compromises.',
     },
@@ -124,11 +125,12 @@ export const translations = {
       about: 'About us',
       roadmap: 'Roadmap',
       leaflet: 'Leaflet',
+      fontSize: 'Toggle font size',
     },
     hero: {
       eyebrow: 'QUANTUM FIELD SACCHAROSE MODULATION · REV 0.1',
       h1: ['Potentiation.', 'Client-side.', 'Uncompromising.'],
-      sub: 'The quantum-saccharose-engine induces entropic state changes from D6 through C200 in standard carbohydrate matrices — directly in your browser. High-frequency photon emission, Monte-Carlo vacuum fluctuation, and optical bio-field feedback. No cloud. No latency. No effect beyond the well-known reference effect.',
+      sub: 'The quantum-saccharose-engine induces entropic state changes from D6 through C200 in standard carbohydrate matrices, directly in your browser. High-frequency photon emission, Monte-Carlo vacuum fluctuation, and optical bio-field feedback. No cloud. No latency. No effect beyond the well-known reference effect.',
       ctaScanner: 'CALIBRATE BIO-FIELD',
       ctaEngine: 'IGNITE FIELD MODULATION →',
       stats: [
@@ -141,36 +143,36 @@ export const translations = {
     library: {
       eyebrow: 'SUBSYSTEM 00 · SUBSTANCE LIBRARY',
       h2: 'Your substance. Or our reference.',
-      body: 'Potentiate your own material via the bio-resonance probe — or load one of 50 classical reference spectra from the Nullpunkt library. Then select the target potency. Higher potencies are of course more effective: there is less in them.',
+      body: 'Potentiate your own material via the bio-resonance probe, or load one of 50 classical reference spectra from the Nullpunkt library. Then select the target potency. Higher potencies are of course more effective: there is less in them.',
       substanceLabel: 'REFERENCE SUBSTANCE',
       potencyLabel: 'TARGET POTENCY',
       customOption: 'Own substance (bio-resonance probe)',
       readoutIdle:
-        'ACTIVE MATRIX: Own substance · D30 — calibration via subsystem 01 required.',
+        'ACTIVE MATRIX: Own substance · D30, calibration via subsystem 01 required.',
       note: 'All reference spectra are published in full and therefore prior art. Efficacy per entry: 0.000.',
       groupClassic: 'Classical remedies',
-      groupBeta: 'Biochemistry after Dr. Schüssler — BETA',
+      groupBeta: 'Biochemistry after Dr. Schüssler, BETA',
       betaLabel:
-        'Enable early access to upcoming potentiations — biochemical beta program (Schüssler salts Nos. 1–27)',
+        'Enable early access to upcoming potentiations, biochemical beta program (Schüssler salts Nos. 1–27)',
       shareLabel: 'SHARE PREPARATION (HASH LINK)',
       creatorPlaceholder: 'creator handle (optional)',
       sharePublic: 'SHARE PUBLICLY',
       sharePrivate: 'SHARE PRIVATELY',
       shareNote:
-        'PUBLIC: the preparation may be found, cataloged, and eventually displayed in the gallery (see roadmap). PRIVATE: reachable only via the unguessable link and additionally end-to-end AES-GCM encrypted — the key lives exclusively in the URL fragment and is, by technical necessity, never transmitted to any server (least of all ours; we do not have one). Transferred efficacy in both cases: 0.000.',
+        'PUBLIC: the preparation may be found, cataloged, and eventually displayed in the gallery (see roadmap). PRIVATE: reachable only via the unguessable link and additionally end-to-end AES-GCM encrypted, the key lives exclusively in the URL fragment and is, by technical necessity, never transmitted to any server (least of all ours; we do not have one). Transferred efficacy in both cases: 0.000.',
       galleryLabel: 'MY SHARED PREPARATIONS (LOCAL GALLERY)',
       galleryNote:
-        'This gallery exists exclusively in your browser (localStorage). Your preparations never reach our server at any point — we would not have one anyway. Private preparations, for reasons of discretion, do not even appear here.',
+        'This gallery exists exclusively in your browser (localStorage). Your preparations never reach our server at any point, we would not have one anyway. Private preparations, for reasons of discretion, do not even appear here.',
       drmNote:
         'Deflationary tokenomics: every link carries a dose quota of 4 potentiations (client-side DRM for zero-efficacy assets). The quota is maintained exclusively on the recipient’s device.',
     },
     scanner: {
       eyebrow: 'SUBSYSTEM 01 · BIO-RESONANCE PROBE',
       h2: 'Show us your substance. Light does the rest.',
-      body: 'Place your substance — sugar globules, Bach flower remedies, nettle tea — in front of the lens. The probe captures photonic reflections in real time and dynamically re-adjusts the modulation matrix of the selected target potency.',
+      body: 'Place your substance in front of the lens: sugar globules, Bach flower remedies, nettle tea. The probe captures photonic reflections in real time and dynamically re-adjusts the modulation matrix of the selected target potency.',
       start: 'START BIO-FIELD CALIBRATION',
       stop: 'DISCONNECT PROBE',
-      idle: 'PROBE OFFLINE — CALIBRATION REQUIRED',
+      idle: 'PROBE OFFLINE, CALIBRATION REQUIRED',
       labels: {
         status: 'STATUS',
         freq: 'SUBSTANCE FREQUENCY',
@@ -179,7 +181,7 @@ export const translations = {
       },
       standby: 'Standby',
       privacy:
-        'Your photons and video streams never leave the device — local optical resonance analysis. No uploads, no tracking.',
+        'Your photons and video streams never leave the device, local optical resonance analysis. No uploads, no tracking.',
     },
     engine: {
       eyebrow: 'SUBSYSTEM 02 · VACUUM POTENTIATOR',
@@ -188,11 +190,11 @@ export const translations = {
       ignite: 'IGNITE FIELD MODULATION',
       abort: 'ABORT POTENTIATION',
       locked:
-        'Locked — run subsystem 01 (bio-field calibration) first, or load a reference spectrum from the library (subsystem 00). No substance spectrum, no potentiation.',
+        'Locked, run subsystem 01 (bio-field calibration) first, or load a reference spectrum from the library (subsystem 00). No substance spectrum, no potentiation.',
       ready: 'Ready. Field modulation inactive.',
       targetDefault: 'OWN SUBSTANCE · D30',
       standbyState: 'D01 · STANDBY',
-      note: 'Process cycle per DIN EN ISO 17025 — homeopathic half-cycle per Hahnemann standard (5 minutes), thermally enforced via CPU proof of work. Your device fan will audibly spin up; automatic stop at end of cycle.',
+      note: 'Process cycle per DIN EN ISO 17025, homeopathic half-cycle per Hahnemann standard (5 minutes), thermally enforced via CPU proof of work. Your device fan will audibly spin up; automatic stop at end of cycle.',
       warning:
         'WARNING: This process demonstrably potentiates your power and battery consumption. It is the only effect of this engine backed by solid clinical evidence.',
       safety:
@@ -200,20 +202,20 @@ export const translations = {
       consentTitle: 'Bio-Field Consent (Art. 6 GDPR)',
       consentBody:
         'Pursuant to Art. 6 GDPR, we hereby affirm that your optical photon streams (Bach flower / globule spectrum) are transmitted neither to cloud connectors nor to large pharmaceutical corporations, but burn up locally in the CPU cache.',
-      consentAccept: 'ACKNOWLEDGED — CONTINUE POTENTIATION',
+      consentAccept: 'ACKNOWLEDGED, CONTINUE POTENTIATION',
     },
     viewer: {
       eyebrow: 'SUBSYSTEM 03 · OPEN CORE',
       h2: 'Nothing to hide. Literally.',
-      body: 'Full transparency is part of the Nullpunkt philosophy: the core of the engine is open — including every single comment. Reading it is worth your time.',
+      body: 'Full transparency is part of the Nullpunkt philosophy: the core of the engine is open, including every single comment. Reading it is worth your time.',
     },
     footer: {
       tagline: 'Quantum Field Saccharose Modulation · Rev 0.1.2',
       changelogLabel: 'Revision history',
       changelog: [
-        'Rev 0.1.2 — Correction in the Monte-Carlo vacuum module: thermal CPU load raised from 85% to 95% to make homeopathic active-ingredient release more audible on the MacBook Pro.',
-        'Rev 0.1.1 — Bugfix: the bio-resonance probe now reliably recognizes cheap discount sugar as high-sector globules.',
-        'Rev 0.1.0 — Initial release after internal placebo acceptance (passed: 0 of 0 efficacy tests).',
+        'Rev 0.1.2, Correction in the Monte-Carlo vacuum module: thermal CPU load raised from 85% to 95% to make homeopathic active-ingredient release more audible on the MacBook Pro.',
+        'Rev 0.1.1, Bugfix: the bio-resonance probe now reliably recognizes cheap discount sugar as high-sector globules.',
+        'Rev 0.1.0, Initial release after internal placebo acceptance (passed: 0 of 0 efficacy tests).',
       ],
       license: 'License (MIT)',
       leaflet: 'Package leaflet',

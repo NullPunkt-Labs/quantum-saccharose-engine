@@ -41,7 +41,7 @@ ausgelösten Rechenvorgangs.
 **Lachinduzierte Flüssigkeits-Emission (LIFE):** Bei technisch vorgebildeten
 Anwendern kann die Lektüre dieser Dokumentation, des Quellcodes oder der
 Roadmap zu unkontrollierter oraler Dispersion von Heißgetränken, Bier oder
-sonstigen Flüssigkeiten im Wirkradius des Anzeigegeräts führen —
+sonstigen Flüssigkeiten im Wirkradius des Anzeigegeräts führen,
 klinisch klassifiziert als Spontan-Ejektion nach Kognitiver
 Trigger-Erkennung (SEKT). Nullpunkt Labs übernimmt
 keinerlei Haftung für hierdurch verursachte Schäden an Tastaturen,
@@ -49,7 +49,7 @@ Bildschirmen, Touchpads oder mitlesenden Kollegen. Empfohlen wird, Getränke
 während der Lektüre in einem Mindestabstand von zwei Metern zu lagern
 (analog zur Kaffeemühlen-Sicherheitszone) und vor jedem Absatzwechsel
 vollständig zu schlucken. Die Emissionswahrscheinlichkeit korreliert
-nachweislich positiv mit der Fachkenntnis der lesenden Person — LIFE ist
+nachweislich positiv mit der Fachkenntnis der lesenden Person, LIFE ist
 damit nach der Stromrechnung der zweite real messbare Effekt dieses
 Projekts.
 
@@ -59,7 +59,7 @@ Dieses Projekt **verkauft nichts, sammelt keine Daten und will niemanden
 täuschen**. Der Quellcode liegt vollständig offen. Der Webcam-Stream der
 "Bio-Resonanz-Sonde" verlässt zu keinem Zeitpunkt Ihr Gerät: keine Uploads,
 kein Tracking, keine Cookies, keine Analytics. Die gesamte "Analyse" ist eine
-lokal berechnete, bedeutungslose Pixel-Prüfsumme — und genau das steht auch
+lokal berechnete, bedeutungslose Pixel-Prüfsumme, und genau das steht auch
 im Code-Kommentar.
 
 ### 5. Public Rationality Dividend (Charityware-Klausel)
@@ -77,20 +77,20 @@ Charityware-Modell gilt zusätzlich:
 > Moralisch ist sie absolut. Wer diese Engine kommerziell nutzt und nicht
 > spendet, weiß, was er getan hat.
 
-Der vollständige Text der moralisch bindenden Begleitlizenz — inklusive
-Quartals-Transparenzpflicht — findet sich in der
+Der vollständige Text der moralisch bindenden Begleitlizenz, inklusive
+Quartals-Transparenzpflicht, findet sich in der
 [QUANTUM SOURCE AND BENEFIT LICENSE (QSBL)](LICENSE.md).
 
 ### 6. Lizenz
 
-MIT. Der Lizenztext in [LICENSE](LICENSE) ist unverändert und wortgetreu —
+MIT. Der Lizenztext in [LICENSE](LICENSE) ist unverändert und wortgetreu,
 im Gegensatz zu allem, was diese Website sonst behauptet.
 
 ### 7. Satirisches Kunstprojekt
 
 Und damit zur eigentlichen Diagnose: Dieses Projekt ist ein **satirisches
 Kunstprojekt**. Homöopathie funktioniert nicht. Dieser Code potenziert nichts
-außer Ihrer Stromrechnung. Und er wirkt nicht über den Placeboeffekt hinaus —
+außer Ihrer Stromrechnung. Und er wirkt nicht über den Placeboeffekt hinaus,
 einzige klinisch belegte Ausnahme: Ihre Stromrechnung, dort ist der Effekt
 real und messbar.
 
@@ -141,14 +141,14 @@ the computation thereby triggered.
 **Laughter-Induced Fluid Emission (LIFE):** In technically literate users,
 reading this documentation, the source code, or the roadmap may cause
 uncontrolled oral dispersion of hot beverages, beer, or other fluids within
-the effective radius of the display device — clinically classified as
+the effective radius of the display device, clinically classified as
 Abrupt Liquid Ejection (ALE) upon cognitive trigger recognition.
 Nullpunkt Labs accepts no liability whatsoever for
 resulting damage to keyboards, screens, touchpads, or colleagues reading
 along. It is recommended to store beverages at a minimum distance of two
 meters while reading (analogous to the coffee-grinder safety zone) and to
 swallow completely before each paragraph transition. Emission probability
-demonstrably correlates positively with the reader's technical expertise —
+demonstrably correlates positively with the reader's technical expertise,
 making LIFE, after the electricity bill, the second measurably real effect
 of this project.
 
@@ -158,7 +158,7 @@ This project **sells nothing, collects no data, and intends to deceive no
 one**. The source code is fully open. The webcam stream of the "bio-resonance
 probe" never leaves your device: no uploads, no tracking, no cookies, no
 analytics. The entire "analysis" is a locally computed, meaningless pixel
-checksum — and that is exactly what the code comment says.
+checksum, and that is exactly what the code comment says.
 
 ### 5. Public Rationality Dividend (charityware clause)
 
@@ -175,20 +175,20 @@ license, the following applies in addition:
 > it is absolute. Whoever uses this engine commercially without donating
 > knows what they did.
 
-The full text of the morally binding companion license — including the
-quarterly transparency obligation — can be found in the
+The full text of the morally binding companion license, including the
+quarterly transparency obligation, can be found in the
 [QUANTUM SOURCE AND BENEFIT LICENSE (QSBL)](LICENSE.md).
 
 ### 6. License
 
-MIT. The license text in [LICENSE](LICENSE) is unchanged and verbatim —
+MIT. The license text in [LICENSE](LICENSE) is unchanged and verbatim,
 unlike everything else this website claims.
 
 ### 7. Satirical art project
 
 And now for the actual diagnosis: this project is a **satirical art
 project**. Homeopathy does not work. This code potentiates nothing but your
-electricity bill. And it has no effect beyond placebo — the only clinically
+electricity bill. And it has no effect beyond placebo, the only clinically
 proven exception being your electricity bill, where the effect is real and
 measurable.
 

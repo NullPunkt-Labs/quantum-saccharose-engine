@@ -51,6 +51,13 @@ const repoUrl = 'https://github.com/NullPunkt-Labs/quantum-saccharose-engine';
       <a href={aboutHref} class="font-mono text-xs text-muted transition hover:text-flux">
         {t.nav.about}
       </a>
+      <button
+        id="font-toggle"
+        type="button"
+        aria-label={t.nav.fontSize}
+        title={t.nav.fontSize}
+        class="rounded border border-linec px-2.5 py-1 font-mono text-xs text-muted transition hover:border-flux/50 hover:text-flux"
+      >A⁺</button>
       <nav class="flex items-center gap-1 font-mono text-[11px] tracking-widest">
         <a
           href={deHref}
@@ -78,3 +85,18 @@ const repoUrl = 'https://github.com/NullPunkt-Labs/quantum-saccharose-engine';
     </div>
   </div>
 </header>
+
+<script>
+  const ft = document.getElementById('font-toggle');
+  function syncFontToggle() {
+    const big = document.documentElement.classList.contains('bigfont');
+    ft.textContent = big ? 'A⁻' : 'A⁺';
+    ft.setAttribute('aria-pressed', String(big));
+  }
+  ft.addEventListener('click', () => {
+    const big = document.documentElement.classList.toggle('bigfont');
+    localStorage.setItem('qse-font', big ? 'big' : 'normal');
+    syncFontToggle();
+  });
+  syncFontToggle();
+</script>

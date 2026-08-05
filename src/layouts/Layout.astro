@@ -58,6 +58,9 @@ const leafletUrl = `${base}${lang === 'en' ? 'en/leaflet/' : 'fachinformation/'}
       if (localStorage.getItem('qse-theme') === 'dark') {
         document.documentElement.classList.add('dark');
       }
+      if (localStorage.getItem('qse-font') === 'big') {
+        document.documentElement.classList.add('bigfont');
+      }
     </script>
 
     <style is:global>
@@ -90,7 +93,24 @@ const leafletUrl = `${base}${lang === 'en' ? 'en/leaflet/' : 'fachinformation/'}
         background-color: rgb(var(--bg-primary));
       }
 
-      /* Scroll reveal — only when JS is available, honors reduced motion. */
+      /* Accessible large-print mode, persisted via localStorage (qse-font). */
+      html.bigfont {
+        font-size: 118%;
+      }
+      html.bigfont [class*='text-[10px]'] {
+        font-size: 12px !important;
+      }
+      html.bigfont [class*='text-[11px]'] {
+        font-size: 13.5px !important;
+      }
+      html.bigfont [class*='text-[12px]'] {
+        font-size: 14.5px !important;
+      }
+      html.bigfont .astro-code {
+        font-size: 14px;
+      }
+
+      /* Scroll reveal, only when JS is available, honors reduced motion. */
       html.js [data-reveal] {
         opacity: 0;
         transform: translateY(36px) scale(0.985);
@@ -195,16 +215,16 @@ const leafletUrl = `${base}${lang === 'en' ? 'en/leaflet/' : 'fachinformation/'}
     <script>
       const en = document.documentElement.lang === 'en';
       console.info(
-        '%c[NULLPUNKT LABS] quantum-saccharose-engine v0.1.0 — field integrity nominal.',
+        '%c[NULLPUNKT LABS] quantum-saccharose-engine v0.1.0, field integrity nominal.',
         'color:#0284c7;font-weight:bold'
       );
       console.info(
         en
-          ? '[QUANTUM-ENGINE] Note for console readers: EFFICACY stays at 0.000 — the only honest metric in this application. ' +
+          ? '[QUANTUM-ENGINE] Note for console readers: EFFICACY stays at 0.000, the only honest metric in this application. ' +
               'This is a satirical art project; homeopathy does not work, and this engine potentiates nothing but your electricity bill. ' +
               'The webcam stream never leaves your device. Package leaflet: ' +
               'https://github.com/NullPunkt-Labs/quantum-saccharose-engine/blob/main/DISCLAIMER.md#english'
-          : '[QUANTUM-ENGINE] Hinweis für Konsolen-Leser: EFFICACY bleibt 0.000 — der einzige ehrliche Messwert dieser Anwendung. ' +
+          : '[QUANTUM-ENGINE] Hinweis für Konsolen-Leser: EFFICACY bleibt 0.000, der einzige ehrliche Messwert dieser Anwendung. ' +
               'Dies ist ein satirisches Kunstprojekt; Homöopathie funktioniert nicht, und diese Engine potenziert ausschließlich Ihre Stromrechnung. ' +
               'Der Webcam-Stream verlässt niemals Ihr Gerät. Fachinformation: ' +
               'https://github.com/NullPunkt-Labs/quantum-saccharose-engine/blob/main/DISCLAIMER.md#deutsch'
@@ -224,7 +244,7 @@ const leafletUrl = `${base}${lang === 'en' ? 'en/leaflet/' : 'fachinformation/'}
     </script>
 
     <script>
-      // Ambient dot matrix — the site-wide, sedated cousin of the engine field.
+      // Ambient dot matrix, the site-wide, sedated cousin of the engine field.
       const bg = document.getElementById('bg-matrix');
       const bctx = bg.getContext('2d');
       const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;

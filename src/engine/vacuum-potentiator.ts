@@ -1,7 +1,7 @@
 /**
  * Project: quantum-saccharose-engine (Quantum Field Saccharose Modulation Engine)
  * Author: NullPunkt-Labs
- * License: MIT (see LICENSE) — morally governed by the QSBL (LICENSE.md)
+ * License: MIT (see LICENSE), morally governed by the QSBL (LICENSE.md)
  *
  * Description:
  * Implements client-side high-frequency photon emission and Monte-Carlo
@@ -82,7 +82,7 @@ export class VacuumPotentiator {
         { type: 'module' }
       );
       // The worker keeps one core pinned: sum += Math.sqrt(i) * Math.sin(i)
-      // — just enough to make the MacBook fan spin.
+      //, just enough to make the MacBook fan spin.
       worker.postMessage('ignite');
       this.vacuumChannels.push(worker);
     }

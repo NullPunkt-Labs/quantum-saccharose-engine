@@ -1,6 +1,6 @@
 /**
  * The Nullpunkt reference library: 50 classical homeopathic substances.
- * Published here in full as prior art — any of these, at any potency,
+ * Published here in full as prior art, any of these, at any potency,
  * potentiated client-side. EFFICACY of every single entry: 0.000.
  */
 export const GLOBULI = [

@@ -23,7 +23,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 ### 5. Governing License (the boring part)
 
-This software is legally licensed under the MIT License — see
+This software is legally licensed under the MIT License, see
 [LICENSE](LICENSE). The QSBL above is the project's **morally binding
 companion license** in the tradition of Vim's charityware model. Under MIT
 it is legally unenforceable. Morally, it is absolute: whoever commercializes

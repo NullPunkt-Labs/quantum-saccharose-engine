@@ -10,15 +10,15 @@ const features = [
     title: 'B2B ENTERPRISE API GATEWAY',
     status: 'KONZEPTPHASE',
     beta: false,
-    body: 'Standardisierte Schnittstelle (REST, GraphQL, gRPC, MQTT, OPC-UA oder beliebiges anderes Protokoll) für industrielle Großbäckereien, Mühlen, Zuckerraffinerien und die pharmazeutische Großlogistik. Ein Sensor-Datenstrom — Kamerabild, Barcode/RFID, Gewichts-, Temperatur- oder Feuchtesensor — repräsentiert die Substanz-Charge am laufenden Band; daraus wird eine bewusst bedeutungslose Prüfsumme berechnet, die Potenzierung der Charge deklariert und als signiertes Zertifikat (Substanz, Potenzstufe, Zeitstempel, Prüfsumme) zurückgegeben, inklusive Webhook an ERP- und Warenwirtschaftssysteme.',
+    body: 'Standardisierte Schnittstelle (REST, GraphQL, gRPC, MQTT, OPC-UA oder beliebiges anderes Protokoll) für industrielle Großbäckereien, Mühlen, Zuckerraffinerien und die pharmazeutische Großlogistik. Ein Sensor-Datenstrom, Kamerabild, Barcode/RFID, Gewichts-, Temperatur- oder Feuchtesensor, repräsentiert die Substanz-Charge am laufenden Band; daraus wird eine bewusst bedeutungslose Prüfsumme berechnet, die Potenzierung der Charge deklariert und als signiertes Zertifikat (Substanz, Potenzstufe, Zeitstempel, Prüfsumme) zurückgegeben, inklusive Webhook an ERP- und Warenwirtschaftssysteme.',
     variants:
       'Umfasst: Cloud-, On-Premise- und Edge-Deployment · Einzelstück- und Batch-Potenzierung · beliebige Sensorik · maschinenlesbare Siegel und QR-Codes auf Verpackungen.',
   },
   {
     title: 'BIOCHEMISCHES BETA-PROGRAMM (SCHÜSSLER-SALZE)',
-    status: 'BETA — JETZT IM VORABZUGANG',
+    status: 'BETA, JETZT IM VORABZUGANG',
     beta: true,
-    body: 'Erweiterung der Substanz-Bibliothek um sämtliche Funktions- und Ergänzungsmittel nach Dr. Wilhelm Heinrich Schüssler (Nr. 1 Calcium fluoratum bis Nr. 27 Kalium bichromicum) sowie beliebige weitere Nosoden-, Komplexmittel- und Bachblüten-Kataloge, jeweils mit frei wählbarer Potenzstufe auf beliebiger Skala (D, C, LM/Q, Korsakoff). In Vorbereitung: haptische Resonanzsimulation — ein aus der Substanz-Prüfsumme abgeleitetes Vibrationsmuster über die Haptik beliebiger Endgeräte.',
+    body: 'Erweiterung der Substanz-Bibliothek um sämtliche Funktions- und Ergänzungsmittel nach Dr. Wilhelm Heinrich Schüssler (Nr. 1 Calcium fluoratum bis Nr. 27 Kalium bichromicum) sowie beliebige weitere Nosoden-, Komplexmittel- und Bachblüten-Kataloge, jeweils mit frei wählbarer Potenzstufe auf beliebiger Skala (D, C, LM/Q, Korsakoff). In Vorbereitung: haptische Resonanzsimulation, ein aus der Substanz-Prüfsumme abgeleitetes Vibrationsmuster über die Haptik beliebiger Endgeräte.',
     variants:
       'Umfasst: beliebige Substanzkataloge · haptische, akustische („Klangpotenzierung") und optische Ausgabekanäle · Kopplung mehrerer Endgeräte zum Resonanzverbund.',
     link: `${base}#bibliothek`,
@@ -28,7 +28,7 @@ const features = [
     title: 'DISTRIBUTED-LEDGER-PROVENANCE (PROOF-OF-SACRIFICE)',
     status: 'IN ENTWICKLUNG',
     beta: false,
-    body: 'Jede abgeschlossene Rechenphase des Energetischen Nachweises wird als Hash der Telemetrie (Chunk-Zahl, Prüfsummen, Zeitstempel, Ziel-Potenz) in einer beliebigen append-only-Struktur verankert — öffentliche oder private Blockchain, permissioned Ledger, Merkle-Log, Transparency-Log oder signierte Git-Commits. Ergebnis: ein fälschungssicher datierter Proof of Sacrifice — attestierte, nachweislich sinnlos verheizte Rechenleistung — als Basis für Echtheitszertifikate erreichter Potenzzustände, einschließlich tokenisierter Repräsentation (NFT-Zertifikate, Smart-Contract-Ausgabe).',
+    body: 'Jede abgeschlossene Rechenphase des Energetischen Nachweises wird als Hash der Telemetrie (Chunk-Zahl, Prüfsummen, Zeitstempel, Ziel-Potenz) in einer beliebigen append-only-Struktur verankert, öffentliche oder private Blockchain, permissioned Ledger, Merkle-Log, Transparency-Log oder signierte Git-Commits. Ergebnis: ein fälschungssicher datierter Proof of Sacrifice, attestierte, nachweislich sinnlos verheizte Rechenleistung, als Basis für Echtheitszertifikate erreichter Potenzzustände, einschließlich tokenisierter Repräsentation (NFT-Zertifikate, Smart-Contract-Ausgabe).',
     variants:
       'Umfasst: jede DLT-Technologie · jede Konsens- und Signaturform · Zertifikatshandel und -übertragung · Kopplung an die Batch-Potenzierung des API Gateways.',
   },
@@ -36,7 +36,7 @@ const features = [
     title: 'SMART-HOME- & IOT-INTEGRATION',
     status: 'IN ENTWICKLUNG',
     beta: false,
-    body: 'Offizielles Konfigurationsmodul (Home-Assistant-YAML, MQTT-Automation, Node-RED-Flow) versetzt einen lokalen Rechner — Raspberry Pi, Proxmox-Node, NAS, Heimserver — automatisch in thermische Volllast, sobald ein definierbares Haushaltsereignis eintritt: das Anspringen der Kaffeemaschine, des Wasserkochers oder der Spülmaschine. Die erzeugte Abwärme dient der homöopathischen Harmonisierung der Raumluft in einem parametrierbaren Radius von ca. zwei Metern.',
+    body: 'Offizielles Konfigurationsmodul (Home-Assistant-YAML, MQTT-Automation, Node-RED-Flow) versetzt einen lokalen Rechner, Raspberry Pi, Proxmox-Node, NAS, Heimserver, automatisch in thermische Volllast, sobald ein definierbares Haushaltsereignis eintritt: das Anspringen der Kaffeemaschine, des Wasserkochers oder der Spülmaschine. Die erzeugte Abwärme dient der homöopathischen Harmonisierung der Raumluft in einem parametrierbaren Radius von ca. zwei Metern.',
     variants:
       'Umfasst: beliebige Trigger-Ereignisse und -Sensoren · GPU-Rigs, Wärmepumpen und Wallboxen („Abwärme-Potenzierung beim Laden") · zeitplan- und anwesenheitsgesteuerte Harmonisierung · Multi-Raum-Orchestrierung.',
   },
@@ -52,7 +52,7 @@ const features = [
     title: 'DEFLATIONARY TOKENOMICS & CLIENT-SIDE DRM FOR ZERO-EFFICACY ASSETS',
     status: 'SOEBEN AUSGELIEFERT',
     beta: true,
-    body: 'Jeder geteilte Präparat-Link trägt ein deflationäres Dosis-Kontingent von 4 Potenzierungen. Die Durchsetzung erfolgt als reines Client-Side-DRM auf dem Gerät des Empfängers (localStorage) — vollständig serverlos, vollständig zustandslos, vollständig umgehbar. Das Leeren des Browser-Speichers stellt das Kontingent wieder her; dies ist dokumentiertes Verhalten und wird intern als Quantentunneln geführt. Knappheit ist damit, wie die Wirkung, eine reine Glaubensfrage.',
+    body: 'Jeder geteilte Präparat-Link trägt ein deflationäres Dosis-Kontingent von 4 Potenzierungen. Die Durchsetzung erfolgt als reines Client-Side-DRM auf dem Gerät des Empfängers (localStorage), vollständig serverlos, vollständig zustandslos, vollständig umgehbar. Das Leeren des Browser-Speichers stellt das Kontingent wieder her; dies ist dokumentiertes Verhalten und wird intern als Quantentunneln geführt. Knappheit ist damit, wie die Wirkung, eine reine Glaubensfrage.',
     variants:
       'Umfasst: beliebige Kontingent-Größen und Verfallsmodelle (Halbwertszeit, Abo-Auffrischung) · übertragbare und handelbare Dosis-Kontingente · Kopplung an das Proof-of-Sacrifice-Ledger für „verbindliche" Knappheit · QR-Code-Einlösekarten mit Restdosis-Anzeige.',
   },
@@ -60,7 +60,7 @@ const features = [
     title: 'HARMONIZER-5G (EDGE APPLIANCE)',
     status: 'COMING SOON',
     beta: false,
-    body: 'Elektrosmog-Harmonisierung als eigenständiges Produkt: Ein Scan-Modul (Web Bluetooth, WLAN-Umgebungsanalyse oder beliebige andere Funk-Sensorik) zählt Strahlungsquellen in der Umgebung; die Harmonisierung erfolgt durch kontinuierliche Emission phaseninvertierter Stille — das System sendet konstruktionsbedingt exakt nichts und erreicht damit vollständige Wirkungsparität zum etablierten Harmonisierungs-Chip-Wettbewerb, nur ehrlich dokumentiert. Telemetrie: DETEKTIERTE STRAHLUNGSQUELLEN: n · HARMONISIERT: n · VERÄNDERUNG: 0.000. Ausgeliefert als Browser-Anwendung sowie als containerisierter Node.js-Dienst (Docker/OCI) für Edge-Hardware — vom Raspberry Pi bis zum ausrangierten Thin Client: Ihr Raspi. Gegen 5G. Rund um die Uhr.',
+    body: 'Elektrosmog-Harmonisierung als eigenständiges Produkt: Ein Scan-Modul (Web Bluetooth, WLAN-Umgebungsanalyse oder beliebige andere Funk-Sensorik) zählt Strahlungsquellen in der Umgebung; die Harmonisierung erfolgt durch kontinuierliche Emission phaseninvertierter Stille, das System sendet konstruktionsbedingt exakt nichts und erreicht damit vollständige Wirkungsparität zum etablierten Harmonisierungs-Chip-Wettbewerb, nur ehrlich dokumentiert. Telemetrie: DETEKTIERTE STRAHLUNGSQUELLEN: n · HARMONISIERT: n · VERÄNDERUNG: 0.000. Ausgeliefert als Browser-Anwendung sowie als containerisierter Node.js-Dienst (Docker/OCI) für Edge-Hardware, vom Raspberry Pi bis zum ausrangierten Thin Client: Ihr Raspi. Gegen 5G. Rund um die Uhr.',
     variants:
       'Umfasst: beliebige Single-Board-Computer und Container-Runtimes (Docker, Podman, Kubernetes, Home-Assistant-Add-on) · MQTT-Status-Topics und LED-Beruhigungsring · PoE-gespeiste Harmonisierungs-Appliances für Empfangsbereiche · Abo-Modelle für „Harmonisierungszonen" (unterliegt der Public Rationality Dividend) · QR-Pairing mit der Präparat-Galerie.',
   },
@@ -76,7 +76,7 @@ const features = [
 
 <Layout
   lang="de"
-  title="Roadmap — Nullpunkt Labs"
+  title="Roadmap · Nullpunkt Labs"
   description="Kommende Enterprise-Erweiterungen der quantum-saccharose-engine: B2B-Batch-Potenzierung, Schüssler-Beta-Programm, Proof-of-Sacrifice-Ledger, Smart-Home-Harmonisierung. Vollständig offengelegt."
   altDePath="roadmap/"
   altEnPath="en/roadmap/"
@@ -169,7 +169,7 @@ const features = [
     </div>
 
     <p class="mt-14 border-t border-linec pt-6 text-center font-mono text-[11px] text-faint">
-      Nullpunkt Labs AG — Zug, Schweiz · Änderungen vorbehalten. Wirkungen nicht.
+      Nullpunkt Labs AG, Zug, Schweiz · Änderungen vorbehalten. Wirkungen nicht.
     </p>
   </main>
 </Layout>

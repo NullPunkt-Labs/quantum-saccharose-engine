@@ -17,20 +17,20 @@ Kein Backend. Keine Cloud. Keine Kompromisse. Keine Wirkung.
 
 ### Subsysteme
 
-- **Substanz-Bibliothek** — 50 klassische Referenz-Spektren (Aconitum bis
+- **Substanz-Bibliothek**, 50 klassische Referenz-Spektren (Aconitum bis
   Symphytum) mit frei wählbarer Ziel-Potenz (D6, D12, D30, C30, C200).
   Alternativ: eigene Substanz über die Sonde potenzieren.
-- **Bio-Resonanz-Sonde** — optische Echtzeit-Analyse physischer Substanzen
+- **Bio-Resonanz-Sonde**, optische Echtzeit-Analyse physischer Substanzen
   (Globuli, Bachblüten, Brennnesseltee) über die lokale Webcam. Der Stream
   verlässt niemals das Gerät; die Analyse ist eine lokal berechnete
   Pixel-Prüfsumme von dokumentierter Bedeutungslosigkeit.
-- **Vacuum Potentiator** — Web-Worker-basierter CPU-Belastungs-Loop
+- **Vacuum Potentiator**, Web-Worker-basierter CPU-Belastungs-Loop
   ("Energetischer Nachweis"). Strikt opt-in, unübersehbarer Notaus,
   automatisches Timeout nach dem homöopathischen Halbzyklus (5 min).
-- **Live-HUD-Telemetrie** — `PHOTON_FLUX`, `ENTROPY_STATE` (D1 bis zur
+- **Live-HUD-Telemetrie**, `PHOTON_FLUX`, `ENTROPY_STATE` (D1 bis zur
   gewählten Ziel-Potenz, max. C200), `CORE_LOAD` und der einzige ehrliche
   Messwert: `EFFICACY: 0.000`.
-- **Präparat-Sharing** — Hash-Links im URL-Fragment (öffentlich oder privat;
+- **Präparat-Sharing**, Hash-Links im URL-Fragment (öffentlich oder privat;
   privat zusätzlich Ende-zu-Ende-AES-GCM-verschlüsselt, Schlüssel nur im
   Link), optional mit Creator-Handle für Community-Shares. Gespeichert wird
   dabei: nichts. Es gibt keinen Server.
@@ -54,11 +54,11 @@ vollständig, datiert und öffentlich als Stand der Technik: client-seitige
 CPU-basierte „Energienachweise", Substanz-Bibliotheken mit wählbaren
 Potenzstufen (D6–C200) sowie jede Kombination daraus. Patente,
 Gebrauchsmuster oder Geschmacksmuster auf derartige Ideen finden hier ihren
-neuheitsschädlichen Prior Art — mit Absicht.
+neuheitsschädlichen Prior Art, mit Absicht.
 
 ### Lizenz
 
-MIT — siehe [LICENSE](LICENSE). Kommerzielle Nutzer beachten bitte die
+MIT, siehe [LICENSE](LICENSE). Kommerzielle Nutzer beachten bitte die
 **Public Rationality Dividend** in der
 [QSBL](LICENSE.md) und der Fachinformation.
 
@@ -78,20 +78,20 @@ No backend. No cloud. No compromises. No effect.
 
 ### Subsystems
 
-- **Substance Library** — 50 classical reference spectra (Aconitum through
+- **Substance Library**, 50 classical reference spectra (Aconitum through
   Symphytum) with freely selectable target potency (D6, D12, D30, C30,
   C200). Alternatively: potentiate your own substance via the probe.
-- **Bio-Resonance Probe** — real-time optical analysis of physical
+- **Bio-Resonance Probe**, real-time optical analysis of physical
   substances (sugar globules, Bach flower remedies, nettle tea) via the
   local webcam. The stream never leaves the device; the analysis is a
   locally computed pixel checksum of documented meaninglessness.
-- **Vacuum Potentiator** — web-worker-based CPU load loop ("energetic
+- **Vacuum Potentiator**, web-worker-based CPU load loop ("energetic
   proof of work"). Strictly opt-in, unmissable emergency stop, automatic
   timeout after the homeopathic half-cycle (5 min).
-- **Live HUD telemetry** — `PHOTON_FLUX`, `ENTROPY_STATE` (D1 up to the
+- **Live HUD telemetry**, `PHOTON_FLUX`, `ENTROPY_STATE` (D1 up to the
   selected target potency, max. C200), `CORE_LOAD`, and the only honest
   metric on the page: `EFFICACY: 0.000`.
-- **Preparation sharing** — hash links in the URL fragment (public or
+- **Preparation sharing**, hash links in the URL fragment (public or
   private; private additionally end-to-end AES-GCM encrypted, key in the
   link only), optionally with a creator handle for community shares.
   Amount of data stored: none. There is no server.
@@ -109,17 +109,17 @@ Deployed to GitHub Pages via GitHub Actions.
 
 ### Defensive Publication (Prior Art)
 
-This publication documents every concept shown here — client-side
+This publication documents every concept shown here, client-side
 "potentiation" of arbitrary substances via webcam "bio-resonance",
 CPU-based "energetic proof of work", substance libraries with selectable
-potency levels (D6–C200), and any combination thereof — completely, dated,
+potency levels (D6–C200), and any combination thereof, completely, dated,
 and in public, as prior art. Any patent, utility model, or design
 registration attempted on such ideas will find its novelty-destroying
 prior art right here. On purpose.
 
 ### License
 
-MIT — see [LICENSE](LICENSE). Commercial users, please note the
+MIT, see [LICENSE](LICENSE). Commercial users, please note the
 **Public Rationality Dividend** in the [QSBL](LICENSE.md) and in the
 package leaflet.
 
