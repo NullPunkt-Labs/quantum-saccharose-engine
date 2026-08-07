@@ -23,12 +23,16 @@ const repoUrl = 'https://github.com/NullPunkt-Labs/quantum-saccharose-engine';
 
 <header class="sticky top-0 z-40 border-b border-linec bg-page/80 backdrop-blur">
   <div class="mx-auto flex max-w-6xl items-center justify-between px-6 py-3">
-    <a href={homeHref} class="group flex items-baseline gap-2">
-      <span class="text-sm font-semibold tracking-[0.2em] text-ink">NULLPUNKT LABS</span>
-      <span class="hidden font-mono text-xs text-muted sm:inline group-hover:text-flux/80">
-        / quantum-saccharose-engine
-      </span>
-    </a>
+    <div class="flex items-baseline gap-2">
+      <a
+        href="https://nullpunkt-labs.github.io/"
+        class="text-sm font-semibold tracking-[0.2em] text-ink transition hover:text-flux"
+      >NULLPUNKT LABS</a>
+      <a
+        href={homeHref}
+        class="hidden font-mono text-xs text-muted transition hover:text-flux sm:inline"
+      >/ quantum-saccharose-engine</a>
+    </div>
     <div class="flex items-center gap-5">
       <div class="hidden items-center gap-2 font-mono text-[11px] tracking-widest md:flex">
         <span
